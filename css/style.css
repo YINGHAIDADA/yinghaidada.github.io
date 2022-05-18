@@ -44,7 +44,7 @@ html, body, .page {
   height: 340px;
   width: 100px;
   border-radius: 20px;
-  margin-left: 10px;
+  margin-left: 3%;
   background: linear-gradient(
     135deg,
     rgba(30, 30, 30, 1) 0%,
@@ -56,22 +56,22 @@ html, body, .page {
 
 .typewriter {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid orange; /* The typwriter cursor */
+  border-right: .15em solid orange; /* 指针 */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
+  letter-spacing: .15em; /* 字间距 */
   animation: 
     typing 1.5s steps(25, end),
     blink-caret .6s step-end infinite;
 }
 
-/* The typing effect */
+/* 打字特效 */
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
 }
 
-/* The typewriter cursor effect */
+/* 打字指针特效 */
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: rgb(187, 187, 187) }

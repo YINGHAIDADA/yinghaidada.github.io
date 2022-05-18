@@ -15,23 +15,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Flask静态资源缓存更新问题</title>
-    <url>/blog/2022/05/17/Flask%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="flask静态资源缓存更新">Flask静态资源缓存更新</h3>
-<p>需要在配置中添加 <span id="more"></span></p>
-<p><code>app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)</code></p>
-<p>配置选项，其作用是每一秒刷新一次缓存</p>
-<h3 id="ps为了使其生效要先手动清理一次浏览器缓存">PS：为了使其生效，要先手动清理一次浏览器缓存</h3>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Flask</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git常用操作</title>
     <url>/blog/2022/05/18/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>关于Git操作的常用指令</p>
@@ -61,6 +44,23 @@
       <tags>
         <tag>Flask</tag>
         <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask静态资源缓存更新问题</title>
+    <url>/blog/2022/05/17/Flask%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="flask静态资源缓存更新">Flask静态资源缓存更新</h3>
+<p>需要在配置中添加 <span id="more"></span></p>
+<p><code>app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)</code></p>
+<p>配置选项，其作用是每一秒刷新一次缓存</p>
+<h3 id="ps为了使其生效要先手动清理一次浏览器缓存">PS：为了使其生效，要先手动清理一次浏览器缓存</h3>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Flask</tag>
+        <tag>前端</tag>
       </tags>
   </entry>
   <entry>
@@ -161,6 +161,25 @@
       </tags>
   </entry>
   <entry>
+    <title>关于静态资源在Flask中加载的问题</title>
+    <url>/blog/2022/05/17/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%9C%A8Flask%E4%B8%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>由于我第一次尝试构建Flask服务器，没有意识到静态资源的加载方式有些许不同 普通的静态加载方式如 <code>images/b1.png</code> <span id="more"></span> 这样的加载方式在 <strong>Flask</strong> 无法生效 所以我们必须要用</p>
+<p><code>&#123;&#123;url_for('static',filename='这里输入文件路径')&#125;&#125;</code></p>
+<p>方法来替换原来的静态路径<strong>CSS</strong>和<strong>JS</strong>的导入同样也是需要更改</p>
+<p><strong>但我第一次替换后再次发现并没有生效</strong></p>
+<p>再次检查结构后发现，在网页中生成的路径为 <code>/static/images/b1.png</code> 少了这个<strong>static</strong>文件夹，我再次添加， 并把静态资源都转移到其中，发现还是失效</p>
+<p><strong>注意static文件夹的位置</strong></p>
+<p><strong>static</strong>文件夹需要在根目录下，也就是与<code>app.py</code>同级</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Flask</tag>
+        <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>创建一个Mybatis项目</title>
     <url>/blog/2022/05/18/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAMybatis%E9%A1%B9%E7%9B%AE/</url>
     <content><![CDATA[<h1 id="环境">环境</h1>
@@ -219,25 +238,6 @@
       </tags>
   </entry>
   <entry>
-    <title>关于静态资源在Flask中加载的问题</title>
-    <url>/blog/2022/05/17/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%9C%A8Flask%E4%B8%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>由于我第一次尝试构建Flask服务器，没有意识到静态资源的加载方式有些许不同 普通的静态加载方式如 <code>images/b1.png</code> <span id="more"></span> 这样的加载方式在 <strong>Flask</strong> 无法生效 所以我们必须要用</p>
-<p><code>&#123;&#123;url_for('static',filename='这里输入文件路径')&#125;&#125;</code></p>
-<p>方法来替换原来的静态路径<strong>CSS</strong>和<strong>JS</strong>的导入同样也是需要更改</p>
-<p><strong>但我第一次替换后再次发现并没有生效</strong></p>
-<p>再次检查结构后发现，在网页中生成的路径为 <code>/static/images/b1.png</code> 少了这个<strong>static</strong>文件夹，我再次添加， 并把静态资源都转移到其中，发现还是失效</p>
-<p><strong>注意static文件夹的位置</strong></p>
-<p><strong>static</strong>文件夹需要在根目录下，也就是与<code>app.py</code>同级</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Flask</tag>
-        <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>地球最后的夜晚</title>
     <url>/blog/2020/01/20/%E5%9C%B0%E7%90%83%E6%9C%80%E5%90%8E%E7%9A%84%E5%A4%9C%E6%99%9A/</url>
     <content><![CDATA[<p>零点的城市里很静谧，相对于白天来说</p>
@@ -268,21 +268,6 @@
       </tags>
   </entry>
   <entry>
-    <title>多版本Python中对pip包的管理</title>
-    <url>/blog/2022/05/18/%E5%A4%9A%E7%89%88%E6%9C%ACPython%E4%B8%AD%E5%AF%B9pip%E5%8C%85%E7%9A%84%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<p>在多个版本Python共存的系统环境中，如果在终端中直接使用 <code>pip install xxx</code> ,默认会安装到你的默认Python版本当中，如果想在不同的Python中安装pip包，则需要在前缀加上对应路径</p>
-<p>比如在终端中输入：</p>
-<p>PS E:_Doc&gt; <code>E:\Anaconda3\python.exe -m pip xxxx</code></p>
-<p><code>E:\Anaconda3\python.exe</code> 是你想安装版本的路径，<code>-m</code> 是设置主程序，剩下的就如正常的安装代码一样了</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>如何变更Git仓库中的默认分支名</title>
     <url>/blog/2022/05/18/%E5%A6%82%E4%BD%95%E5%8F%98%E6%9B%B4Git%E4%BB%93%E5%BA%93%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF%E5%90%8D/</url>
     <content><![CDATA[<p>大致可分为下面几种情况：</p>
@@ -306,6 +291,21 @@
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>多版本Python中对pip包的管理</title>
+    <url>/blog/2022/05/18/%E5%A4%9A%E7%89%88%E6%9C%ACPython%E4%B8%AD%E5%AF%B9pip%E5%8C%85%E7%9A%84%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p>在多个版本Python共存的系统环境中，如果在终端中直接使用 <code>pip install xxx</code> ,默认会安装到你的默认Python版本当中，如果想在不同的Python中安装pip包，则需要在前缀加上对应路径</p>
+<p>比如在终端中输入：</p>
+<p>PS E:_Doc&gt; <code>E:\Anaconda3\python.exe -m pip xxxx</code></p>
+<p><code>E:\Anaconda3\python.exe</code> 是你想安装版本的路径，<code>-m</code> 是设置主程序，剩下的就如正常的安装代码一样了</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -409,20 +409,18 @@
       </tags>
   </entry>
   <entry>
-    <title>美或丑</title>
-    <url>/blog/2020/02/02/%E7%BE%8E%E6%88%96%E4%B8%91/</url>
-    <content><![CDATA[<p>清语，你时常问我你好看吗</p>
-<p>我都会和你说你很好看</p>
-<p>但其实我是分不清的，这是一种很奇妙的感觉</p>
-<p>其他人我能分的出好看与否，</p>
-<p>可我看着你的时候，脑子里都是喜欢和爱</p>
-<p>你就是我喜欢的样子</p>
+    <title>记</title>
+    <url>/blog/2022/05/18/%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>经济水平</strong>无法满足<strong>物质需求</strong>才叫穷 贪婪的人永远都是穷人</p>
+<p>过剩的物质需求逃不开被消费主义绑架的时间成本消耗，尽可能的减轻物质欲望，</p>
+<p>能让自己节省出很多时间，毕竟在这样一个信息过载的时代想要买到一个货真价实的东西，挑选的时间成本实在是太高了</p>
+<p>这是个倡善的世界，也是个无恶不作的世界，能看到天空，但没人能看透深渊</p>
 ]]></content>
       <categories>
         <category>杂文</category>
       </categories>
       <tags>
-        <tag>时间长河里的爱意</tag>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -446,6 +444,23 @@
       </tags>
   </entry>
   <entry>
+    <title>美或丑</title>
+    <url>/blog/2020/02/02/%E7%BE%8E%E6%88%96%E4%B8%91/</url>
+    <content><![CDATA[<p>清语，你时常问我你好看吗</p>
+<p>我都会和你说你很好看</p>
+<p>但其实我是分不清的，这是一种很奇妙的感觉</p>
+<p>其他人我能分的出好看与否，</p>
+<p>可我看着你的时候，脑子里都是喜欢和爱</p>
+<p>你就是我喜欢的样子</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>过了许久</title>
     <url>/blog/2022/05/18/%E8%BF%87%E4%BA%86%E8%AE%B8%E4%B9%85/</url>
     <content><![CDATA[<p>你曾是个理想主义者</p>
@@ -454,21 +469,6 @@
 <p>直到有一天你看到了一个熟悉的陌生人</p>
 <p>陌生在他的形象，熟悉在他的追求</p>
 <p>一个有着理想主义的人</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记</title>
-    <url>/blog/2022/05/18/%E8%AE%B0/</url>
-    <content><![CDATA[<p><strong>经济水平</strong>无法满足<strong>物质需求</strong>才叫穷 贪婪的人永远都是穷人</p>
-<p>过剩的物质需求逃不开被消费主义绑架的时间成本消耗，尽可能的减轻物质欲望，</p>
-<p>能让自己节省出很多时间，毕竟在这样一个信息过载的时代想要买到一个货真价实的东西，挑选的时间成本实在是太高了</p>
-<p>这是个倡善的世界，也是个无恶不作的世界，能看到天空，但没人能看透深渊</p>
 ]]></content>
       <categories>
         <category>杂文</category>
