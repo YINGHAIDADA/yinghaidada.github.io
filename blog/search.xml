@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Flask文件下载关于解决中文名的问题</title>
+    <url>/blog/2022/05/17/Flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>在Flask提供的服务端向客户端发送其请求文件存在中文名文件会报错的问题，主要是编码不对造成，</p>
+<p>可以尝试用以下方法解决,用<code>GET</code> 方法请求文件</p>
+<span id="more"></span>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;url&#x27;</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#文件路径，可以是相对路径</span></span><br><span class="line">    FILE_PATH = <span class="string">&quot;temp/&quot;</span> + <span class="built_in">str</span>(no) + <span class="string">&quot;/&quot;</span></span><br><span class="line">    <span class="comment">#文件名，如果确定的话可以直接用字符串赋值，此处动态获取</span></span><br><span class="line">    filename = fm.GetFileFromThisRootDir(FILE_PATH, <span class="string">&#x27;mp4&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(filename)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">&#x27;/resource&#x27;</span>)</span><br><span class="line">    filename=filename[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(filename[<span class="number">0</span>])</span><br><span class="line">    <span class="comment">#制作返回头，用Content-Disposition解决编码问题</span></span><br><span class="line">    response = make_response(send_file(filename))</span><br><span class="line">    basename = os.path.basename(filename)</span><br><span class="line">    response.headers[<span class="string">&quot;Content-Disposition&quot;</span>] = \</span><br><span class="line">        <span class="string">&quot;attachment;&quot;</span> \</span><br><span class="line">        <span class="string">&quot;filename*=UTF-8&#x27;&#x27;&#123;utf_filename&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">            utf_filename=quote(basename.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>编码</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask静态资源缓存更新问题</title>
+    <url>/blog/2022/05/17/Flask%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="Flask静态资源缓存更新"><a href="#Flask静态资源缓存更新" class="headerlink" title="Flask静态资源缓存更新"></a>Flask静态资源缓存更新</h3><p>需要在配置中添加</p>
+<span id="more"></span>
+
+<p> <code>app.config[&#39;SEND_FILE_MAX_AGE_DEFAULT&#39;] = timedelta(seconds=1)</code></p>
+<p>配置选项，其作用是每一秒刷新一次缓存</p>
+<h3 id="PS：为了使其生效，要先手动清理一次浏览器缓存"><a href="#PS：为了使其生效，要先手动清理一次浏览器缓存" class="headerlink" title="PS：为了使其生效，要先手动清理一次浏览器缓存"></a>PS：为了使其生效，要先手动清理一次浏览器缓存</h3>]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>服务端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/blog/2022/05/17/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<span id="more"></span>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>自制</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于静态资源在Flask中加载的问题</title>
+    <url>/blog/2022/05/17/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%9C%A8Flask%E4%B8%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>由于我第一次尝试构建Flask服务器，没有意识到静态资源的加载方式有些许不同<br>普通的静态加载方式如 <code>images/b1.png</code></p>
+<span id="more"></span>
+<p>这样的加载方式在 <strong>Flask</strong> 无法生效 所以我们必须要用</p>
+<p> <code>&#123;&#123;url_for('static',filename='这里输入文件路径')&#125;&#125;</code></p>
+<p>方法来替换原来的静态路径<strong>CSS</strong>和<strong>JS</strong>的导入同样也是需要更改</p>
+<p><strong>但我第一次替换后再次发现并没有生效</strong></p>
+<p>再次检查结构后发现，在网页中生成的路径为 <code>/static/images/b1.png</code><br>少了这个<strong>static</strong>文件夹，我再次添加，<br>并把静态资源都转移到其中，发现还是失效</p>
+<p><strong>注意static文件夹的位置</strong></p>
+<p><strong>static</strong>文件夹需要在根目录下，也就是与<code>app.py</code>同级</p>
+]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>服务端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Session配置和使用</title>
+    <url>/blog/2022/05/17/Session%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>Flask中的session可以通过以下方法来设置</p>
+<span id="more"></span>
+<p><code>session[&#39;username&#39;] = &quot;asdasd&quot;</code></p>
+<p>同时也可以通过设置过期时间来限制Session有效时长</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">session.permanent = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">app.permanent_session_lifetime = timedelta(seconds=<span class="number">10</span>) <span class="comment">#时间也可以为 days minutes</span></span><br></pre></td></tr></table></figure>
+
+<p>同时也可以全局配置失效时长，不过我个人未测试成功，只能用上面方法实现</p>
+<p><code>app.config[&#39;PERMANENT_SESSION_LIFETIME&#39;] = timedelta(seconds=10)</code></p>
+]]></content>
+      <categories>
+        <category>Flask</category>
+      </categories>
+      <tags>
+        <tag>服务端</tag>
+      </tags>
+  </entry>
+</search>

@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 6.2.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/blog/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/custom-logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/custom-logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/custom-logo.png">
+  <link rel="mask-icon" href="/blog/images/custom-logo.png" color="#222">
 
 <link rel="stylesheet" href="/blog/css/main.css">
 
 
 <link rel="stylesheet" href="/blog/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/blog/lib/pace/pace-theme-minimal.min.css">
+  <script src="/blog/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yinghaidada.github.io","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"yinghaidada.github.io","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="yinghai blog">
@@ -26,7 +28,7 @@
 <meta property="og:url" content="https://yinghaidada.github.io/blog/index.html">
 <meta property="og:site_name" content="YINGHAI的博客">
 <meta property="og:description" content="yinghai blog">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="YINGHAI">
 <meta name="twitter:card" content="summary">
 
@@ -39,7 +41,7 @@
     sidebar: "",
     isHome : true,
     isPost : false,
-    lang   : 'en'
+    lang   : 'zh-CN'
   };
 </script>
 
@@ -83,7 +85,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -102,6 +104,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -113,29 +116,61 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+    <a href="/blog/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+    <a href="/blog/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+    <a href="/blog/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+    <a href="/blog/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/blog/../" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -157,11 +192,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yinghaidada.github.io/blog/2022/05/17/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%9C%A8Flask%E4%B8%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/custom-logo.png">
       <meta itemprop="name" content="YINGHAI">
       <meta itemprop="description" content="yinghai blog">
     </span>
@@ -180,22 +215,36 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="Created: 2022-05-17 23:16:26 / Modified: 23:24:02" itemprop="dateCreated datePublished" datetime="2022-05-17T23:16:26+08:00">2022-05-17</time>
+              <time title="创建时间：2022-05-17 23:16:26 / 修改时间：23:58:48" itemprop="dateCreated datePublished" datetime="2022-05-17T23:16:26+08:00">2022-05-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/blog/categories/Flask/" itemprop="url" rel="index"><span itemprop="name">Flask</span></a>
                 </span>
             </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>316</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -206,16 +255,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="关于静态资源在Flask中加载的问题"><a href="#关于静态资源在Flask中加载的问题" class="headerlink" title="关于静态资源在Flask中加载的问题"></a>关于静态资源在Flask中加载的问题</h1><hr>
-<h1 id="关于静态资源在Flask中加载的问题-1"><a href="#关于静态资源在Flask中加载的问题-1" class="headerlink" title="关于静态资源在Flask中加载的问题"></a>关于静态资源在Flask中加载的问题</h1><p>由于我第一次尝试构建Flask服务器，没有意识到静态资源的加载方式有些许不同<br>普通的静态加载方式如 <code>images/b1.png</code></p>
-<p>这样的加载方式在 <strong>Flask</strong> 无法生效 所以我们必须要用</p>
-<p> <code>&#123;&#123;url_for('static',filename='这里输入文件路径')&#125;&#125;</code></p>
-<p>方法来替换原来的静态路径<strong>CSS</strong>和<strong>JS</strong>的导入同样也是需要更改</p>
-<p><strong>但我第一次替换后再次发现并没有生效</strong></p>
-<p>再次检查结构后发现，在网页中生成的路径为 <code>/static/images/b1.png</code><br>少了这个<strong>static</strong>文件夹，我再次添加，<br>并把静态资源都转移到其中，发现还是失效</p>
-<p><strong>注意static文件夹的位置</strong></p>
-<p><strong>static</strong>文件夹需要在根目录下，也就是与<code>app.py</code>同级</p>
-
+          <p>由于我第一次尝试构建Flask服务器，没有意识到静态资源的加载方式有些许不同<br>普通的静态加载方式如 <code>images/b1.png</code></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2022/05/17/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%9C%A8Flask%E4%B8%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -233,11 +281,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yinghaidada.github.io/blog/2022/05/17/Session%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/custom-logo.png">
       <meta itemprop="name" content="YINGHAI">
       <meta itemprop="description" content="yinghai blog">
     </span>
@@ -256,22 +304,36 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="Created: 2022-05-17 23:16:17 / Modified: 23:23:48" itemprop="dateCreated datePublished" datetime="2022-05-17T23:16:17+08:00">2022-05-17</time>
+              <time title="创建时间：2022-05-17 23:16:17 / 修改时间：23:58:15" itemprop="dateCreated datePublished" datetime="2022-05-17T23:16:17+08:00">2022-05-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/blog/categories/Flask/" itemprop="url" rel="index"><span itemprop="name">Flask</span></a>
                 </span>
             </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>297</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -282,15 +344,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Session配置和使用"><a href="#Session配置和使用" class="headerlink" title="Session配置和使用"></a>Session配置和使用</h1><hr>
-<p>Flask中的session可以通过以下方法来设置</p>
-<p><code>session[&#39;username&#39;] = &quot;asdasd&quot;</code></p>
-<p>同时也可以通过设置过期时间来限制Session有效时长</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session.permanent = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">app.permanent_session_lifetime = timedelta(seconds=<span class="number">10</span>) <span class="comment">#时间也可以为 days minutes</span></span><br></pre></td></tr></table></figure>
-
-<p>同时也可以全局配置失效时长，不过我个人未测试成功，只能用上面方法实现</p>
-<p><code>app.config[&#39;PERMANENT_SESSION_LIFETIME&#39;] = timedelta(seconds=10)</code></p>
-
+          <p>Flask中的session可以通过以下方法来设置</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2022/05/17/Session%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -308,11 +370,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yinghaidada.github.io/blog/2022/05/17/Flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/custom-logo.png">
       <meta itemprop="name" content="YINGHAI">
       <meta itemprop="description" content="yinghai blog">
     </span>
@@ -331,22 +393,36 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="Created: 2022-05-17 23:16:05 / Modified: 23:23:35" itemprop="dateCreated datePublished" datetime="2022-05-17T23:16:05+08:00">2022-05-17</time>
+              <time title="创建时间：2022-05-17 23:16:05 / 修改时间：23:58:02" itemprop="dateCreated datePublished" datetime="2022-05-17T23:16:05+08:00">2022-05-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/blog/categories/Flask/" itemprop="url" rel="index"><span itemprop="name">Flask</span></a>
                 </span>
             </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>752</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -357,10 +433,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Flask文件下载关于解决中文名的问题"><a href="#Flask文件下载关于解决中文名的问题" class="headerlink" title="Flask文件下载关于解决中文名的问题"></a>Flask文件下载关于解决中文名的问题</h1><hr>
-<p>在Flask提供的服务端向客户端发送其请求文件存在中文名文件会报错的问题，主要是编码不对造成，</p>
+          <p>在Flask提供的服务端向客户端发送其请求文件存在中文名文件会报错的问题，主要是编码不对造成，</p>
 <p>可以尝试用以下方法解决,用<code>GET</code> 方法请求文件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;url&#x27;</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#文件路径，可以是相对路径</span></span><br><span class="line">    FILE_PATH = <span class="string">&quot;temp/&quot;</span> + <span class="built_in">str</span>(no) + <span class="string">&quot;/&quot;</span></span><br><span class="line">    <span class="comment">#文件名，如果确定的话可以直接用字符串赋值，此处动态获取</span></span><br><span class="line">    filename = fm.GetFileFromThisRootDir(FILE_PATH, <span class="string">&#x27;mp4&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(filename)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">&#x27;/resource&#x27;</span>)</span><br><span class="line">    filename=filename[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(filename[<span class="number">0</span>])</span><br><span class="line">    <span class="comment">#制作返回头，用Content-Disposition解决编码问题</span></span><br><span class="line">    response = make_response(send_file(filename))</span><br><span class="line">    basename = os.path.basename(filename)</span><br><span class="line">    response.headers[<span class="string">&quot;Content-Disposition&quot;</span>] = \</span><br><span class="line">        <span class="string">&quot;attachment;&quot;</span> \</span><br><span class="line">        <span class="string">&quot;filename*=UTF-8&#x27;&#x27;&#123;utf_filename&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">            utf_filename=quote(basename.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2022/05/17/Flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -378,11 +460,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yinghaidada.github.io/blog/2022/05/17/Flask%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/custom-logo.png">
       <meta itemprop="name" content="YINGHAI">
       <meta itemprop="description" content="yinghai blog">
     </span>
@@ -401,22 +483,36 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="Created: 2022-05-17 23:15:54 / Modified: 23:23:16" itemprop="dateCreated datePublished" datetime="2022-05-17T23:15:54+08:00">2022-05-17</time>
+              <time title="创建时间：2022-05-17 23:15:54 / 修改时间：23:57:51" itemprop="dateCreated datePublished" datetime="2022-05-17T23:15:54+08:00">2022-05-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
-              <span class="post-meta-item-text">In</span>
+              <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/blog/categories/Flask/" itemprop="url" rel="index"><span itemprop="name">Flask</span></a>
                 </span>
             </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>130</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -427,10 +523,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Flask静态资源缓存更新问题"><a href="#Flask静态资源缓存更新问题" class="headerlink" title="Flask静态资源缓存更新问题"></a>Flask静态资源缓存更新问题</h1><h3 id="Flask静态资源缓存更新"><a href="#Flask静态资源缓存更新" class="headerlink" title="Flask静态资源缓存更新"></a>Flask静态资源缓存更新</h3><p>需要在配置中添加</p>
-<p> <code>app.config[&#39;SEND_FILE_MAX_AGE_DEFAULT&#39;] = timedelta(seconds=1)</code></p>
-<p>配置选项，其作用是每一秒刷新一次缓存</p>
-<h3 id="PS：为了使其生效，要先手动清理一次浏览器缓存"><a href="#PS：为了使其生效，要先手动清理一次浏览器缓存" class="headerlink" title="PS：为了使其生效，要先手动清理一次浏览器缓存"></a>PS：为了使其生效，要先手动清理一次浏览器缓存</h3>
+          <h3 id="Flask静态资源缓存更新"><a href="#Flask静态资源缓存更新" class="headerlink" title="Flask静态资源缓存更新"></a>Flask静态资源缓存更新</h3><p>需要在配置中添加</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2022/05/17/Flask%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -448,11 +549,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yinghaidada.github.io/blog/2022/05/17/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="image" content="/blog/images/custom-logo.png">
       <meta itemprop="name" content="YINGHAI">
       <meta itemprop="description" content="yinghai blog">
     </span>
@@ -471,13 +572,27 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="Created: 2022-05-17 22:10:20 / Modified: 22:40:01" itemprop="dateCreated datePublished" datetime="2022-05-17T22:10:20+08:00">2022-05-17</time>
+              <time title="创建时间：2022-05-17 22:10:20 / 修改时间：23:58:56" itemprop="dateCreated datePublished" datetime="2022-05-17T22:10:20+08:00">2022-05-17</time>
             </span>
 
-          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>367</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
 
         </div>
       </header>
@@ -489,19 +604,14 @@
 
       
           <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2022/05/17/hello-world/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -560,10 +670,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -574,6 +684,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="YINGHAI"
+      src="/blog/images/custom-logo.png">
   <p class="site-author-name" itemprop="name">YINGHAI</p>
   <div class="site-description" itemprop="description">yinghai blog</div>
 </div>
@@ -583,20 +695,20 @@
           <a href="/blog/archives/">
         
           <span class="site-state-item-count">5</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/blog/categories/">
           
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">categories</span></a>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
         <span class="site-state-item-count">3</span>
-        <span class="site-state-item-name">tags</span></a>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -636,10 +748,28 @@
   </span>
   <span class="author" itemprop="copyrightHolder">YINGHAI</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
-  </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -671,6 +801,13 @@
 
 
   
+
+
+
+
+  
+<script src="/blog/js/local-search.js"></script>
+
 
 
 
