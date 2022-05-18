@@ -1192,7 +1192,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffecb6;
+  background: #fffe1a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1569,6 +1569,8 @@ pre .javascript .function {
 .use-motion .post-block {
   background: #f00;
   padding: 1em;
+  padding-left: 3em;
+  padding-right: 3em;
   margin: 1em;
   border-radius: 2.5em;
   background: linear-gradient(135deg, #1e1e1e 0%, #2e2e2e 100%);

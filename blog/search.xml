@@ -32,21 +32,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git常用操作</title>
-    <url>/blog/2022/05/18/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>关于Git操作的常用指令</p>
-<span id="more"></span>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--</span>初始化仓库</span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> 初始分支名</span><br><span class="line"><span class="literal">--</span>添加暂存文件</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line"><span class="literal">--</span>提交暂存文件</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;提交消息&quot;</span></span><br><span class="line"><span class="literal">--</span>设置远程仓库地址</span><br><span class="line"><span class="variable">$</span> git remote add origin git@github.com:username/xxx.git</span><br><span class="line"><span class="literal">--</span>拉取远程仓库到本地</span><br><span class="line"><span class="variable">$</span> git pull origin 分支名</span><br><span class="line"><span class="literal">--</span>推送本地提交到远程仓库</span><br><span class="line"><span class="variable">$</span> git push origin 本地分支名:远程分支名</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>克隆仓库</span><br><span class="line"><span class="variable">$</span> git clone xxxx@git</span><br><span class="line"><span class="variable">$</span> git fetch   `拉取远端分支信息`</span><br><span class="line"><span class="literal">--</span>设置或删除跟踪仓库的HEAD,指向指定分支,命令行中的圆括号表示必选其中之一执行</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> origin <span class="literal">-a</span>  `更新本地 upstream</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>查看所有分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-a</span></span><br><span class="line"><span class="literal">--</span>新建本地分支</span><br><span class="line"><span class="variable">$</span> git branch 分支名</span><br><span class="line"><span class="literal">--</span>更改本地分支名</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> 旧名字 新名字</span><br><span class="line"><span class="literal">--</span>删除远程分支</span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">-d</span> 远程分支名</span><br><span class="line"><span class="literal">--</span>删除本地分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-d</span> 分支名</span><br><span class="line"><span class="literal">--</span>切换分支</span><br><span class="line"><span class="variable">$</span> git checkout 分支名</span><br></pre></td></tr></table></figure>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--Git</span>配置初始分支名</span><br><span class="line"><span class="variable">$</span> git config <span class="literal">--global</span> init.defaultBranch main</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Session配置和使用</title>
     <url>/blog/2022/05/17/Session%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>Flask中的session可以通过以下方法来设置 <span id="more"></span> <code>session['username'] = "asdasd"</code></p>
@@ -61,6 +46,21 @@
       <tags>
         <tag>Flask</tag>
         <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git常用操作</title>
+    <url>/blog/2022/05/18/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>关于Git操作的常用指令</p>
+<span id="more"></span>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--</span>初始化仓库</span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> 初始分支名</span><br><span class="line"><span class="literal">--</span>添加暂存文件</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line"><span class="literal">--</span>提交暂存文件</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;提交消息&quot;</span></span><br><span class="line"><span class="literal">--</span>设置远程仓库地址</span><br><span class="line"><span class="variable">$</span> git remote add origin git@github.com:username/xxx.git</span><br><span class="line"><span class="literal">--</span>拉取远程仓库到本地</span><br><span class="line"><span class="variable">$</span> git pull origin 分支名</span><br><span class="line"><span class="literal">--</span>推送本地提交到远程仓库</span><br><span class="line"><span class="variable">$</span> git push origin 本地分支名:远程分支名</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>克隆仓库</span><br><span class="line"><span class="variable">$</span> git clone xxxx@git</span><br><span class="line"><span class="variable">$</span> git fetch   `拉取远端分支信息`</span><br><span class="line"><span class="literal">--</span>设置或删除跟踪仓库的HEAD,指向指定分支,命令行中的圆括号表示必选其中之一执行</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> origin <span class="literal">-a</span>  `更新本地 upstream</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>查看所有分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-a</span></span><br><span class="line"><span class="literal">--</span>新建本地分支</span><br><span class="line"><span class="variable">$</span> git branch 分支名</span><br><span class="line"><span class="literal">--</span>更改本地分支名</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> 旧名字 新名字</span><br><span class="line"><span class="literal">--</span>删除远程分支</span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">-d</span> 远程分支名</span><br><span class="line"><span class="literal">--</span>删除本地分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-d</span> 分支名</span><br><span class="line"><span class="literal">--</span>切换分支</span><br><span class="line"><span class="variable">$</span> git checkout 分支名</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--Git</span>配置初始分支名</span><br><span class="line"><span class="variable">$</span> git config <span class="literal">--global</span> init.defaultBranch main</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -392,14 +392,14 @@
       </tags>
   </entry>
   <entry>
-    <title>美或丑</title>
-    <url>/blog/2020/02/02/%E7%BE%8E%E6%88%96%E4%B8%91/</url>
-    <content><![CDATA[<p>清语，你时常问我你好看吗</p>
-<p>我都会和你说你很好看</p>
-<p>但其实我是分不清的，这是一种很奇妙的感觉</p>
-<p>其他人我能分的出好看与否，</p>
-<p>可我看着你的时候，脑子里都是喜欢和爱</p>
-<p>你就是我喜欢的样子</p>
+    <title>给清语的信</title>
+    <url>/blog/2020/01/29/%E7%BB%99%E6%B8%85%E8%AF%AD%E7%9A%84%E4%BF%A1/</url>
+    <content><![CDATA[<p>我们不常互诉爱意，</p>
+<p>可我深知彼此在各自心里的重量，</p>
+<p>人是会变的</p>
+<p>平淡生活里的刺不痛不痒</p>
+<p>可玫瑰色却鲜艳炙热</p>
+<p>“有人曾笃定规划着两个人的未来”</p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -409,14 +409,14 @@
       </tags>
   </entry>
   <entry>
-    <title>给清语的信</title>
-    <url>/blog/2020/01/29/%E7%BB%99%E6%B8%85%E8%AF%AD%E7%9A%84%E4%BF%A1/</url>
-    <content><![CDATA[<p>我们不常互诉爱意，</p>
-<p>可我深知彼此在各自心里的重量，</p>
-<p>人是会变的</p>
-<p>平淡生活里的刺不痛不痒</p>
-<p>可玫瑰色却鲜艳炙热</p>
-<p>“有人曾笃定规划着两个人的未来”</p>
+    <title>美或丑</title>
+    <url>/blog/2020/02/02/%E7%BE%8E%E6%88%96%E4%B8%91/</url>
+    <content><![CDATA[<p>清语，你时常问我你好看吗</p>
+<p>我都会和你说你很好看</p>
+<p>但其实我是分不清的，这是一种很奇妙的感觉</p>
+<p>其他人我能分的出好看与否，</p>
+<p>可我看着你的时候，脑子里都是喜欢和爱</p>
+<p>你就是我喜欢的样子</p>
 ]]></content>
       <categories>
         <category>杂文</category>
