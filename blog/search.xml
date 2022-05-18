@@ -32,23 +32,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Session配置和使用</title>
-    <url>/blog/2022/05/17/Session%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>Flask中的session可以通过以下方法来设置 <span id="more"></span> <code>session['username'] = "asdasd"</code></p>
-<p>同时也可以通过设置过期时间来限制Session有效时长</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">session.permanent = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">app.permanent_session_lifetime = timedelta(seconds=<span class="number">10</span>) <span class="comment">#时间也可以为 days minutes</span></span><br></pre></td></tr></table></figure>
-<p>同时也可以全局配置失效时长，不过我个人未测试成功，只能用上面方法实现</p>
-<p><code>app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(seconds=10)</code></p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Flask</tag>
-        <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git常用操作</title>
     <url>/blog/2022/05/18/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>关于Git操作的常用指令</p>
@@ -79,22 +62,20 @@
       </tags>
   </entry>
   <entry>
-    <title>不同版本MySQL共存</title>
-    <url>/blog/2022/05/18/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACMySQL%E5%85%B1%E5%AD%98/</url>
-    <content><![CDATA[<p>为了不同版本的<code>mysql</code>共存，需要配置不同的<code>端口号</code>，</p>
-<p>使用命令时也要区分在不同的<code>bin</code>位置下运行命令 <span id="more"></span> <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> D:\MySQL\MySQLServer8.<span class="number">0.25</span>&gt; D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysqld.exe <span class="literal">--defaults-file</span>=D:\MySQL\MySQLServer8.<span class="number">0.25</span>\my.ini <span class="literal">--initialize</span> <span class="literal">--console</span></span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">15.098191</span>Z <span class="number">0</span> [<span class="type">System</span>] [<span class="type">MY</span>-<span class="number">013169</span>] [<span class="type">Server</span>] D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysqld.exe (mysqld <span class="number">8.0</span>.<span class="number">25</span>) initializing of server <span class="keyword">in</span> progress as <span class="keyword">process</span> <span class="number">29128</span></span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">15.099370</span>Z <span class="number">0</span> [<span class="type">Warning</span>] [<span class="type">MY</span>-<span class="number">013242</span>] [<span class="type">Server</span>] <span class="literal">--character-set-server</span>: <span class="string">&#x27;utf8&#x27;</span> is currently an alias <span class="keyword">for</span> the character <span class="built_in">set</span> UTF8MB3, but will be an alias <span class="keyword">for</span> UTF8MB4 <span class="keyword">in</span> a future release. Please consider <span class="keyword">using</span> UTF8MB4 in order to be unambiguous.</span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">15.106060</span>Z <span class="number">1</span> [<span class="type">System</span>] [<span class="type">MY</span>-<span class="number">013576</span>] [<span class="type">InnoDB</span>] InnoDB initialization has started.</span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">26.211060</span>Z <span class="number">1</span> [<span class="type">System</span>] [<span class="type">MY</span>-<span class="number">013577</span>] [<span class="type">InnoDB</span>] InnoDB initialization has ended.</span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">43.080360</span>Z <span class="number">6</span> [<span class="type">Note</span>] [<span class="type">MY</span>-<span class="number">010454</span>] [<span class="type">Server</span>] A temporary password is generated <span class="keyword">for</span> root@localhost: bDGxPt=tL0jy</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> D:\MySQL\MySQLServer8.<span class="number">0.25</span>&gt; D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysqld install MYSQL80 <span class="literal">--defaults-file</span>=D:\MySQL\MySQLServer8.<span class="number">0.25</span>\my.ini</span><br></pre></td></tr></table></figure>
-<p>登录时也要区分</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> D:\MySQL\MySQLServer8.<span class="number">0.25</span>&gt; D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysql <span class="literal">-P3307</span> <span class="literal">-uroot</span> <span class="literal">-p</span></span><br></pre></td></tr></table></figure>
-<p>修改临时密码</p>
-<p><code>set password for root@localhost=password('123456');</code></p>
-<p>如果失效，可以用<code>ALTER USER'root'@'localhost' IDENTIFIED BY '123456';</code></p>
+    <title>Session配置和使用</title>
+    <url>/blog/2022/05/17/Session%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<p>Flask中的session可以通过以下方法来设置 <span id="more"></span> <code>session['username'] = "asdasd"</code></p>
+<p>同时也可以通过设置过期时间来限制Session有效时长</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">session.permanent = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">app.permanent_session_lifetime = timedelta(seconds=<span class="number">10</span>) <span class="comment">#时间也可以为 days minutes</span></span><br></pre></td></tr></table></figure>
+<p>同时也可以全局配置失效时长，不过我个人未测试成功，只能用上面方法实现</p>
+<p><code>app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(seconds=10)</code></p>
 ]]></content>
       <categories>
         <category>编程</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
+        <tag>Flask</tag>
+        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -111,6 +92,25 @@
       </categories>
       <tags>
         <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>不同版本MySQL共存</title>
+    <url>/blog/2022/05/18/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACMySQL%E5%85%B1%E5%AD%98/</url>
+    <content><![CDATA[<p>为了不同版本的<code>mysql</code>共存，需要配置不同的<code>端口号</code>，</p>
+<p>使用命令时也要区分在不同的<code>bin</code>位置下运行命令 <span id="more"></span> <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> D:\MySQL\MySQLServer8.<span class="number">0.25</span>&gt; D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysqld.exe <span class="literal">--defaults-file</span>=D:\MySQL\MySQLServer8.<span class="number">0.25</span>\my.ini <span class="literal">--initialize</span> <span class="literal">--console</span></span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">15.098191</span>Z <span class="number">0</span> [<span class="type">System</span>] [<span class="type">MY</span>-<span class="number">013169</span>] [<span class="type">Server</span>] D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysqld.exe (mysqld <span class="number">8.0</span>.<span class="number">25</span>) initializing of server <span class="keyword">in</span> progress as <span class="keyword">process</span> <span class="number">29128</span></span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">15.099370</span>Z <span class="number">0</span> [<span class="type">Warning</span>] [<span class="type">MY</span>-<span class="number">013242</span>] [<span class="type">Server</span>] <span class="literal">--character-set-server</span>: <span class="string">&#x27;utf8&#x27;</span> is currently an alias <span class="keyword">for</span> the character <span class="built_in">set</span> UTF8MB3, but will be an alias <span class="keyword">for</span> UTF8MB4 <span class="keyword">in</span> a future release. Please consider <span class="keyword">using</span> UTF8MB4 in order to be unambiguous.</span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">15.106060</span>Z <span class="number">1</span> [<span class="type">System</span>] [<span class="type">MY</span>-<span class="number">013576</span>] [<span class="type">InnoDB</span>] InnoDB initialization has started.</span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">26.211060</span>Z <span class="number">1</span> [<span class="type">System</span>] [<span class="type">MY</span>-<span class="number">013577</span>] [<span class="type">InnoDB</span>] InnoDB initialization has ended.</span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">43.080360</span>Z <span class="number">6</span> [<span class="type">Note</span>] [<span class="type">MY</span>-<span class="number">010454</span>] [<span class="type">Server</span>] A temporary password is generated <span class="keyword">for</span> root@localhost: bDGxPt=tL0jy</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> D:\MySQL\MySQLServer8.<span class="number">0.25</span>&gt; D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysqld install MYSQL80 <span class="literal">--defaults-file</span>=D:\MySQL\MySQLServer8.<span class="number">0.25</span>\my.ini</span><br></pre></td></tr></table></figure>
+<p>登录时也要区分</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> D:\MySQL\MySQLServer8.<span class="number">0.25</span>&gt; D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysql <span class="literal">-P3307</span> <span class="literal">-uroot</span> <span class="literal">-p</span></span><br></pre></td></tr></table></figure>
+<p>修改临时密码</p>
+<p><code>set password for root@localhost=password('123456');</code></p>
+<p>如果失效，可以用<code>ALTER USER'root'@'localhost' IDENTIFIED BY '123456';</code></p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
@@ -158,25 +158,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于静态资源在Flask中加载的问题</title>
-    <url>/blog/2022/05/17/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%9C%A8Flask%E4%B8%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>由于我第一次尝试构建Flask服务器，没有意识到静态资源的加载方式有些许不同 普通的静态加载方式如 <code>images/b1.png</code> <span id="more"></span> 这样的加载方式在 <strong>Flask</strong> 无法生效 所以我们必须要用</p>
-<p><code>&#123;&#123;url_for('static',filename='这里输入文件路径')&#125;&#125;</code></p>
-<p>方法来替换原来的静态路径<strong>CSS</strong>和<strong>JS</strong>的导入同样也是需要更改</p>
-<p><strong>但我第一次替换后再次发现并没有生效</strong></p>
-<p>再次检查结构后发现，在网页中生成的路径为 <code>/static/images/b1.png</code> 少了这个<strong>static</strong>文件夹，我再次添加， 并把静态资源都转移到其中，发现还是失效</p>
-<p><strong>注意static文件夹的位置</strong></p>
-<p><strong>static</strong>文件夹需要在根目录下，也就是与<code>app.py</code>同级</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Flask</tag>
-        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -235,6 +216,25 @@
       <tags>
         <tag>Java</tag>
         <tag>Mybatis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于静态资源在Flask中加载的问题</title>
+    <url>/blog/2022/05/17/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%9C%A8Flask%E4%B8%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>由于我第一次尝试构建Flask服务器，没有意识到静态资源的加载方式有些许不同 普通的静态加载方式如 <code>images/b1.png</code> <span id="more"></span> 这样的加载方式在 <strong>Flask</strong> 无法生效 所以我们必须要用</p>
+<p><code>&#123;&#123;url_for('static',filename='这里输入文件路径')&#125;&#125;</code></p>
+<p>方法来替换原来的静态路径<strong>CSS</strong>和<strong>JS</strong>的导入同样也是需要更改</p>
+<p><strong>但我第一次替换后再次发现并没有生效</strong></p>
+<p>再次检查结构后发现，在网页中生成的路径为 <code>/static/images/b1.png</code> 少了这个<strong>static</strong>文件夹，我再次添加， 并把静态资源都转移到其中，发现还是失效</p>
+<p><strong>注意static文件夹的位置</strong></p>
+<p><strong>static</strong>文件夹需要在根目录下，也就是与<code>app.py</code>同级</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Flask</tag>
+        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -324,6 +324,19 @@
       </tags>
   </entry>
   <entry>
+    <title>时间长河里的爱意</title>
+    <url>/blog/2020/01/18/%E6%97%B6%E9%97%B4%E9%95%BF%E6%B2%B3%E9%87%8C%E7%9A%84%E7%88%B1%E6%84%8F/</url>
+    <content><![CDATA[<p>准备开始写一些关于感情的小故事</p>
+<p><strong>故事似真似假，人物似有似无，总归是一种感受，</strong> <strong>也可能这世界上真的有这样的两个人</strong> <strong>我们无从得知</strong> <strong>不妨我们就叫这男孩和女孩，小海和清语吧。</strong></p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>总有人不适应第一次失去</title>
     <url>/blog/2020/01/26/%E6%80%BB%E6%9C%89%E4%BA%BA%E4%B8%8D%E9%80%82%E5%BA%94%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%A4%B1%E5%8E%BB/</url>
     <content><![CDATA[<p>我们大概生在一个无需忧虑温饱的年代</p>
@@ -331,36 +344,6 @@
 <p>年轻的男孩还没长大就遇到了那么喜欢的人</p>
 <p>他这样普通又幼稚的人</p>
 <p>如何能承受这般痛苦阿。</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>想要</title>
-    <url>/blog/2022/05/18/%E6%83%B3%E8%A6%81/</url>
-    <content><![CDATA[<p>人呐，痛苦就痛苦在他们想要的很多，</p>
-<p>拥有的却很少，而他们的目光又总是向着未拥有的</p>
-<p>“你也总是觉得痛苦吗”，清语也有这些感觉</p>
-<p>“是阿，每天都如此”，小海却是有些平淡的样子</p>
-<p>“那你想要的东西得有多少啊！”,清语有些惊讶</p>
-<p>我看着你的眼睛 “我想要的只一件事而已，”</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>时间长河里的爱意</title>
-    <url>/blog/2020/01/18/%E6%97%B6%E9%97%B4%E9%95%BF%E6%B2%B3%E9%87%8C%E7%9A%84%E7%88%B1%E6%84%8F/</url>
-    <content><![CDATA[<p>准备开始写一些关于感情的小故事</p>
-<p><strong>故事似真似假，人物似有似无，总归是一种感受，</strong> <strong>也可能这世界上真的有这样的两个人</strong> <strong>我们无从得知</strong> <strong>不妨我们就叫这男孩和女孩，小海和清语吧。</strong></p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -389,6 +372,23 @@
       <tags>
         <tag>前端</tag>
         <tag>Web-app</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>想要</title>
+    <url>/blog/2022/05/18/%E6%83%B3%E8%A6%81/</url>
+    <content><![CDATA[<p>人呐，痛苦就痛苦在他们想要的很多，</p>
+<p>拥有的却很少，而他们的目光又总是向着未拥有的</p>
+<p>“你也总是觉得痛苦吗”，清语也有这些感觉</p>
+<p>“是阿，每天都如此”，小海却是有些平淡的样子</p>
+<p>“那你想要的东西得有多少啊！”,清语有些惊讶</p>
+<p>我看着你的眼睛 “我想要的只一件事而已，”</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
       </tags>
   </entry>
   <entry>
@@ -446,21 +446,6 @@
       </tags>
   </entry>
   <entry>
-    <title>记</title>
-    <url>/blog/2022/05/18/%E8%AE%B0/</url>
-    <content><![CDATA[<p><strong>经济水平</strong>无法满足<strong>物质需求</strong>才叫穷 贪婪的人永远都是穷人</p>
-<p>过剩的物质需求逃不开被消费主义绑架的时间成本消耗，尽可能的减轻物质欲望，</p>
-<p>能让自己节省出很多时间，毕竟在这样一个信息过载的时代想要买到一个货真价实的东西，挑选的时间成本实在是太高了</p>
-<p>这是个倡善的世界，也是个无恶不作的世界，能看到天空，但没人能看透深渊</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>过了许久</title>
     <url>/blog/2022/05/18/%E8%BF%87%E4%BA%86%E8%AE%B8%E4%B9%85/</url>
     <content><![CDATA[<p>你曾是个理想主义者</p>
@@ -495,6 +480,21 @@
       </categories>
       <tags>
         <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记</title>
+    <url>/blog/2022/05/18/%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>经济水平</strong>无法满足<strong>物质需求</strong>才叫穷 贪婪的人永远都是穷人</p>
+<p>过剩的物质需求逃不开被消费主义绑架的时间成本消耗，尽可能的减轻物质欲望，</p>
+<p>能让自己节省出很多时间，毕竟在这样一个信息过载的时代想要买到一个货真价实的东西，挑选的时间成本实在是太高了</p>
+<p>这是个倡善的世界，也是个无恶不作的世界，能看到天空，但没人能看透深渊</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
 </search>
