@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@font-face {
+  font-family: 'Roboto MonoR';  
+  src: url('../css/RobotoMono-Regular.ttf'); 
+}
+
 html, body, .page {
   width: 100%;
   height: 100%;
@@ -13,7 +17,7 @@ html, body, .page {
 }
 
 * {
-  font-family: 'Roboto Mono', monospace, '微软雅黑';
+  font-family: 'Roboto MonoR', monospace, '微软雅黑';
   letter-spacing: .15em;
 }
 
