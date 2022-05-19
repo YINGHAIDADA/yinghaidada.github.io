@@ -1,10 +1,12 @@
 @font-face {
-  font-family: 'Roboto MonoR';  
-  src: url('../css/RobotoMono-Regular.ttf'); 
+  font-family: 'FZXS';  
+  src: url('../css/FZXS.TTF'); 
+  unicode-range: U+4E00–9FD5;
 }
 @font-face {
   font-family: 'MC';  
   src: url('../css/MC.TTF'); 
+  unicode-range: U+30-39,U+61-7a,U+41-5a,U+20-7e;
 }
 html, body, .page {
   width: 100%;
@@ -20,7 +22,7 @@ html, body, .page {
 }
 
 * {
-  font-family: 'Roboto MonoR','MC',monospace, 'Microsoft YaHei','微软雅黑';
+  font-family: 'MC','FZXS',monospace, 'Microsoft YaHei','微软雅黑';
   letter-spacing: .15em;
 }
 
