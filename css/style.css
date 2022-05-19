@@ -1,11 +1,10 @@
 @font-face {
-  font-family: 'FZXS';  
+  font-family: 'FZXS';
   src: url('../css/FZXS.TTF'); 
-  unicode-range: U+4E00–9FD5;
 }
 @font-face {
-  font-family: 'MC';  
-  src: url('../css/MC.TTF'); 
+  font-family: 'MC';
+  src: url('../css/MC.TTF');
   unicode-range: U+30-39,U+61-7a,U+41-5a,U+20-7e;
 }
 html, body, .page {
