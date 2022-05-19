@@ -17,7 +17,7 @@ html, body, .page {
 }
 
 * {
-  font-family: 'Roboto MonoR', monospace, '微软雅黑';
+  font-family: 'Roboto MonoR', monospace, 'Microsoft YaHei','微软雅黑';
   letter-spacing: .15em;
 }
 
