@@ -7,6 +7,34 @@
   src: url('../css/MC.TTF');
   unicode-range: U+30-39,U+61-7a,U+41-5a,U+20-7e;
 }
+
+/*滚条*/
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.01);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.11);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-corner{
+  background: rgba(255, 255, 255, 0);
+}
+/*滚条*/
+
 html, body, .page {
   width: 100%;
   height: 100%;

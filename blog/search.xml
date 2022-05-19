@@ -32,36 +32,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Git常用操作</title>
-    <url>/blog/2022/05/18/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>关于Git操作的常用指令</p>
-<span id="more"></span>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--</span>初始化仓库</span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> 初始分支名</span><br><span class="line"><span class="literal">--</span>添加暂存文件</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line"><span class="literal">--</span>提交暂存文件</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;提交消息&quot;</span></span><br><span class="line"><span class="literal">--</span>设置远程仓库地址</span><br><span class="line"><span class="variable">$</span> git remote add origin git@github.com:username/xxx.git</span><br><span class="line"><span class="literal">--</span>拉取远程仓库到本地</span><br><span class="line"><span class="variable">$</span> git pull origin 分支名</span><br><span class="line"><span class="literal">--</span>推送本地提交到远程仓库</span><br><span class="line"><span class="variable">$</span> git push origin 本地分支名:远程分支名</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>克隆仓库</span><br><span class="line"><span class="variable">$</span> git clone xxxx@git</span><br><span class="line"><span class="variable">$</span> git fetch   `拉取远端分支信息`</span><br><span class="line"><span class="literal">--</span>设置或删除跟踪仓库的HEAD,指向指定分支,命令行中的圆括号表示必选其中之一执行</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> origin <span class="literal">-a</span>  `更新本地 upstream</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>查看所有分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-a</span></span><br><span class="line"><span class="literal">--</span>新建本地分支</span><br><span class="line"><span class="variable">$</span> git branch 分支名</span><br><span class="line"><span class="literal">--</span>更改本地分支名</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> 旧名字 新名字</span><br><span class="line"><span class="literal">--</span>删除远程分支</span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">-d</span> 远程分支名</span><br><span class="line"><span class="literal">--</span>删除本地分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-d</span> 分支名</span><br><span class="line"><span class="literal">--</span>切换分支</span><br><span class="line"><span class="variable">$</span> git checkout 分支名</span><br></pre></td></tr></table></figure>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--Git</span>配置初始分支名</span><br><span class="line"><span class="variable">$</span> git config <span class="literal">--global</span> init.defaultBranch main</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tomcat10以及10版本以前的差异</title>
-    <url>/blog/2022/05/18/Tomcat10%E4%BB%A5%E5%8F%8A10%E7%89%88%E6%9C%AC%E4%BB%A5%E5%89%8D%E7%9A%84%E5%B7%AE%E5%BC%82/</url>
-    <content><![CDATA[<p>导入的<code>jar</code>包的名字有所不同</p>
-<p>10以前的版本 <span id="more"></span> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br></pre></td></tr></table></figure></p>
-<p>10代的版本</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Servlet</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Session配置和使用</title>
     <url>/blog/2022/05/17/Session%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>Flask中的session可以通过以下方法来设置 <span id="more"></span> <code>session['username'] = "asdasd"</code></p>
@@ -76,22 +46,6 @@
       <tags>
         <tag>Flask</tag>
         <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>为什么时常会感到忐忑</title>
-    <url>/blog/2020/01/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%97%B6%E5%B8%B8%E4%BC%9A%E6%84%9F%E5%88%B0%E5%BF%90%E5%BF%91/</url>
-    <content><![CDATA[<p>不知为何我总会有心慌的感觉，</p>
-<p>夜深时尤为明显</p>
-<p>大概是我太久没有你的消息了</p>
-<p>我们确实是独立的两个人</p>
-<p>我怎么能够这么想你。</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
       </tags>
   </entry>
   <entry>
@@ -114,6 +68,36 @@
       </tags>
   </entry>
   <entry>
+    <title>Tomcat10以及10版本以前的差异</title>
+    <url>/blog/2022/05/18/Tomcat10%E4%BB%A5%E5%8F%8A10%E7%89%88%E6%9C%AC%E4%BB%A5%E5%89%8D%E7%9A%84%E5%B7%AE%E5%BC%82/</url>
+    <content><![CDATA[<p>导入的<code>jar</code>包的名字有所不同</p>
+<p>10以前的版本 <span id="more"></span> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br></pre></td></tr></table></figure></p>
+<p>10代的版本</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Servlet</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git常用操作</title>
+    <url>/blog/2022/05/18/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>关于Git操作的常用指令</p>
+<span id="more"></span>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--</span>初始化仓库</span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> 初始分支名</span><br><span class="line"><span class="literal">--</span>添加暂存文件</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line"><span class="literal">--</span>提交暂存文件</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;提交消息&quot;</span></span><br><span class="line"><span class="literal">--</span>设置远程仓库地址</span><br><span class="line"><span class="variable">$</span> git remote add origin git@github.com:username/xxx.git</span><br><span class="line"><span class="literal">--</span>拉取远程仓库到本地</span><br><span class="line"><span class="variable">$</span> git pull origin 分支名</span><br><span class="line"><span class="literal">--</span>推送本地提交到远程仓库</span><br><span class="line"><span class="variable">$</span> git push origin 本地分支名:远程分支名</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>克隆仓库</span><br><span class="line"><span class="variable">$</span> git clone xxxx@git</span><br><span class="line"><span class="variable">$</span> git fetch   `拉取远端分支信息`</span><br><span class="line"><span class="literal">--</span>设置或删除跟踪仓库的HEAD,指向指定分支,命令行中的圆括号表示必选其中之一执行</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> origin <span class="literal">-a</span>  `更新本地 upstream</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>查看所有分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-a</span></span><br><span class="line"><span class="literal">--</span>新建本地分支</span><br><span class="line"><span class="variable">$</span> git branch 分支名</span><br><span class="line"><span class="literal">--</span>更改本地分支名</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> 旧名字 新名字</span><br><span class="line"><span class="literal">--</span>删除远程分支</span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">-d</span> 远程分支名</span><br><span class="line"><span class="literal">--</span>删除本地分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-d</span> 分支名</span><br><span class="line"><span class="literal">--</span>切换分支</span><br><span class="line"><span class="variable">$</span> git checkout 分支名</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--Git</span>配置初始分支名</span><br><span class="line"><span class="variable">$</span> git config <span class="literal">--global</span> init.defaultBranch main</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>你知道我不会有意错过</title>
     <url>/blog/2020/01/22/%E4%BD%A0%E7%9F%A5%E9%81%93%E6%88%91%E4%B8%8D%E4%BC%9A%E6%9C%89%E6%84%8F%E9%94%99%E8%BF%87/</url>
     <content><![CDATA[<p>“昨天我有给你发信息，你没回我哎”</p>
@@ -122,6 +106,22 @@
 <p>清语故作生气的样子，但不一会你就原谅了他</p>
 <p>清语说她知道如果他没有及时回复，一定是在做一些事情，</p>
 <p>小海心里想着，确是我的错误，再没有比你呼唤我的时候出现在你身边更重要的事情了。</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>为什么时常会感到忐忑</title>
+    <url>/blog/2020/01/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%97%B6%E5%B8%B8%E4%BC%9A%E6%84%9F%E5%88%B0%E5%BF%90%E5%BF%91/</url>
+    <content><![CDATA[<p>不知为何我总会有心慌的感觉，</p>
+<p>夜深时尤为明显</p>
+<p>大概是我太久没有你的消息了</p>
+<p>我们确实是独立的两个人</p>
+<p>我怎么能够这么想你。</p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -324,10 +324,14 @@
       </tags>
   </entry>
   <entry>
-    <title>时间长河里的爱意</title>
-    <url>/blog/2020/01/18/%E6%97%B6%E9%97%B4%E9%95%BF%E6%B2%B3%E9%87%8C%E7%9A%84%E7%88%B1%E6%84%8F/</url>
-    <content><![CDATA[<p>准备开始写一些关于感情的小故事</p>
-<p><strong>故事似真似假，人物似有似无，总归是一种感受，</strong> <strong>也可能这世界上真的有这样的两个人</strong> <strong>我们无从得知</strong> <strong>不妨我们就叫这男孩和女孩，小海和清语吧。</strong></p>
+    <title>想要</title>
+    <url>/blog/2022/05/18/%E6%83%B3%E8%A6%81/</url>
+    <content><![CDATA[<p>人呐，痛苦就痛苦在他们想要的很多，</p>
+<p>拥有的却很少，而他们的目光又总是向着未拥有的</p>
+<p>“你也总是觉得痛苦吗”，清语也有这些感觉</p>
+<p>“是阿，每天都如此”，小海却是有些平淡的样子</p>
+<p>“那你想要的东西得有多少啊！”,清语有些惊讶</p>
+<p>我看着你的眼睛 “我想要的只一件事而已，”</p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -344,6 +348,19 @@
 <p>年轻的男孩还没长大就遇到了那么喜欢的人</p>
 <p>他这样普通又幼稚的人</p>
 <p>如何能承受这般痛苦阿。</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>时间长河里的爱意</title>
+    <url>/blog/2020/01/18/%E6%97%B6%E9%97%B4%E9%95%BF%E6%B2%B3%E9%87%8C%E7%9A%84%E7%88%B1%E6%84%8F/</url>
+    <content><![CDATA[<p>准备开始写一些关于感情的小故事</p>
+<p><strong>故事似真似假，人物似有似无，总归是一种感受，</strong> <strong>也可能这世界上真的有这样的两个人</strong> <strong>我们无从得知</strong> <strong>不妨我们就叫这男孩和女孩，小海和清语吧。</strong></p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -375,23 +392,6 @@
       </tags>
   </entry>
   <entry>
-    <title>想要</title>
-    <url>/blog/2022/05/18/%E6%83%B3%E8%A6%81/</url>
-    <content><![CDATA[<p>人呐，痛苦就痛苦在他们想要的很多，</p>
-<p>拥有的却很少，而他们的目光又总是向着未拥有的</p>
-<p>“你也总是觉得痛苦吗”，清语也有这些感觉</p>
-<p>“是阿，每天都如此”，小海却是有些平淡的样子</p>
-<p>“那你想要的东西得有多少啊！”,清语有些惊讶</p>
-<p>我看着你的眼睛 “我想要的只一件事而已，”</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>给清语的信</title>
     <url>/blog/2020/01/29/%E7%BB%99%E6%B8%85%E8%AF%AD%E7%9A%84%E4%BF%A1/</url>
     <content><![CDATA[<p>我们不常互诉爱意，</p>
@@ -400,23 +400,6 @@
 <p>平淡生活里的刺不痛不痒</p>
 <p>可玫瑰色却鲜艳炙热</p>
 <p>“有人曾笃定规划着两个人的未来”</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>美或丑</title>
-    <url>/blog/2020/02/02/%E7%BE%8E%E6%88%96%E4%B8%91/</url>
-    <content><![CDATA[<p>清语，你时常问我你好看吗</p>
-<p>我都会和你说你很好看</p>
-<p>但其实我是分不清的，这是一种很奇妙的感觉</p>
-<p>其他人我能分的出好看与否，</p>
-<p>可我看着你的时候，脑子里都是喜欢和爱</p>
-<p>你就是我喜欢的样子</p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -437,6 +420,38 @@
 <p>清语有认真的在听他说， 小海低着头没有接着说下去，他心里都是对清语的担心</p>
 <p>“你太可爱了，放心吧不会的”。</p>
 <p>你把头转向窗外，我才把头转向你</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记</title>
+    <url>/blog/2022/05/18/%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>经济水平</strong>无法满足<strong>物质需求</strong>才叫穷 贪婪的人永远都是穷人</p>
+<p>过剩的物质需求逃不开被消费主义绑架的时间成本消耗，尽可能的减轻物质欲望，</p>
+<p>能让自己节省出很多时间，毕竟在这样一个信息过载的时代想要买到一个货真价实的东西，挑选的时间成本实在是太高了</p>
+<p>这是个倡善的世界，也是个无恶不作的世界，能看到天空，但没人能看透深渊</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>美或丑</title>
+    <url>/blog/2020/02/02/%E7%BE%8E%E6%88%96%E4%B8%91/</url>
+    <content><![CDATA[<p>清语，你时常问我你好看吗</p>
+<p>我都会和你说你很好看</p>
+<p>但其实我是分不清的，这是一种很奇妙的感觉</p>
+<p>其他人我能分的出好看与否，</p>
+<p>可我看着你的时候，脑子里都是喜欢和爱</p>
+<p>你就是我喜欢的样子</p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -480,21 +495,6 @@
       </categories>
       <tags>
         <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记</title>
-    <url>/blog/2022/05/18/%E8%AE%B0/</url>
-    <content><![CDATA[<p><strong>经济水平</strong>无法满足<strong>物质需求</strong>才叫穷 贪婪的人永远都是穷人</p>
-<p>过剩的物质需求逃不开被消费主义绑架的时间成本消耗，尽可能的减轻物质欲望，</p>
-<p>能让自己节省出很多时间，毕竟在这样一个信息过载的时代想要买到一个货真价实的东西，挑选的时间成本实在是太高了</p>
-<p>这是个倡善的世界，也是个无恶不作的世界，能看到天空，但没人能看透深渊</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
 </search>
