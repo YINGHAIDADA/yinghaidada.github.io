@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Flask静态资源缓存更新问题</title>
+    <url>/blog/2022/05/17/Flask%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h3 id="flask静态资源缓存更新">Flask静态资源缓存更新</h3>
+<p>需要在配置中添加 <span id="more"></span></p>
+<p><code>app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)</code></p>
+<p>配置选项，其作用是每一秒刷新一次缓存</p>
+<h3 id="ps为了使其生效要先手动清理一次浏览器缓存">PS：为了使其生效，要先手动清理一次浏览器缓存</h3>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Flask</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flask文件下载关于解决中文名的问题</title>
     <url>/blog/2022/05/17/Flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>在Flask提供的服务端向客户端发送其请求文件存在中文名文件会报错的问题，主要是编码不对造成，</p>
@@ -12,6 +29,21 @@
       <tags>
         <tag>Flask</tag>
         <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Git常用操作</title>
+    <url>/blog/2022/05/18/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>关于Git操作的常用指令</p>
+<span id="more"></span>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--</span>初始化仓库</span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> 初始分支名</span><br><span class="line"><span class="literal">--</span>添加暂存文件</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line"><span class="literal">--</span>提交暂存文件</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;提交消息&quot;</span></span><br><span class="line"><span class="literal">--</span>设置远程仓库地址</span><br><span class="line"><span class="variable">$</span> git remote add origin git@github.com:username/xxx.git</span><br><span class="line"><span class="literal">--</span>拉取远程仓库到本地</span><br><span class="line"><span class="variable">$</span> git pull origin 分支名</span><br><span class="line"><span class="literal">--</span>推送本地提交到远程仓库</span><br><span class="line"><span class="variable">$</span> git push origin 本地分支名:远程分支名</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>克隆仓库</span><br><span class="line"><span class="variable">$</span> git clone xxxx@git</span><br><span class="line"><span class="variable">$</span> git fetch   `拉取远端分支信息`</span><br><span class="line"><span class="literal">--</span>设置或删除跟踪仓库的HEAD,指向指定分支,命令行中的圆括号表示必选其中之一执行</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> origin <span class="literal">-a</span>  `更新本地 upstream</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>查看所有分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-a</span></span><br><span class="line"><span class="literal">--</span>新建本地分支</span><br><span class="line"><span class="variable">$</span> git branch 分支名</span><br><span class="line"><span class="literal">--</span>更改本地分支名</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> 旧名字 新名字</span><br><span class="line"><span class="literal">--</span>删除远程分支</span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">-d</span> 远程分支名</span><br><span class="line"><span class="literal">--</span>删除本地分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-d</span> 分支名</span><br><span class="line"><span class="literal">--</span>切换分支</span><br><span class="line"><span class="variable">$</span> git checkout 分支名</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--Git</span>配置初始分支名</span><br><span class="line"><span class="variable">$</span> git config <span class="literal">--global</span> init.defaultBranch main</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -44,38 +76,6 @@
       <tags>
         <tag>Servlet</tag>
         <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Flask静态资源缓存更新问题</title>
-    <url>/blog/2022/05/17/Flask%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="flask静态资源缓存更新">Flask静态资源缓存更新</h3>
-<p>需要在配置中添加 <span id="more"></span></p>
-<p><code>app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)</code></p>
-<p>配置选项，其作用是每一秒刷新一次缓存</p>
-<h3 id="ps为了使其生效要先手动清理一次浏览器缓存">PS：为了使其生效，要先手动清理一次浏览器缓存</h3>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Flask</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git常用操作</title>
-    <url>/blog/2022/05/18/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>关于Git操作的常用指令</p>
-<span id="more"></span>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--</span>初始化仓库</span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> 初始分支名</span><br><span class="line"><span class="literal">--</span>添加暂存文件</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line"><span class="literal">--</span>提交暂存文件</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;提交消息&quot;</span></span><br><span class="line"><span class="literal">--</span>设置远程仓库地址</span><br><span class="line"><span class="variable">$</span> git remote add origin git@github.com:username/xxx.git</span><br><span class="line"><span class="literal">--</span>拉取远程仓库到本地</span><br><span class="line"><span class="variable">$</span> git pull origin 分支名</span><br><span class="line"><span class="literal">--</span>推送本地提交到远程仓库</span><br><span class="line"><span class="variable">$</span> git push origin 本地分支名:远程分支名</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>克隆仓库</span><br><span class="line"><span class="variable">$</span> git clone xxxx@git</span><br><span class="line"><span class="variable">$</span> git fetch   `拉取远端分支信息`</span><br><span class="line"><span class="literal">--</span>设置或删除跟踪仓库的HEAD,指向指定分支,命令行中的圆括号表示必选其中之一执行</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> origin <span class="literal">-a</span>  `更新本地 upstream</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>查看所有分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-a</span></span><br><span class="line"><span class="literal">--</span>新建本地分支</span><br><span class="line"><span class="variable">$</span> git branch 分支名</span><br><span class="line"><span class="literal">--</span>更改本地分支名</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> 旧名字 新名字</span><br><span class="line"><span class="literal">--</span>删除远程分支</span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">-d</span> 远程分支名</span><br><span class="line"><span class="literal">--</span>删除本地分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-d</span> 分支名</span><br><span class="line"><span class="literal">--</span>切换分支</span><br><span class="line"><span class="variable">$</span> git checkout 分支名</span><br></pre></td></tr></table></figure>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--Git</span>配置初始分支名</span><br><span class="line"><span class="variable">$</span> git config <span class="literal">--global</span> init.defaultBranch main</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -131,22 +131,6 @@
       </tags>
   </entry>
   <entry>
-    <title>关于商品经济社会与情感归属</title>
-    <url>/blog/2022/05/18/%E5%85%B3%E4%BA%8E%E5%95%86%E5%93%81%E7%BB%8F%E6%B5%8E%E7%A4%BE%E4%BC%9A%E4%B8%8E%E6%83%85%E6%84%9F%E5%BD%92%E5%B1%9E/</url>
-    <content><![CDATA[<h1 id="记">2020-6-28 记</h1>
-<h3 id="想说的很多也不知能否说清">想说的很多，也不知能否说清。</h3>
-<span id="more"></span>
-<p>说来也奇怪可能是昨晚的一个梦让我潜意识里有了对这个问题的铺垫，鬼使神差的今天在<strong>B站</strong>看到的第一个视频就是关于<strong>婚姻</strong>和<strong>孩子</strong>以及<strong>生育</strong>问题的，<code>“生育率逐渐下降的背后的社会问题是什么”``“为什么现在的女生不愿意生孩子”``“婚姻已经不再和爱情相关而是资本融合”</code>，这样标题的视频看似浮夸实际在我看了之后还是觉得有内在道理在其中的，因为确实是有这样的普遍问题并不是无中生有。在我看到视频的创作者客观的在解释生育率降低在未来会给我们带来哪些不好的影响的时候，弹幕里的各种言论 <code>“关我P事”`` “有道理，我还是选择不生”``“你们愿意生自己去生吧” `` “过50年我都不知道在哪，关我什么事”</code> ，我实在的感受到了社会存在的问题。我不想去讨论这些人的言论是否是合理的，又或者他们真实的想法是如何，我想说的是更深层次的原因是什么造成的这样的现状。资本和媒体。<em>21世纪</em>已经是一个媒体无孔不入的年代，任何事情都能在互联网上 以极快的速度传播，虽然带来了时效性，但也意味着它的<strong>煽动性</strong>是可怕的，拿成功来说，不可否认的是成功确实是少数人的经历，也有很多人非常努力勤奋但却依然默默无闻平庸一生，但这也是少数，无良媒体宣扬<code>“在这样的社会金钱是一切”，“你再努力也抵不过富二代的一声爸”</code>，成为了很多喜欢抱怨生活的人的不努力的借口也成为了他口诛笔伐社会的谈资，我从心里觉得这样的人，是废物。这是我们建立在爱情需要功利支持的情况下讨论的，觉得没钱导致了生育率的下降，但穷真的就是本质原因吗，回退40年，上一代的人不比我们条件更差，更穷吗，可生育率一直很高，甚至人民幸福指数也要高得多。 再者，资本。资本把爱情和金钱挂钩，在各种各样的节日把爱物质化宣传成各种各样的商品，<strong>“买XXX代表了你多爱一个人”</strong>，把消费等价于爱情的坚固程度，洗脑了多少年轻的男女，一些女生会以这些为标准而对自己的伴侣提出要求，而一些男生也会主动进行很多消费来达到另一半的内心预期。进一步的功利化了感情这件事。而这还只是恋爱，到了谈婚论嫁更是难以预估的财力的比拼，车，房，彩礼，样样不能少，本来是两个新人幸福的走进人生的新阶段，却变成了两个家庭的经济资产的检测仪，而其实更多的对是男方家庭的要求。这也是低生育率的原因，因为很多人根本没有办法结婚。 这些问题最终只会导致社会的低欲望化，像日本一样，参考《低欲望化的社会》，年轻人已经没有动力再去争取，资本贪婪的欲望最终也会自食其果，因为消费力的下降导致停产倒闭，而这又会带来失业等各种问题，进一步加剧低生育率的问题，这是个恶性循环，就像那个真诚的UP说的一样，在这里提出这些问题并不是想要马上去解决这么大的问题，我也知道可能看到的人也并不Care我说的这些东西，只是希望未来再有人提到这个问题的时候大家能真的重视起来，因为社会太过于庞大，只有大部分人意识到的时候，才能有所改善。</p>
-<p>我自己的想法就是，了解社会问题，建立自己的三观，对于一个正年轻的人来说，如果你想要过上好的日子又没有一个富有的家庭，那么没有任何事情是你不努力不上进的理由，抱怨是不会给你带来好的生活的，表现式的消极和绝望也只会把自己带入深渊。你不相信普通人能成功，你就不会成为那个成功的普通人。</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于网站作为子目录的路由问题</title>
     <url>/blog/2022/05/18/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E4%BD%9C%E4%B8%BA%E5%AD%90%E7%9B%AE%E5%BD%95%E7%9A%84%E8%B7%AF%E7%94%B1%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>在配置文件 <code>_config.yml</code> 中修改：</p>
@@ -177,6 +161,22 @@
       <tags>
         <tag>Flask</tag>
         <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于商品经济社会与情感归属</title>
+    <url>/blog/2022/05/18/%E5%85%B3%E4%BA%8E%E5%95%86%E5%93%81%E7%BB%8F%E6%B5%8E%E7%A4%BE%E4%BC%9A%E4%B8%8E%E6%83%85%E6%84%9F%E5%BD%92%E5%B1%9E/</url>
+    <content><![CDATA[<h1 id="记">2020-6-28 记</h1>
+<h3 id="想说的很多也不知能否说清">想说的很多，也不知能否说清。</h3>
+<span id="more"></span>
+<p>说来也奇怪可能是昨晚的一个梦让我潜意识里有了对这个问题的铺垫，鬼使神差的今天在<strong>B站</strong>看到的第一个视频就是关于<strong>婚姻</strong>和<strong>孩子</strong>以及<strong>生育</strong>问题的，<code>“生育率逐渐下降的背后的社会问题是什么”``“为什么现在的女生不愿意生孩子”``“婚姻已经不再和爱情相关而是资本融合”</code>，这样标题的视频看似浮夸实际在我看了之后还是觉得有内在道理在其中的，因为确实是有这样的普遍问题并不是无中生有。在我看到视频的创作者客观的在解释生育率降低在未来会给我们带来哪些不好的影响的时候，弹幕里的各种言论 <code>“关我P事”`` “有道理，我还是选择不生”``“你们愿意生自己去生吧” `` “过50年我都不知道在哪，关我什么事”</code> ，我实在的感受到了社会存在的问题。我不想去讨论这些人的言论是否是合理的，又或者他们真实的想法是如何，我想说的是更深层次的原因是什么造成的这样的现状。资本和媒体。<em>21世纪</em>已经是一个媒体无孔不入的年代，任何事情都能在互联网上 以极快的速度传播，虽然带来了时效性，但也意味着它的<strong>煽动性</strong>是可怕的，拿成功来说，不可否认的是成功确实是少数人的经历，也有很多人非常努力勤奋但却依然默默无闻平庸一生，但这也是少数，无良媒体宣扬<code>“在这样的社会金钱是一切”，“你再努力也抵不过富二代的一声爸”</code>，成为了很多喜欢抱怨生活的人的不努力的借口也成为了他口诛笔伐社会的谈资，我从心里觉得这样的人，是废物。这是我们建立在爱情需要功利支持的情况下讨论的，觉得没钱导致了生育率的下降，但穷真的就是本质原因吗，回退40年，上一代的人不比我们条件更差，更穷吗，可生育率一直很高，甚至人民幸福指数也要高得多。 再者，资本。资本把爱情和金钱挂钩，在各种各样的节日把爱物质化宣传成各种各样的商品，<strong>“买XXX代表了你多爱一个人”</strong>，把消费等价于爱情的坚固程度，洗脑了多少年轻的男女，一些女生会以这些为标准而对自己的伴侣提出要求，而一些男生也会主动进行很多消费来达到另一半的内心预期。进一步的功利化了感情这件事。而这还只是恋爱，到了谈婚论嫁更是难以预估的财力的比拼，车，房，彩礼，样样不能少，本来是两个新人幸福的走进人生的新阶段，却变成了两个家庭的经济资产的检测仪，而其实更多的对是男方家庭的要求。这也是低生育率的原因，因为很多人根本没有办法结婚。 这些问题最终只会导致社会的低欲望化，像日本一样，参考《低欲望化的社会》，年轻人已经没有动力再去争取，资本贪婪的欲望最终也会自食其果，因为消费力的下降导致停产倒闭，而这又会带来失业等各种问题，进一步加剧低生育率的问题，这是个恶性循环，就像那个真诚的UP说的一样，在这里提出这些问题并不是想要马上去解决这么大的问题，我也知道可能看到的人也并不Care我说的这些东西，只是希望未来再有人提到这个问题的时候大家能真的重视起来，因为社会太过于庞大，只有大部分人意识到的时候，才能有所改善。</p>
+<p>我自己的想法就是，了解社会问题，建立自己的三观，对于一个正年轻的人来说，如果你想要过上好的日子又没有一个富有的家庭，那么没有任何事情是你不努力不上进的理由，抱怨是不会给你带来好的生活的，表现式的消极和绝望也只会把自己带入深渊。你不相信普通人能成功，你就不会成为那个成功的普通人。</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -253,6 +253,32 @@
       </tags>
   </entry>
   <entry>
+    <title>如何变更Git仓库中的默认分支名</title>
+    <url>/blog/2022/05/18/%E5%A6%82%E4%BD%95%E5%8F%98%E6%9B%B4Git%E4%BB%93%E5%BA%93%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF%E5%90%8D/</url>
+    <content><![CDATA[<p>大致可分为下面几种情况：</p>
+<p>1.仓库没有初始化，即空文件夹</p>
+<p>1.1 初始化分支</p>
+<span id="more"></span>
+<p>1.2 使用clone的同步</p>
+<p>2.仓库初始化，但并未推送</p>
+<p>3.仓库已经推送至远程仓库</p>
+<p>解决方式如下：</p>
+<p>1.仓库没有初始化，即空文件夹：本地没有仓库的两种情形 1.1 初始化仓库并初始化分支</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">以下命令可以初始化仓库并初始化一个分支</span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> &lt;branch<span class="literal">-name</span>&gt;</span><br><span class="line"><span class="comment"># 例子：main为想变更的默认分支名</span></span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> main</span><br><span class="line">连接远程仓库</span><br><span class="line"><span class="variable">$</span> git remote add origin &lt;远端仓库链接&gt;</span><br><span class="line">添加暂存区</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line">提交本地仓库</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;解释说明&quot;</span></span><br><span class="line">推送到远程仓库 <span class="literal">---</span>这里相当于在远端新建了一个main分支</span><br><span class="line"><span class="variable">$</span> git push origin main </span><br><span class="line"></span><br><span class="line">此时远端仓库已经有了main分支</span><br><span class="line"></span><br><span class="line">删除旧的远程分支（如果不想要旧的默认分支，可以删除）</span><br><span class="line"><span class="comment"># 要删除的分支可能是默认分支、受保护分支等，需要先在仓库管理平台仓库设置中选择新分支main为默认分支，然后再执行命令。</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> &lt;branch<span class="literal">-name</span>&gt;   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> master</span><br></pre></td></tr></table></figure>
+<p>****1.2 其他使用clone的同步****</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#对于其他 clone 的同步</span></span><br><span class="line"></span><br><span class="line">对于已经 clone 的仓库通过如下步骤进行同步：</span><br><span class="line"></span><br><span class="line"><span class="variable">$</span> git fetch   `拉取远端分支信息`</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> origin <span class="literal">-a</span>  `更新本地 upstream</span><br><span class="line"><span class="comment">#例子：</span></span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> master main</span><br><span class="line"><span class="comment"># 上述命令将 `master` 分支重命名为了 `main`。但这个变更只是本地的，需要同步到远端。</span></span><br><span class="line"></span><br><span class="line">第二步：推送本地分支至远程仓库</span><br><span class="line"><span class="variable">$</span> git push <span class="literal">-u</span> origin &lt;branch<span class="literal">-name</span>&gt;</span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="variable">$</span> git push <span class="literal">-u</span> origin main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上述命令将新建的 `main` 分支同步到远端并设置 upstream 到了该分支。</span></span><br><span class="line"></span><br><span class="line">第三步：删除远程分支（如果不想要旧的默认分支，可以删除）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 要删除的分支可能是默认分支、受保护分支等，需要先在仓库管理平台仓库设置中选择新分支为默认分支，然后再执行命令。</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> &lt;branch<span class="literal">-name</span>&gt;   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> master</span><br><span class="line"></span><br><span class="line"><span class="built_in">PS</span>：关于git remote <span class="built_in">set-head</span>命令的解释说明</span><br><span class="line">设置或删除跟踪仓库的HEAD,指向指定分支,命令行中的圆括号表示必选其中之一执行</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> &lt;origin&gt; (<span class="literal">-a</span> | <span class="literal">--auto</span> | <span class="literal">-d</span> | <span class="literal">--delete</span> | &lt;branch&gt;) </span><br><span class="line">    [-<span class="type">a</span>|--<span class="type">auto</span>]     <span class="comment"># set refs/remotes/&lt;name&gt;/HEAD according to remote</span></span><br><span class="line">    [-<span class="type">d</span>|--<span class="type">delete</span>]   <span class="comment"># delete refs/remotes/&lt;name&gt;/HEAD</span></span><br></pre></td></tr></table></figure>
+<p>• ****2.仓库初始化，但并未推送 ：初始化后未推送，可以直接修改本地的分支名****</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> &lt;oldbranch&gt; &lt;newbranch&gt;</span><br><span class="line"><span class="comment"># 举例说明</span></span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> master main</span><br><span class="line"></span><br><span class="line">连接远程仓库</span><br><span class="line"><span class="variable">$</span> git remote add origin &lt;远端仓库链接&gt;</span><br><span class="line">添加暂存区</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line">提交本地仓库</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;解释说明&quot;</span></span><br><span class="line"></span><br><span class="line">推送到远程仓库</span><br><span class="line"><span class="variable">$</span> git push origin main </span><br><span class="line">注意：这里在推送的时候，可能会报错，因为可能需要你先pull远程到本地，使远程与本地驳斥一致后，才可以推送</span><br><span class="line">不过，你也可以忽略报错的提示，使用<span class="operator">-f</span>强制推送，即<span class="variable">$</span> git push origin main <span class="operator">-f</span></span><br><span class="line"></span><br><span class="line">删除旧的远程分支（如果不想要旧的默认分支，可以删除）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 要删除的分支可能是默认分支、受保护分支等，需要先在仓库管理平台仓库设置中选择新分支为默认分支，然后再执行命令。</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> &lt;branch<span class="literal">-name</span>&gt;   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> master</span><br></pre></td></tr></table></figure>
+<p>• ****3.仓库已经推送至远程仓库：已经提交至远程仓库，去修改分支名****</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>地铁上的旅行</title>
     <url>/blog/2020/01/25/%E5%9C%B0%E9%93%81%E4%B8%8A%E7%9A%84%E6%97%85%E8%A1%8C/</url>
     <content><![CDATA[<p>你带我去到最后一节车厢</p>
@@ -295,32 +321,6 @@
       </categories>
       <tags>
         <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何变更Git仓库中的默认分支名</title>
-    <url>/blog/2022/05/18/%E5%A6%82%E4%BD%95%E5%8F%98%E6%9B%B4Git%E4%BB%93%E5%BA%93%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF%E5%90%8D/</url>
-    <content><![CDATA[<p>大致可分为下面几种情况：</p>
-<p>1.仓库没有初始化，即空文件夹</p>
-<p>1.1 初始化分支</p>
-<span id="more"></span>
-<p>1.2 使用clone的同步</p>
-<p>2.仓库初始化，但并未推送</p>
-<p>3.仓库已经推送至远程仓库</p>
-<p>解决方式如下：</p>
-<p>1.仓库没有初始化，即空文件夹：本地没有仓库的两种情形 1.1 初始化仓库并初始化分支</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">以下命令可以初始化仓库并初始化一个分支</span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> &lt;branch<span class="literal">-name</span>&gt;</span><br><span class="line"><span class="comment"># 例子：main为想变更的默认分支名</span></span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> main</span><br><span class="line">连接远程仓库</span><br><span class="line"><span class="variable">$</span> git remote add origin &lt;远端仓库链接&gt;</span><br><span class="line">添加暂存区</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line">提交本地仓库</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;解释说明&quot;</span></span><br><span class="line">推送到远程仓库 <span class="literal">---</span>这里相当于在远端新建了一个main分支</span><br><span class="line"><span class="variable">$</span> git push origin main </span><br><span class="line"></span><br><span class="line">此时远端仓库已经有了main分支</span><br><span class="line"></span><br><span class="line">删除旧的远程分支（如果不想要旧的默认分支，可以删除）</span><br><span class="line"><span class="comment"># 要删除的分支可能是默认分支、受保护分支等，需要先在仓库管理平台仓库设置中选择新分支main为默认分支，然后再执行命令。</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> &lt;branch<span class="literal">-name</span>&gt;   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> master</span><br></pre></td></tr></table></figure>
-<p>****1.2 其他使用clone的同步****</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#对于其他 clone 的同步</span></span><br><span class="line"></span><br><span class="line">对于已经 clone 的仓库通过如下步骤进行同步：</span><br><span class="line"></span><br><span class="line"><span class="variable">$</span> git fetch   `拉取远端分支信息`</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> origin <span class="literal">-a</span>  `更新本地 upstream</span><br><span class="line"><span class="comment">#例子：</span></span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> master main</span><br><span class="line"><span class="comment"># 上述命令将 `master` 分支重命名为了 `main`。但这个变更只是本地的，需要同步到远端。</span></span><br><span class="line"></span><br><span class="line">第二步：推送本地分支至远程仓库</span><br><span class="line"><span class="variable">$</span> git push <span class="literal">-u</span> origin &lt;branch<span class="literal">-name</span>&gt;</span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="variable">$</span> git push <span class="literal">-u</span> origin main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上述命令将新建的 `main` 分支同步到远端并设置 upstream 到了该分支。</span></span><br><span class="line"></span><br><span class="line">第三步：删除远程分支（如果不想要旧的默认分支，可以删除）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 要删除的分支可能是默认分支、受保护分支等，需要先在仓库管理平台仓库设置中选择新分支为默认分支，然后再执行命令。</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> &lt;branch<span class="literal">-name</span>&gt;   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> master</span><br><span class="line"></span><br><span class="line"><span class="built_in">PS</span>：关于git remote <span class="built_in">set-head</span>命令的解释说明</span><br><span class="line">设置或删除跟踪仓库的HEAD,指向指定分支,命令行中的圆括号表示必选其中之一执行</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> &lt;origin&gt; (<span class="literal">-a</span> | <span class="literal">--auto</span> | <span class="literal">-d</span> | <span class="literal">--delete</span> | &lt;branch&gt;) </span><br><span class="line">    [-<span class="type">a</span>|--<span class="type">auto</span>]     <span class="comment"># set refs/remotes/&lt;name&gt;/HEAD according to remote</span></span><br><span class="line">    [-<span class="type">d</span>|--<span class="type">delete</span>]   <span class="comment"># delete refs/remotes/&lt;name&gt;/HEAD</span></span><br></pre></td></tr></table></figure>
-<p>• ****2.仓库初始化，但并未推送 ：初始化后未推送，可以直接修改本地的分支名****</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> &lt;oldbranch&gt; &lt;newbranch&gt;</span><br><span class="line"><span class="comment"># 举例说明</span></span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> master main</span><br><span class="line"></span><br><span class="line">连接远程仓库</span><br><span class="line"><span class="variable">$</span> git remote add origin &lt;远端仓库链接&gt;</span><br><span class="line">添加暂存区</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line">提交本地仓库</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;解释说明&quot;</span></span><br><span class="line"></span><br><span class="line">推送到远程仓库</span><br><span class="line"><span class="variable">$</span> git push origin main </span><br><span class="line">注意：这里在推送的时候，可能会报错，因为可能需要你先pull远程到本地，使远程与本地驳斥一致后，才可以推送</span><br><span class="line">不过，你也可以忽略报错的提示，使用<span class="operator">-f</span>强制推送，即<span class="variable">$</span> git push origin main <span class="operator">-f</span></span><br><span class="line"></span><br><span class="line">删除旧的远程分支（如果不想要旧的默认分支，可以删除）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 要删除的分支可能是默认分支、受保护分支等，需要先在仓库管理平台仓库设置中选择新分支为默认分支，然后再执行命令。</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> &lt;branch<span class="literal">-name</span>&gt;   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> master</span><br></pre></td></tr></table></figure>
-<p>• ****3.仓库已经推送至远程仓库：已经提交至远程仓库，去修改分支名****</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
       </tags>
   </entry>
   <entry>
@@ -446,12 +446,14 @@
       </tags>
   </entry>
   <entry>
-    <title>记</title>
-    <url>/blog/2022/05/18/%E8%AE%B0/</url>
-    <content><![CDATA[<p><strong>经济水平</strong>无法满足<strong>物质需求</strong>才叫穷 贪婪的人永远都是穷人</p>
-<p>过剩的物质需求逃不开被消费主义绑架的时间成本消耗，尽可能的减轻物质欲望，</p>
-<p>能让自己节省出很多时间，毕竟在这样一个信息过载的时代想要买到一个货真价实的东西，挑选的时间成本实在是太高了</p>
-<p>这是个倡善的世界，也是个无恶不作的世界，能看到天空，但没人能看透深渊</p>
+    <title>过了许久</title>
+    <url>/blog/2022/05/18/%E8%BF%87%E4%BA%86%E8%AE%B8%E4%B9%85/</url>
+    <content><![CDATA[<p>你曾是个理想主义者</p>
+<p>听过一万个人同你讲述生活的狗血，你都不予在意 <span id="more"></span> 直到它就这么发生了， 你觉得深刻，觉得蜕变，</p>
+<p>你同身边的人一样成为了过往的信徒，传教 成为犬儒或一些精致的利己主义者</p>
+<p>直到有一天你看到了一个熟悉的陌生人</p>
+<p>陌生在他的形象，熟悉在他的追求</p>
+<p>一个有着理想主义的人</p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -461,14 +463,12 @@
       </tags>
   </entry>
   <entry>
-    <title>过了许久</title>
-    <url>/blog/2022/05/18/%E8%BF%87%E4%BA%86%E8%AE%B8%E4%B9%85/</url>
-    <content><![CDATA[<p>你曾是个理想主义者</p>
-<p>听过一万个人同你讲述生活的狗血，你都不予在意 <span id="more"></span> 直到它就这么发生了， 你觉得深刻，觉得蜕变，</p>
-<p>你同身边的人一样成为了过往的信徒，传教 成为犬儒或一些精致的利己主义者</p>
-<p>直到有一天你看到了一个熟悉的陌生人</p>
-<p>陌生在他的形象，熟悉在他的追求</p>
-<p>一个有着理想主义的人</p>
+    <title>记</title>
+    <url>/blog/2022/05/18/%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>经济水平</strong>无法满足<strong>物质需求</strong>才叫穷 贪婪的人永远都是穷人</p>
+<p>过剩的物质需求逃不开被消费主义绑架的时间成本消耗，尽可能的减轻物质欲望，</p>
+<p>能让自己节省出很多时间，毕竟在这样一个信息过载的时代想要买到一个货真价实的东西，挑选的时间成本实在是太高了</p>
+<p>这是个倡善的世界，也是个无恶不作的世界，能看到天空，但没人能看透深渊</p>
 ]]></content>
       <categories>
         <category>杂文</category>
