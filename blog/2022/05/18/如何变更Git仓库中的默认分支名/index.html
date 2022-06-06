@@ -298,7 +298,10 @@
     <a href="/blog/2022/05/18/%E5%85%B3%E4%BA%8E%E5%95%86%E5%93%81%E7%BB%8F%E6%B5%8E%E7%A4%BE%E4%BC%9A%E4%B8%8E%E6%83%85%E6%84%9F%E5%BD%92%E5%B1%9E/" rel="prev" title="关于商品经济社会与情感归属">
       <i class="fa fa-chevron-left"></i> 关于商品经济社会与情感归属
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/blog/2022/06/06/%E6%81%B6%E6%84%8F-%E8%AF%BB%E5%90%8E%E9%9A%8F%E7%AC%94/" rel="next" title="恶意-读后随笔">
+      恶意-读后随笔 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -373,7 +376,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -386,7 +389,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -500,6 +503,25 @@
 
 
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : 'eb390542af2d8e7c40f6',
+      clientSecret: 'da7c86f6dc30627c9dc57034aebba2c3ec933a4f',
+      repo        : 'personalWeb-comment',
+      owner       : 'yinghaidada',
+      admin       : ['yinghaidada'],
+      id          : '9b03aacb04f7ef9bd4bfe9d1b114db67',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 
   
