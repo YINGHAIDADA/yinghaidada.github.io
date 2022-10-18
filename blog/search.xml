@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Flask文件下载关于解决中文名的问题</title>
+    <url>/blog/2022/05/17/Flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>在Flask提供的服务端向客户端发送其请求文件存在中文名文件会报错的问题，主要是编码不对造成，</p>
+<p>可以尝试用以下方法解决,用<code>GET</code> 方法请求文件 <span id="more"></span> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;url&#x27;</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#文件路径，可以是相对路径</span></span><br><span class="line">    FILE_PATH = <span class="string">&quot;temp/&quot;</span> + <span class="built_in">str</span>(no) + <span class="string">&quot;/&quot;</span></span><br><span class="line">    <span class="comment">#文件名，如果确定的话可以直接用字符串赋值，此处动态获取</span></span><br><span class="line">    filename = fm.GetFileFromThisRootDir(FILE_PATH, <span class="string">&#x27;mp4&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(filename)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">&#x27;/resource&#x27;</span>)</span><br><span class="line">    filename=filename[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(filename[<span class="number">0</span>])</span><br><span class="line">    <span class="comment">#制作返回头，用Content-Disposition解决编码问题</span></span><br><span class="line">    response = make_response(send_file(filename))</span><br><span class="line">    basename = os.path.basename(filename)</span><br><span class="line">    response.headers[<span class="string">&quot;Content-Disposition&quot;</span>] = \</span><br><span class="line">        <span class="string">&quot;attachment;&quot;</span> \</span><br><span class="line">        <span class="string">&quot;filename*=UTF-8&#x27;&#x27;&#123;utf_filename&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">            utf_filename=quote(basename.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Flask</tag>
+        <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Flask静态资源缓存更新问题</title>
     <url>/blog/2022/05/17/Flask%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h3 id="flask静态资源缓存更新">Flask静态资源缓存更新</h3>
@@ -18,20 +32,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Flask文件下载关于解决中文名的问题</title>
-    <url>/blog/2022/05/17/Flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>在Flask提供的服务端向客户端发送其请求文件存在中文名文件会报错的问题，主要是编码不对造成，</p>
-<p>可以尝试用以下方法解决,用<code>GET</code> 方法请求文件 <span id="more"></span> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;url&#x27;</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#文件路径，可以是相对路径</span></span><br><span class="line">    FILE_PATH = <span class="string">&quot;temp/&quot;</span> + <span class="built_in">str</span>(no) + <span class="string">&quot;/&quot;</span></span><br><span class="line">    <span class="comment">#文件名，如果确定的话可以直接用字符串赋值，此处动态获取</span></span><br><span class="line">    filename = fm.GetFileFromThisRootDir(FILE_PATH, <span class="string">&#x27;mp4&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(filename)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">&#x27;/resource&#x27;</span>)</span><br><span class="line">    filename=filename[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(filename[<span class="number">0</span>])</span><br><span class="line">    <span class="comment">#制作返回头，用Content-Disposition解决编码问题</span></span><br><span class="line">    response = make_response(send_file(filename))</span><br><span class="line">    basename = os.path.basename(filename)</span><br><span class="line">    response.headers[<span class="string">&quot;Content-Disposition&quot;</span>] = \</span><br><span class="line">        <span class="string">&quot;attachment;&quot;</span> \</span><br><span class="line">        <span class="string">&quot;filename*=UTF-8&#x27;&#x27;&#123;utf_filename&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">            utf_filename=quote(basename.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Flask</tag>
-        <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Git常用操作</title>
     <url>/blog/2022/05/18/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>关于Git操作的常用指令</p>
@@ -44,6 +44,21 @@
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tomcat10以及10版本以前的差异</title>
+    <url>/blog/2022/05/18/Tomcat10%E4%BB%A5%E5%8F%8A10%E7%89%88%E6%9C%AC%E4%BB%A5%E5%89%8D%E7%9A%84%E5%B7%AE%E5%BC%82/</url>
+    <content><![CDATA[<p>导入的<code>jar</code>包的名字有所不同</p>
+<p>10以前的版本 <span id="more"></span> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br></pre></td></tr></table></figure></p>
+<p>10代的版本</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Servlet</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>
@@ -64,18 +79,117 @@
       </tags>
   </entry>
   <entry>
-    <title>Tomcat10以及10版本以前的差异</title>
-    <url>/blog/2022/05/18/Tomcat10%E4%BB%A5%E5%8F%8A10%E7%89%88%E6%9C%AC%E4%BB%A5%E5%89%8D%E7%9A%84%E5%B7%AE%E5%BC%82/</url>
-    <content><![CDATA[<p>导入的<code>jar</code>包的名字有所不同</p>
-<p>10以前的版本 <span id="more"></span> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br></pre></td></tr></table></figure></p>
-<p>10代的版本</p>
+    <title>zotero+坚果云 +PDF Expert文献管理</title>
+    <url>/blog/2022/10/18/zotero-%E5%9D%9A%E6%9E%9C%E4%BA%91-PDF-Expert%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<h2 id="准备">准备</h2>
+<p>安装 <code>Zotero</code> 以及 <code>坚果云</code> 客户端到电脑</p>
+<blockquote>
+<p><code>Zotero</code> : <a href="https://www.zotero.org/">https://www.zotero.org/</a> <code>坚果云</code> : <a href="https://www.jianguoyun.com/">https://www.jianguoyun.com/</a></p>
+</blockquote>
+<h2 id="设置-zotero">设置 Zotero</h2>
+<p>点击 <code>编辑</code> &gt; <code>首选项</code> &gt; <code>同步</code></p>
+<p>登录（需要提前注册）Zotero的账户勾选同步</p>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5f290042-c6c5-43e4-b086-c8b9a26b97c5%2FUntitled.png?table=block&amp;id=1d4aa14d-bd8c-451a-8bf6-eac11c68e8a5&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<p>点击 <code>编辑</code> &gt; <code>首选项</code> &gt; <code>高级</code> &gt; <code>文件和文件夹</code></p>
+<p>设置 <code>根目录</code>用于存放文献同步位置的文件夹，后期用坚果云设置同步</p>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fae0e5ed8-55da-4c1d-9bed-79a1e69f152d%2FUntitled.png?table=block&amp;id=a7ee66c2-9704-411a-b1f0-21b0dd2b5aa9&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<h3 id="安装-zotfile插件">安装 Zotfile插件</h3>
+<p>点击 <code>工具</code> &gt; <code>插件</code> ，点击齿轮图标选择安装插件</p>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fcff76c53-729d-4265-967d-6f8e8f2304fc%2FUntitled.png?table=block&amp;id=7c6ffc8a-b838-4fa1-b38b-b2f5efa30772&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<p>具体插件资源可自行百度</p>
+<h3 id="配置zotfile">配置Zotfile</h3>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fdf051c45-e6ea-4801-826f-b5780c32c821%2FUntitled.png?table=block&amp;id=7773bf6e-24eb-4290-9fde-6d7730c63f51&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<p>上文提到过的用于同步的文件夹，在这里也进行设置</p>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F6f2f302e-6109-4330-9185-b021a9f6df14%2FUntitled.png?table=block&amp;id=b9533a22-92e3-4b30-bb93-f2ab4e72a714&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<p>在这里可以设置自动改PDF文件名</p>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ffd3ce1d1-f7f6-445d-8721-131ad8956dae%2FUntitled.png?table=block&amp;id=2c56975d-fade-4553-91c5-35d1eda0922a&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<p>配置完成后就把文献全部移动到同步文件夹</p>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fdbf42dcf-d46a-4c46-b298-98880b59c87b%2FUntitled.png?table=block&amp;id=a147792f-d0de-458e-b68b-384914b84125&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<h2 id="设置-坚果云">设置 坚果云</h2>
+<p><code>坚果云</code> : <a href="https://www.jianguoyun.com/">https://www.jianguoyun.com/</a></p>
+<p>注册账号并登录，点击账户信息</p>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ff706a621-5626-40c3-839d-b594d8ae9e88%2FUntitled.png?table=block&amp;id=fb59870d-a44b-432d-8611-45795cd52d50&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<p>点击安全选项，再点击添加应用</p>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb1451b0a-8886-4e0d-b2b3-346cbe578e9f%2FUntitled.png?table=block&amp;id=dbfe0c53-d601-4bcf-9e0a-f570020bb626&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<p>在本地找到之前提到的同步文件夹，右键同步到坚果云</p>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ff045eeaa-7193-4ccb-9ab1-f8170760b9d4%2FUntitled.png?table=block&amp;id=5461b253-66c5-41b7-9f23-ef95439b4749&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<p>同步完成会有标志</p>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F317df796-ef28-4f59-baa6-5eb4d13d77e4%2FUntitled.png?table=block&amp;id=ca27b31d-ed5c-4c1d-a517-f3913457bdfa&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<h2 id="进入pdf-expert">进入PDF Expert</h2>
+<p>添加连接</p>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F55c4c99e-fd72-4377-aff0-e3e613d717b7%2FFF27A5B0-8B08-4EF5-A350-28C2BBB668EF.jpeg?table=block&amp;id=c2e8d985-ffc5-45cf-b161-6434bf85f3c0&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="FF" /><figcaption aria-hidden="true">FF</figcaption>
+</figure>
+<p>输入指定信息</p>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F6bfeea37-ba95-45e6-95db-3f90173ad22e%2FUntitled.png?table=block&amp;id=6bebc5a7-f448-4a7b-8eaf-489258c8517f&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<figure>
+<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F82bbf87f-a0bc-402c-959e-ab4a32891cd4%2FF3D9AC75-96D6-4613-8BAD-8C0118A546A0.jpeg?table=block&amp;id=5bd272f3-17a5-4e20-97cd-f14bd1956960&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="F3D9AC" /><figcaption aria-hidden="true">F3D9AC</figcaption>
+</figure>
+<h2 id="完成">完成</h2>
+<p>完成即可在iPad与pc间同步数据，并且用PDF所做的标注信息也会同步到Zotero!!!</p>
+]]></content>
+      <categories>
+        <category>教程</category>
+      </categories>
+      <tags>
+        <tag>Zotero</tag>
+        <tag>文献管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>为什么时常会感到忐忑</title>
+    <url>/blog/2020/01/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%97%B6%E5%B8%B8%E4%BC%9A%E6%84%9F%E5%88%B0%E5%BF%90%E5%BF%91/</url>
+    <content><![CDATA[<p>不知为何我总会有心慌的感觉，</p>
+<p>夜深时尤为明显</p>
+<p>大概是我太久没有你的消息了</p>
+<p>我们确实是独立的两个人</p>
+<p>我怎么能够这么想你。</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于Numpy和Pytorch中 dot,multiply,@, * 的运算区别</title>
+    <url>/blog/2022/10/18/%E5%85%B3%E4%BA%8ENumpy%E5%92%8CPytorch%E4%B8%AD-dot-multiply-%E7%9A%84%E8%BF%90%E7%AE%97%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h2 id="在-numpy-中">在 <code>Numpy</code> 中：</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.matrix([[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">              [<span class="number">4</span>,<span class="number">5</span>]])</span><br><span class="line">v = np.matrix([[<span class="number">7</span>],</span><br><span class="line">              [<span class="number">8</span>]])</span><br><span class="line"></span><br><span class="line">c = np.dot(a,v) <span class="comment"># 向量点积或矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"></span><br><span class="line">d = np.multiply(a,v) <span class="comment"># 先广播后对位相乘，shape无法广播时报错</span></span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line"></span><br><span class="line">e = a @ v <span class="comment"># 向量点积或矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(e)</span><br><span class="line"></span><br><span class="line">f = a * v <span class="comment"># array：先广播后对位相乘；matrix：矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">[[<span class="number">23</span>]</span><br><span class="line"> [<span class="number">68</span>]]</span><br><span class="line">[[ <span class="number">7</span> <span class="number">14</span>]</span><br><span class="line"> [<span class="number">32</span> <span class="number">40</span>]]</span><br><span class="line">[[<span class="number">23</span>]</span><br><span class="line"> [<span class="number">68</span>]]</span><br><span class="line">[[<span class="number">23</span>]</span><br><span class="line"> [<span class="number">68</span>]]</span><br></pre></td></tr></table></figure>
+<h2 id="在-pytorch-中">在 <code>Pytorch</code> 中：</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = torch.Tensor([[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">              [<span class="number">4</span>,<span class="number">5</span>]])</span><br><span class="line"></span><br><span class="line">v = torch.Tensor([[<span class="number">7</span>],</span><br><span class="line">              [<span class="number">8</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># c = torch.dot(a,v) # 会报错，torch.dot 有意仅支持计算两个具有相同数量元素的 1D 张量的点积</span></span><br><span class="line"><span class="comment"># print(c)</span></span><br><span class="line"></span><br><span class="line">d = torch.multiply(a,v) <span class="comment"># 先广播后对位相乘，shape无法广播时报错</span></span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line"></span><br><span class="line">e = a @ v <span class="comment"># 向量点积或矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(e)</span><br><span class="line"></span><br><span class="line">f = a * v <span class="comment"># 先广播后对位相乘</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">tensor([[ <span class="number">7.</span>, <span class="number">14.</span>],</span><br><span class="line">        [<span class="number">32.</span>, <span class="number">40.</span>]])</span><br><span class="line">tensor([[<span class="number">23.</span>],</span><br><span class="line">        [<span class="number">68.</span>]])</span><br><span class="line">tensor([[ <span class="number">7.</span>, <span class="number">14.</span>],</span><br><span class="line">        [<span class="number">32.</span>, <span class="number">40.</span>]])</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>编程</category>
       </categories>
       <tags>
-        <tag>Servlet</tag>
-        <tag>Java</tag>
+        <tag>Numpy</tag>
+        <tag>Pytorch</tag>
       </tags>
   </entry>
   <entry>
@@ -98,22 +212,6 @@
       </tags>
   </entry>
   <entry>
-    <title>为什么时常会感到忐忑</title>
-    <url>/blog/2020/01/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%97%B6%E5%B8%B8%E4%BC%9A%E6%84%9F%E5%88%B0%E5%BF%90%E5%BF%91/</url>
-    <content><![CDATA[<p>不知为何我总会有心慌的感觉，</p>
-<p>夜深时尤为明显</p>
-<p>大概是我太久没有你的消息了</p>
-<p>我们确实是独立的两个人</p>
-<p>我怎么能够这么想你。</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>你知道我不会有意错过</title>
     <url>/blog/2020/01/22/%E4%BD%A0%E7%9F%A5%E9%81%93%E6%88%91%E4%B8%8D%E4%BC%9A%E6%9C%89%E6%84%8F%E9%94%99%E8%BF%87/</url>
     <content><![CDATA[<p>“昨天我有给你发信息，你没回我哎”</p>
@@ -128,6 +226,22 @@
       </categories>
       <tags>
         <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于商品经济社会与情感归属</title>
+    <url>/blog/2022/05/18/%E5%85%B3%E4%BA%8E%E5%95%86%E5%93%81%E7%BB%8F%E6%B5%8E%E7%A4%BE%E4%BC%9A%E4%B8%8E%E6%83%85%E6%84%9F%E5%BD%92%E5%B1%9E/</url>
+    <content><![CDATA[<h1 id="记">2020-6-28 记</h1>
+<h3 id="想说的很多也不知能否说清">想说的很多，也不知能否说清。</h3>
+<span id="more"></span>
+<p>说来也奇怪可能是昨晚的一个梦让我潜意识里有了对这个问题的铺垫，鬼使神差的今天在<strong>B站</strong>看到的第一个视频就是关于<strong>婚姻</strong>和<strong>孩子</strong>以及<strong>生育</strong>问题的，<code>“生育率逐渐下降的背后的社会问题是什么”``“为什么现在的女生不愿意生孩子”``“婚姻已经不再和爱情相关而是资本融合”</code>，这样标题的视频看似浮夸实际在我看了之后还是觉得有内在道理在其中的，因为确实是有这样的普遍问题并不是无中生有。在我看到视频的创作者客观的在解释生育率降低在未来会给我们带来哪些不好的影响的时候，弹幕里的各种言论 <code>“关我P事”`` “有道理，我还是选择不生”``“你们愿意生自己去生吧” `` “过50年我都不知道在哪，关我什么事”</code> ，我实在的感受到了社会存在的问题。我不想去讨论这些人的言论是否是合理的，又或者他们真实的想法是如何，我想说的是更深层次的原因是什么造成的这样的现状。资本和媒体。<em>21世纪</em>已经是一个媒体无孔不入的年代，任何事情都能在互联网上 以极快的速度传播，虽然带来了时效性，但也意味着它的<strong>煽动性</strong>是可怕的，拿成功来说，不可否认的是成功确实是少数人的经历，也有很多人非常努力勤奋但却依然默默无闻平庸一生，但这也是少数，无良媒体宣扬<code>“在这样的社会金钱是一切”，“你再努力也抵不过富二代的一声爸”</code>，成为了很多喜欢抱怨生活的人的不努力的借口也成为了他口诛笔伐社会的谈资，我从心里觉得这样的人，是废物。这是我们建立在爱情需要功利支持的情况下讨论的，觉得没钱导致了生育率的下降，但穷真的就是本质原因吗，回退40年，上一代的人不比我们条件更差，更穷吗，可生育率一直很高，甚至人民幸福指数也要高得多。 再者，资本。资本把爱情和金钱挂钩，在各种各样的节日把爱物质化宣传成各种各样的商品，<strong>“买XXX代表了你多爱一个人”</strong>，把消费等价于爱情的坚固程度，洗脑了多少年轻的男女，一些女生会以这些为标准而对自己的伴侣提出要求，而一些男生也会主动进行很多消费来达到另一半的内心预期。进一步的功利化了感情这件事。而这还只是恋爱，到了谈婚论嫁更是难以预估的财力的比拼，车，房，彩礼，样样不能少，本来是两个新人幸福的走进人生的新阶段，却变成了两个家庭的经济资产的检测仪，而其实更多的对是男方家庭的要求。这也是低生育率的原因，因为很多人根本没有办法结婚。 这些问题最终只会导致社会的低欲望化，像日本一样，参考《低欲望化的社会》，年轻人已经没有动力再去争取，资本贪婪的欲望最终也会自食其果，因为消费力的下降导致停产倒闭，而这又会带来失业等各种问题，进一步加剧低生育率的问题，这是个恶性循环，就像那个真诚的UP说的一样，在这里提出这些问题并不是想要马上去解决这么大的问题，我也知道可能看到的人也并不Care我说的这些东西，只是希望未来再有人提到这个问题的时候大家能真的重视起来，因为社会太过于庞大，只有大部分人意识到的时候，才能有所改善。</p>
+<p>我自己的想法就是，了解社会问题，建立自己的三观，对于一个正年轻的人来说，如果你想要过上好的日子又没有一个富有的家庭，那么没有任何事情是你不努力不上进的理由，抱怨是不会给你带来好的生活的，表现式的消极和绝望也只会把自己带入深渊。你不相信普通人能成功，你就不会成为那个成功的普通人。</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -161,22 +275,6 @@
       <tags>
         <tag>Flask</tag>
         <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于商品经济社会与情感归属</title>
-    <url>/blog/2022/05/18/%E5%85%B3%E4%BA%8E%E5%95%86%E5%93%81%E7%BB%8F%E6%B5%8E%E7%A4%BE%E4%BC%9A%E4%B8%8E%E6%83%85%E6%84%9F%E5%BD%92%E5%B1%9E/</url>
-    <content><![CDATA[<h1 id="记">2020-6-28 记</h1>
-<h3 id="想说的很多也不知能否说清">想说的很多，也不知能否说清。</h3>
-<span id="more"></span>
-<p>说来也奇怪可能是昨晚的一个梦让我潜意识里有了对这个问题的铺垫，鬼使神差的今天在<strong>B站</strong>看到的第一个视频就是关于<strong>婚姻</strong>和<strong>孩子</strong>以及<strong>生育</strong>问题的，<code>“生育率逐渐下降的背后的社会问题是什么”``“为什么现在的女生不愿意生孩子”``“婚姻已经不再和爱情相关而是资本融合”</code>，这样标题的视频看似浮夸实际在我看了之后还是觉得有内在道理在其中的，因为确实是有这样的普遍问题并不是无中生有。在我看到视频的创作者客观的在解释生育率降低在未来会给我们带来哪些不好的影响的时候，弹幕里的各种言论 <code>“关我P事”`` “有道理，我还是选择不生”``“你们愿意生自己去生吧” `` “过50年我都不知道在哪，关我什么事”</code> ，我实在的感受到了社会存在的问题。我不想去讨论这些人的言论是否是合理的，又或者他们真实的想法是如何，我想说的是更深层次的原因是什么造成的这样的现状。资本和媒体。<em>21世纪</em>已经是一个媒体无孔不入的年代，任何事情都能在互联网上 以极快的速度传播，虽然带来了时效性，但也意味着它的<strong>煽动性</strong>是可怕的，拿成功来说，不可否认的是成功确实是少数人的经历，也有很多人非常努力勤奋但却依然默默无闻平庸一生，但这也是少数，无良媒体宣扬<code>“在这样的社会金钱是一切”，“你再努力也抵不过富二代的一声爸”</code>，成为了很多喜欢抱怨生活的人的不努力的借口也成为了他口诛笔伐社会的谈资，我从心里觉得这样的人，是废物。这是我们建立在爱情需要功利支持的情况下讨论的，觉得没钱导致了生育率的下降，但穷真的就是本质原因吗，回退40年，上一代的人不比我们条件更差，更穷吗，可生育率一直很高，甚至人民幸福指数也要高得多。 再者，资本。资本把爱情和金钱挂钩，在各种各样的节日把爱物质化宣传成各种各样的商品，<strong>“买XXX代表了你多爱一个人”</strong>，把消费等价于爱情的坚固程度，洗脑了多少年轻的男女，一些女生会以这些为标准而对自己的伴侣提出要求，而一些男生也会主动进行很多消费来达到另一半的内心预期。进一步的功利化了感情这件事。而这还只是恋爱，到了谈婚论嫁更是难以预估的财力的比拼，车，房，彩礼，样样不能少，本来是两个新人幸福的走进人生的新阶段，却变成了两个家庭的经济资产的检测仪，而其实更多的对是男方家庭的要求。这也是低生育率的原因，因为很多人根本没有办法结婚。 这些问题最终只会导致社会的低欲望化，像日本一样，参考《低欲望化的社会》，年轻人已经没有动力再去争取，资本贪婪的欲望最终也会自食其果，因为消费力的下降导致停产倒闭，而这又会带来失业等各种问题，进一步加剧低生育率的问题，这是个恶性循环，就像那个真诚的UP说的一样，在这里提出这些问题并不是想要马上去解决这么大的问题，我也知道可能看到的人也并不Care我说的这些东西，只是希望未来再有人提到这个问题的时候大家能真的重视起来，因为社会太过于庞大，只有大部分人意识到的时候，才能有所改善。</p>
-<p>我自己的想法就是，了解社会问题，建立自己的三观，对于一个正年轻的人来说，如果你想要过上好的日子又没有一个富有的家庭，那么没有任何事情是你不努力不上进的理由，抱怨是不会给你带来好的生活的，表现式的消极和绝望也只会把自己带入深渊。你不相信普通人能成功，你就不会成为那个成功的普通人。</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -253,6 +351,21 @@
       </tags>
   </entry>
   <entry>
+    <title>地铁上的旅行</title>
+    <url>/blog/2020/01/25/%E5%9C%B0%E9%93%81%E4%B8%8A%E7%9A%84%E6%97%85%E8%A1%8C/</url>
+    <content><![CDATA[<p>你带我去到最后一节车厢</p>
+<p>我随你安静的坐在那，记不清我们是否交谈过什么</p>
+<p>只记得和你像是在旅行，我们一起共度时间的旅行</p>
+<p>光是和你一起，就已经很让我开心了。</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何变更Git仓库中的默认分支名</title>
     <url>/blog/2022/05/18/%E5%A6%82%E4%BD%95%E5%8F%98%E6%9B%B4Git%E4%BB%93%E5%BA%93%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF%E5%90%8D/</url>
     <content><![CDATA[<p>大致可分为下面几种情况：</p>
@@ -276,21 +389,6 @@
       </categories>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>地铁上的旅行</title>
-    <url>/blog/2020/01/25/%E5%9C%B0%E9%93%81%E4%B8%8A%E7%9A%84%E6%97%85%E8%A1%8C/</url>
-    <content><![CDATA[<p>你带我去到最后一节车厢</p>
-<p>我随你安静的坐在那，记不清我们是否交谈过什么</p>
-<p>只记得和你像是在旅行，我们一起共度时间的旅行</p>
-<p>光是和你一起，就已经很让我开心了。</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
       </tags>
   </entry>
   <entry>
@@ -340,155 +438,10 @@
       </tags>
   </entry>
   <entry>
-    <title>想要</title>
-    <url>/blog/2022/05/18/%E6%83%B3%E8%A6%81/</url>
-    <content><![CDATA[<p>人呐，痛苦就痛苦在他们想要的很多，</p>
-<p>拥有的却很少，而他们的目光又总是向着未拥有的</p>
-<p>“你也总是觉得痛苦吗”，清语也有这些感觉</p>
-<p>“是阿，每天都如此”，小海却是有些平淡的样子</p>
-<p>“那你想要的东西得有多少啊！”,清语有些惊讶</p>
-<p>我看着你的眼睛 “我想要的只一件事而已，”</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>时间长河里的爱意</title>
     <url>/blog/2020/01/18/%E6%97%B6%E9%97%B4%E9%95%BF%E6%B2%B3%E9%87%8C%E7%9A%84%E7%88%B1%E6%84%8F/</url>
     <content><![CDATA[<p>准备开始写一些关于感情的小故事</p>
 <p><strong>故事似真似假，人物似有似无，总归是一种感受，</strong> <strong>也可能这世界上真的有这样的两个人</strong> <strong>我们无从得知</strong> <strong>不妨我们就叫这男孩和女孩，小海和清语吧。</strong></p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>移动端网页点击闪烁问题，以及点击延迟问题</title>
-    <url>/blog/2022/05/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%82%B9%E5%87%BB%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98%EF%BC%8C%E4%BB%A5%E5%8F%8A%E7%82%B9%E5%87%BB%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="点击延迟问题">点击延迟问题</h2>
-<p>因为移动端的浏览器会对用户点击事件有<code>300ms</code>的延时用于检测是否为双击事件</p>
-<p>消除延迟可以通过在 <code>html</code>中添加：</p>
-<p><code>&lt;meta name="viewport" content="width=device-width, initial, minimum-scale=1, maximum-scale=1"&gt;</code></p>
-<blockquote>
-<p>禁止双击缩放操作，这样就能解决延迟问题，不过目前也只是暂时的方案，</p>
-</blockquote>
-<blockquote>
-<p>后续还要等待一个官方的解决方案</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>Web-app</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>给清语的信</title>
-    <url>/blog/2020/01/29/%E7%BB%99%E6%B8%85%E8%AF%AD%E7%9A%84%E4%BF%A1/</url>
-    <content><![CDATA[<p>我们不常互诉爱意，</p>
-<p>可我深知彼此在各自心里的重量，</p>
-<p>人是会变的</p>
-<p>平淡生活里的刺不痛不痒</p>
-<p>可玫瑰色却鲜艳炙热</p>
-<p>“有人曾笃定规划着两个人的未来”</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>美或丑</title>
-    <url>/blog/2020/02/02/%E7%BE%8E%E6%88%96%E4%B8%91/</url>
-    <content><![CDATA[<p>清语，你时常问我你好看吗</p>
-<p>我都会和你说你很好看</p>
-<p>但其实我是分不清的，这是一种很奇妙的感觉</p>
-<p>其他人我能分的出好看与否，</p>
-<p>可我看着你的时候，脑子里都是喜欢和爱</p>
-<p>你就是我喜欢的样子</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>若是末日</title>
-    <url>/blog/2020/02/04/%E8%8B%A5%E6%98%AF%E6%9C%AB%E6%97%A5/</url>
-    <content><![CDATA[<p>“这就是<em>黑云压城城欲摧</em>吗! 这也太吓人~”</p>
-<p>清语从南方来不常见过这般极端</p>
-<p>清晨外面的天空却如夜晚一般，只有远到天边的地方有一丝亮光</p>
-<p>跟清语聊着天的小海看上去目光有些呆滞 “你怎么了小海”，清语有些担心</p>
-<p>“清语我又胡思乱想了，我不常见到这样的极端的天气”</p>
-<p>“想着这若是末日的征兆该怎么办，若是不知道何时突然都毁灭了。”</p>
-<p>清语有认真的在听他说， 小海低着头没有接着说下去，他心里都是对清语的担心</p>
-<p>“你太可爱了，放心吧不会的”。</p>
-<p>你把头转向窗外，我才把头转向你</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>过了许久</title>
-    <url>/blog/2022/05/18/%E8%BF%87%E4%BA%86%E8%AE%B8%E4%B9%85/</url>
-    <content><![CDATA[<p>你曾是个理想主义者</p>
-<p>听过一万个人同你讲述生活的狗血，你都不予在意 <span id="more"></span> 直到它就这么发生了， 你觉得深刻，觉得蜕变，</p>
-<p>你同身边的人一样成为了过往的信徒，传教 成为犬儒或一些精致的利己主义者</p>
-<p>直到有一天你看到了一个熟悉的陌生人</p>
-<p>陌生在他的形象，熟悉在他的追求</p>
-<p>一个有着理想主义的人</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记</title>
-    <url>/blog/2022/05/18/%E8%AE%B0/</url>
-    <content><![CDATA[<p><strong>经济水平</strong>无法满足<strong>物质需求</strong>才叫穷 贪婪的人永远都是穷人</p>
-<p>过剩的物质需求逃不开被消费主义绑架的时间成本消耗，尽可能的减轻物质欲望，</p>
-<p>能让自己节省出很多时间，毕竟在这样一个信息过载的时代想要买到一个货真价实的东西，挑选的时间成本实在是太高了</p>
-<p>这是个倡善的世界，也是个无恶不作的世界，能看到天空，但没人能看透深渊</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>难以释怀</title>
-    <url>/blog/2022/05/18/%E9%9A%BE%E4%BB%A5%E9%87%8A%E6%80%80/</url>
-    <content><![CDATA[<p>在那之后他也遇到过不同的人</p>
-<p>试过新的生活</p>
-<p>可麻烦的是退缩的情绪总是会不合时宜的蔓延 <span id="more"></span> 等再次回到一个人的生活，回顾过往</p>
-<p>只有一个人从未让他改变过内心的感觉</p>
-<p>让他有相伴终生的勇气</p>
-<p>离别时年轻又仓促</p>
-<p>她做了正确的选择</p>
-<p>遗憾的只是他需要用如此大的代价才学会如何爱一个人</p>
-<p>终了也再无瓜葛</p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -520,6 +473,151 @@
       <tags>
         <tag>随笔</tag>
         <tag>读后感</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>想要</title>
+    <url>/blog/2022/05/18/%E6%83%B3%E8%A6%81/</url>
+    <content><![CDATA[<p>人呐，痛苦就痛苦在他们想要的很多，</p>
+<p>拥有的却很少，而他们的目光又总是向着未拥有的</p>
+<p>“你也总是觉得痛苦吗”，清语也有这些感觉</p>
+<p>“是阿，每天都如此”，小海却是有些平淡的样子</p>
+<p>“那你想要的东西得有多少啊！”,清语有些惊讶</p>
+<p>我看着你的眼睛 “我想要的只一件事而已，”</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>移动端网页点击闪烁问题，以及点击延迟问题</title>
+    <url>/blog/2022/05/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%82%B9%E5%87%BB%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98%EF%BC%8C%E4%BB%A5%E5%8F%8A%E7%82%B9%E5%87%BB%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="点击延迟问题">点击延迟问题</h2>
+<p>因为移动端的浏览器会对用户点击事件有<code>300ms</code>的延时用于检测是否为双击事件</p>
+<p>消除延迟可以通过在 <code>html</code>中添加：</p>
+<p><code>&lt;meta name="viewport" content="width=device-width, initial, minimum-scale=1, maximum-scale=1"&gt;</code></p>
+<blockquote>
+<p>禁止双击缩放操作，这样就能解决延迟问题，不过目前也只是暂时的方案，</p>
+</blockquote>
+<blockquote>
+<p>后续还要等待一个官方的解决方案</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>Web-app</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>美或丑</title>
+    <url>/blog/2020/02/02/%E7%BE%8E%E6%88%96%E4%B8%91/</url>
+    <content><![CDATA[<p>清语，你时常问我你好看吗</p>
+<p>我都会和你说你很好看</p>
+<p>但其实我是分不清的，这是一种很奇妙的感觉</p>
+<p>其他人我能分的出好看与否，</p>
+<p>可我看着你的时候，脑子里都是喜欢和爱</p>
+<p>你就是我喜欢的样子</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>给清语的信</title>
+    <url>/blog/2020/01/29/%E7%BB%99%E6%B8%85%E8%AF%AD%E7%9A%84%E4%BF%A1/</url>
+    <content><![CDATA[<p>我们不常互诉爱意，</p>
+<p>可我深知彼此在各自心里的重量，</p>
+<p>人是会变的</p>
+<p>平淡生活里的刺不痛不痒</p>
+<p>可玫瑰色却鲜艳炙热</p>
+<p>“有人曾笃定规划着两个人的未来”</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>若是末日</title>
+    <url>/blog/2020/02/04/%E8%8B%A5%E6%98%AF%E6%9C%AB%E6%97%A5/</url>
+    <content><![CDATA[<p>“这就是<em>黑云压城城欲摧</em>吗! 这也太吓人~”</p>
+<p>清语从南方来不常见过这般极端</p>
+<p>清晨外面的天空却如夜晚一般，只有远到天边的地方有一丝亮光</p>
+<p>跟清语聊着天的小海看上去目光有些呆滞 “你怎么了小海”，清语有些担心</p>
+<p>“清语我又胡思乱想了，我不常见到这样的极端的天气”</p>
+<p>“想着这若是末日的征兆该怎么办，若是不知道何时突然都毁灭了。”</p>
+<p>清语有认真的在听他说， 小海低着头没有接着说下去，他心里都是对清语的担心</p>
+<p>“你太可爱了，放心吧不会的”。</p>
+<p>你把头转向窗外，我才把头转向你</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记</title>
+    <url>/blog/2022/05/18/%E8%AE%B0/</url>
+    <content><![CDATA[<p><strong>经济水平</strong>无法满足<strong>物质需求</strong>才叫穷 贪婪的人永远都是穷人</p>
+<p>过剩的物质需求逃不开被消费主义绑架的时间成本消耗，尽可能的减轻物质欲望，</p>
+<p>能让自己节省出很多时间，毕竟在这样一个信息过载的时代想要买到一个货真价实的东西，挑选的时间成本实在是太高了</p>
+<p>这是个倡善的世界，也是个无恶不作的世界，能看到天空，但没人能看透深渊</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>过了许久</title>
+    <url>/blog/2022/05/18/%E8%BF%87%E4%BA%86%E8%AE%B8%E4%B9%85/</url>
+    <content><![CDATA[<p>你曾是个理想主义者</p>
+<p>听过一万个人同你讲述生活的狗血，你都不予在意 <span id="more"></span> 直到它就这么发生了， 你觉得深刻，觉得蜕变，</p>
+<p>你同身边的人一样成为了过往的信徒，传教 成为犬儒或一些精致的利己主义者</p>
+<p>直到有一天你看到了一个熟悉的陌生人</p>
+<p>陌生在他的形象，熟悉在他的追求</p>
+<p>一个有着理想主义的人</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>难以释怀</title>
+    <url>/blog/2022/05/18/%E9%9A%BE%E4%BB%A5%E9%87%8A%E6%80%80/</url>
+    <content><![CDATA[<p>在那之后他也遇到过不同的人</p>
+<p>试过新的生活</p>
+<p>可麻烦的是退缩的情绪总是会不合时宜的蔓延 <span id="more"></span> 等再次回到一个人的生活，回顾过往</p>
+<p>只有一个人从未让他改变过内心的感觉</p>
+<p>让他有相伴终生的勇气</p>
+<p>离别时年轻又仓促</p>
+<p>她做了正确的选择</p>
+<p>遗憾的只是他需要用如此大的代价才学会如何爱一个人</p>
+<p>终了也再无瓜葛</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
       </tags>
   </entry>
 </search>
