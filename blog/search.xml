@@ -47,21 +47,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Tomcat10以及10版本以前的差异</title>
-    <url>/blog/2022/05/18/Tomcat10%E4%BB%A5%E5%8F%8A10%E7%89%88%E6%9C%AC%E4%BB%A5%E5%89%8D%E7%9A%84%E5%B7%AE%E5%BC%82/</url>
-    <content><![CDATA[<p>导入的<code>jar</code>包的名字有所不同</p>
-<p>10以前的版本 <span id="more"></span> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br></pre></td></tr></table></figure></p>
-<p>10代的版本</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Servlet</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Session配置和使用</title>
     <url>/blog/2022/05/17/Session%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<p>Flask中的session可以通过以下方法来设置 <span id="more"></span> <code>session['username'] = "asdasd"</code></p>
@@ -79,6 +64,21 @@
       </tags>
   </entry>
   <entry>
+    <title>Tomcat10以及10版本以前的差异</title>
+    <url>/blog/2022/05/18/Tomcat10%E4%BB%A5%E5%8F%8A10%E7%89%88%E6%9C%AC%E4%BB%A5%E5%89%8D%E7%9A%84%E5%B7%AE%E5%BC%82/</url>
+    <content><![CDATA[<p>导入的<code>jar</code>包的名字有所不同</p>
+<p>10以前的版本 <span id="more"></span> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br></pre></td></tr></table></figure></p>
+<p>10代的版本</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Servlet</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>zotero+坚果云 +PDF Expert文献管理</title>
     <url>/blog/2022/10/18/zotero-%E5%9D%9A%E6%9E%9C%E4%BA%91-PDF-Expert%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h2 id="准备">准备</h2>
@@ -90,64 +90,64 @@
 <p>点击 <code>编辑</code> &gt; <code>首选项</code> &gt; <code>同步</code></p>
 <p>登录（需要提前注册）Zotero的账户勾选同步</p>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5f290042-c6c5-43e4-b086-c8b9a26b97c5%2FUntitled.png?table=block&amp;id=1d4aa14d-bd8c-451a-8bf6-eac11c68e8a5&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+<img src="Untitled.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
 </figure>
 <p>点击 <code>编辑</code> &gt; <code>首选项</code> &gt; <code>高级</code> &gt; <code>文件和文件夹</code></p>
 <p>设置 <code>根目录</code>用于存放文献同步位置的文件夹，后期用坚果云设置同步</p>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fae0e5ed8-55da-4c1d-9bed-79a1e69f152d%2FUntitled.png?table=block&amp;id=a7ee66c2-9704-411a-b1f0-21b0dd2b5aa9&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+<img src="Untitled%201.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
 </figure>
 <h3 id="安装-zotfile插件">安装 Zotfile插件</h3>
 <p>点击 <code>工具</code> &gt; <code>插件</code> ，点击齿轮图标选择安装插件</p>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fcff76c53-729d-4265-967d-6f8e8f2304fc%2FUntitled.png?table=block&amp;id=7c6ffc8a-b838-4fa1-b38b-b2f5efa30772&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+<img src="Untitled%202.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
 </figure>
 <p>具体插件资源可自行百度</p>
 <h3 id="配置zotfile">配置Zotfile</h3>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fdf051c45-e6ea-4801-826f-b5780c32c821%2FUntitled.png?table=block&amp;id=7773bf6e-24eb-4290-9fde-6d7730c63f51&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+<img src="Untitled%203.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
 </figure>
 <p>上文提到过的用于同步的文件夹，在这里也进行设置</p>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F6f2f302e-6109-4330-9185-b021a9f6df14%2FUntitled.png?table=block&amp;id=b9533a22-92e3-4b30-bb93-f2ab4e72a714&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+<img src="Untitled%204.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
 </figure>
 <p>在这里可以设置自动改PDF文件名</p>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ffd3ce1d1-f7f6-445d-8721-131ad8956dae%2FUntitled.png?table=block&amp;id=2c56975d-fade-4553-91c5-35d1eda0922a&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+<img src="Untitled%205.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
 </figure>
 <p>配置完成后就把文献全部移动到同步文件夹</p>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fdbf42dcf-d46a-4c46-b298-98880b59c87b%2FUntitled.png?table=block&amp;id=a147792f-d0de-458e-b68b-384914b84125&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+<img src="Untitled%206.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
 </figure>
 <h2 id="设置-坚果云">设置 坚果云</h2>
 <p><code>坚果云</code> : <a href="https://www.jianguoyun.com/">https://www.jianguoyun.com/</a></p>
 <p>注册账号并登录，点击账户信息</p>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ff706a621-5626-40c3-839d-b594d8ae9e88%2FUntitled.png?table=block&amp;id=fb59870d-a44b-432d-8611-45795cd52d50&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+<img src="Untitled%207.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
 </figure>
 <p>点击安全选项，再点击添加应用</p>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fb1451b0a-8886-4e0d-b2b3-346cbe578e9f%2FUntitled.png?table=block&amp;id=dbfe0c53-d601-4bcf-9e0a-f570020bb626&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+<img src="Untitled%208.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
 </figure>
 <p>在本地找到之前提到的同步文件夹，右键同步到坚果云</p>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Ff045eeaa-7193-4ccb-9ab1-f8170760b9d4%2FUntitled.png?table=block&amp;id=5461b253-66c5-41b7-9f23-ef95439b4749&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+<img src="Untitled%209.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
 </figure>
 <p>同步完成会有标志</p>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F317df796-ef28-4f59-baa6-5eb4d13d77e4%2FUntitled.png?table=block&amp;id=ca27b31d-ed5c-4c1d-a517-f3913457bdfa&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+<img src="Untitled%2010.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
 </figure>
 <h2 id="进入pdf-expert">进入PDF Expert</h2>
 <p>添加连接</p>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F55c4c99e-fd72-4377-aff0-e3e613d717b7%2FFF27A5B0-8B08-4EF5-A350-28C2BBB668EF.jpeg?table=block&amp;id=c2e8d985-ffc5-45cf-b161-6434bf85f3c0&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="FF" /><figcaption aria-hidden="true">FF</figcaption>
+<img src="FF27A5B0-8B08-4EF5-A350-28C2BBB668EF.jpeg" alt="FF27A5B0-8B08-4EF5-A350-28C2BBB668EF.jpeg"><figcaption aria-hidden="true">FF27A5B0-8B08-4EF5-A350-28C2BBB668EF.jpeg</figcaption>
 </figure>
 <p>输入指定信息</p>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F6bfeea37-ba95-45e6-95db-3f90173ad22e%2FUntitled.png?table=block&amp;id=6bebc5a7-f448-4a7b-8eaf-489258c8517f&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+<img src="Untitled%2011.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
 </figure>
 <figure>
-<img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F82bbf87f-a0bc-402c-959e-ab4a32891cd4%2FF3D9AC75-96D6-4613-8BAD-8C0118A546A0.jpeg?table=block&amp;id=5bd272f3-17a5-4e20-97cd-f14bd1956960&amp;spaceId=b064a57f-0d35-44c6-b3b1-ccd93f29c485&amp;width=2000&amp;userId=26e3e716-774e-403e-8748-5f28e685ce08&amp;cache=v2" alt="F3D9AC" /><figcaption aria-hidden="true">F3D9AC</figcaption>
+<img src="F3D9AC75-96D6-4613-8BAD-8C0118A546A0.jpeg" alt="F3D9AC75-96D6-4613-8BAD-8C0118A546A0.jpeg"><figcaption aria-hidden="true">F3D9AC75-96D6-4613-8BAD-8C0118A546A0.jpeg</figcaption>
 </figure>
 <h2 id="完成">完成</h2>
 <p>完成即可在iPad与pc间同步数据，并且用PDF所做的标注信息也会同步到Zotero!!!</p>
@@ -158,38 +158,6 @@
       <tags>
         <tag>Zotero</tag>
         <tag>文献管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>为什么时常会感到忐忑</title>
-    <url>/blog/2020/01/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%97%B6%E5%B8%B8%E4%BC%9A%E6%84%9F%E5%88%B0%E5%BF%90%E5%BF%91/</url>
-    <content><![CDATA[<p>不知为何我总会有心慌的感觉，</p>
-<p>夜深时尤为明显</p>
-<p>大概是我太久没有你的消息了</p>
-<p>我们确实是独立的两个人</p>
-<p>我怎么能够这么想你。</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于Numpy和Pytorch中 dot,multiply,@, * 的运算区别</title>
-    <url>/blog/2022/10/18/%E5%85%B3%E4%BA%8ENumpy%E5%92%8CPytorch%E4%B8%AD-dot-multiply-%E7%9A%84%E8%BF%90%E7%AE%97%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<h2 id="在-numpy-中">在 <code>Numpy</code> 中：</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.matrix([[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">              [<span class="number">4</span>,<span class="number">5</span>]])</span><br><span class="line">v = np.matrix([[<span class="number">7</span>],</span><br><span class="line">              [<span class="number">8</span>]])</span><br><span class="line"></span><br><span class="line">c = np.dot(a,v) <span class="comment"># 向量点积或矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"></span><br><span class="line">d = np.multiply(a,v) <span class="comment"># 先广播后对位相乘，shape无法广播时报错</span></span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line"></span><br><span class="line">e = a @ v <span class="comment"># 向量点积或矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(e)</span><br><span class="line"></span><br><span class="line">f = a * v <span class="comment"># array：先广播后对位相乘；matrix：矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">[[<span class="number">23</span>]</span><br><span class="line"> [<span class="number">68</span>]]</span><br><span class="line">[[ <span class="number">7</span> <span class="number">14</span>]</span><br><span class="line"> [<span class="number">32</span> <span class="number">40</span>]]</span><br><span class="line">[[<span class="number">23</span>]</span><br><span class="line"> [<span class="number">68</span>]]</span><br><span class="line">[[<span class="number">23</span>]</span><br><span class="line"> [<span class="number">68</span>]]</span><br></pre></td></tr></table></figure>
-<h2 id="在-pytorch-中">在 <code>Pytorch</code> 中：</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = torch.Tensor([[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">              [<span class="number">4</span>,<span class="number">5</span>]])</span><br><span class="line"></span><br><span class="line">v = torch.Tensor([[<span class="number">7</span>],</span><br><span class="line">              [<span class="number">8</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># c = torch.dot(a,v) # 会报错，torch.dot 有意仅支持计算两个具有相同数量元素的 1D 张量的点积</span></span><br><span class="line"><span class="comment"># print(c)</span></span><br><span class="line"></span><br><span class="line">d = torch.multiply(a,v) <span class="comment"># 先广播后对位相乘，shape无法广播时报错</span></span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line"></span><br><span class="line">e = a @ v <span class="comment"># 向量点积或矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(e)</span><br><span class="line"></span><br><span class="line">f = a * v <span class="comment"># 先广播后对位相乘</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">tensor([[ <span class="number">7.</span>, <span class="number">14.</span>],</span><br><span class="line">        [<span class="number">32.</span>, <span class="number">40.</span>]])</span><br><span class="line">tensor([[<span class="number">23.</span>],</span><br><span class="line">        [<span class="number">68.</span>]])</span><br><span class="line">tensor([[ <span class="number">7.</span>, <span class="number">14.</span>],</span><br><span class="line">        [<span class="number">32.</span>, <span class="number">40.</span>]])</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Numpy</tag>
-        <tag>Pytorch</tag>
       </tags>
   </entry>
   <entry>
@@ -212,6 +180,22 @@
       </tags>
   </entry>
   <entry>
+    <title>为什么时常会感到忐忑</title>
+    <url>/blog/2020/01/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%97%B6%E5%B8%B8%E4%BC%9A%E6%84%9F%E5%88%B0%E5%BF%90%E5%BF%91/</url>
+    <content><![CDATA[<p>不知为何我总会有心慌的感觉，</p>
+<p>夜深时尤为明显</p>
+<p>大概是我太久没有你的消息了</p>
+<p>我们确实是独立的两个人</p>
+<p>我怎么能够这么想你。</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>你知道我不会有意错过</title>
     <url>/blog/2020/01/22/%E4%BD%A0%E7%9F%A5%E9%81%93%E6%88%91%E4%B8%8D%E4%BC%9A%E6%9C%89%E6%84%8F%E9%94%99%E8%BF%87/</url>
     <content><![CDATA[<p>“昨天我有给你发信息，你没回我哎”</p>
@@ -226,6 +210,22 @@
       </categories>
       <tags>
         <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于Numpy和Pytorch中 dot,multiply,@, * 的运算区别</title>
+    <url>/blog/2022/10/18/%E5%85%B3%E4%BA%8ENumpy%E5%92%8CPytorch%E4%B8%AD-dot-multiply-%E7%9A%84%E8%BF%90%E7%AE%97%E5%8C%BA%E5%88%AB/</url>
+    <content><![CDATA[<h2 id="在-numpy-中">在 <code>Numpy</code> 中：</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.matrix([[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">              [<span class="number">4</span>,<span class="number">5</span>]])</span><br><span class="line">v = np.matrix([[<span class="number">7</span>],</span><br><span class="line">              [<span class="number">8</span>]])</span><br><span class="line"></span><br><span class="line">c = np.dot(a,v) <span class="comment"># 向量点积或矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"></span><br><span class="line">d = np.multiply(a,v) <span class="comment"># 先广播后对位相乘，shape无法广播时报错</span></span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line"></span><br><span class="line">e = a @ v <span class="comment"># 向量点积或矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(e)</span><br><span class="line"></span><br><span class="line">f = a * v <span class="comment"># array：先广播后对位相乘；matrix：矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">[[<span class="number">23</span>]</span><br><span class="line"> [<span class="number">68</span>]]</span><br><span class="line">[[ <span class="number">7</span> <span class="number">14</span>]</span><br><span class="line"> [<span class="number">32</span> <span class="number">40</span>]]</span><br><span class="line">[[<span class="number">23</span>]</span><br><span class="line"> [<span class="number">68</span>]]</span><br><span class="line">[[<span class="number">23</span>]</span><br><span class="line"> [<span class="number">68</span>]]</span><br></pre></td></tr></table></figure>
+<h2 id="在-pytorch-中">在 <code>Pytorch</code> 中：</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = torch.Tensor([[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">              [<span class="number">4</span>,<span class="number">5</span>]])</span><br><span class="line"></span><br><span class="line">v = torch.Tensor([[<span class="number">7</span>],</span><br><span class="line">              [<span class="number">8</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># c = torch.dot(a,v) # 会报错，torch.dot 有意仅支持计算两个具有相同数量元素的 1D 张量的点积</span></span><br><span class="line"><span class="comment"># print(c)</span></span><br><span class="line"></span><br><span class="line">d = torch.multiply(a,v) <span class="comment"># 先广播后对位相乘，shape无法广播时报错</span></span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line"></span><br><span class="line">e = a @ v <span class="comment"># 向量点积或矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(e)</span><br><span class="line"></span><br><span class="line">f = a * v <span class="comment"># 先广播后对位相乘</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">tensor([[ <span class="number">7.</span>, <span class="number">14.</span>],</span><br><span class="line">        [<span class="number">32.</span>, <span class="number">40.</span>]])</span><br><span class="line">tensor([[<span class="number">23.</span>],</span><br><span class="line">        [<span class="number">68.</span>]])</span><br><span class="line">tensor([[ <span class="number">7.</span>, <span class="number">14.</span>],</span><br><span class="line">        [<span class="number">32.</span>, <span class="number">40.</span>]])</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Numpy</tag>
+        <tag>Pytorch</tag>
       </tags>
   </entry>
   <entry>
@@ -291,7 +291,7 @@
 <h2 id="配置">配置</h2>
 <p><strong>提前看项目结构</strong></p>
 <figure>
-<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/14ee822b-836e-45f2-aa51-3ab828297d8b/Untitled.png" alt="Untitled" /><figcaption aria-hidden="true">Untitled</figcaption>
+<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/14ee822b-836e-45f2-aa51-3ab828297d8b/Untitled.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
 </figure>
 <p><strong>创建项目</strong></p>
 <p>首先在Eclipse新建项目选择<code>Maven Project</code> ，按引导填入包名项目名等，无特殊设置</p>
@@ -300,7 +300,7 @@
 <p>在<code>src/main/java</code> 包下新建<strong>三个文件</strong>和<strong>两个文件夹</strong>，并且在两个文件夹下也新建如下文件</p>
 <p>文件结构</p>
 <figure>
-<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/45cde72c-eb0b-4664-b58b-e3be8dd49a68/Untitled.png" alt="文件结构" /><figcaption aria-hidden="true">文件结构</figcaption>
+<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/45cde72c-eb0b-4664-b58b-e3be8dd49a68/Untitled.png" alt="文件结构"><figcaption aria-hidden="true">文件结构</figcaption>
 </figure>
 <p>文件结构</p>
 <p>其中<strong><code>configuration.xml</code></strong> 是最重要的Mybatis配置文件，<strong><code>db.properties</code></strong> 为数据库的配置信息文件</p>
@@ -320,7 +320,7 @@
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">mapper</span>   </span></span><br><span class="line"><span class="meta"><span class="keyword">PUBLIC</span> <span class="string">&quot;-//ibatis.apache.org//DTD Mapper 3.0//EN&quot;</span>  </span></span><br><span class="line"><span class="meta"><span class="string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">&quot;cn.mydb.dao.StudentDao&quot;</span>&gt;</span></span><br><span class="line">  	<span class="comment">&lt;!-- 数据库选择映射 --&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findStudentBySno&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;java.lang.String&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;cn.mydb.entity.Student&quot;</span>&gt;</span></span><br><span class="line">  		select * from student where Sno = #&#123;0&#125;</span><br><span class="line">  	<span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  	<span class="comment">&lt;!-- 数据库插入映射 --&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">&quot;addUser&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;cn.mydb.entity.Student&quot;</span> <span class="attr">useGeneratedKeys</span>=<span class="string">&quot;true&quot;</span> <span class="attr">keyProperty</span>=<span class="string">&quot;id&quot;</span>&gt;</span></span><br><span class="line">		insert into student(Sno,Sname) values(#&#123;Sno&#125;,#&#123;Sname&#125;)</span><br><span class="line">	<span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- 数据库删除映射 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">delete</span> <span class="attr">id</span>=<span class="string">&quot;deleteUser&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;java.lang.String&quot;</span>&gt;</span></span><br><span class="line">		delete from student where Sno = #&#123;0&#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">delete</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- 数据库更新映射 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">update</span> <span class="attr">id</span>=<span class="string">&quot;updateUser&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;cn.mydb.entity.Student&quot;</span>&gt;</span></span><br><span class="line">		update student set Sname = #&#123;Sname&#125; where Sno = #&#123;Sno&#125;</span><br><span class="line">	<span class="tag">&lt;/<span class="name">update</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这个映射文件是跟你的<strong>实体映射接口</strong>所对应的，可以对比来了解里面各个参数的意义，或查询官方文档</p>
 <p>到此我们服务端的部分就编写完成了</p>
-<hr />
+<hr>
 <h1 id="测试">测试</h1>
 <p>我们引入了一个用于单元测试的包<code>Junit</code> 前面已经在Maven里导入了。我们直接编写一个单元测试类</p>
 <p><strong><code>StudentDaoTest.java</code></strong></p>
@@ -366,6 +366,21 @@
       </tags>
   </entry>
   <entry>
+    <title>多版本Python中对pip包的管理</title>
+    <url>/blog/2022/05/18/%E5%A4%9A%E7%89%88%E6%9C%ACPython%E4%B8%AD%E5%AF%B9pip%E5%8C%85%E7%9A%84%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p>在多个版本Python共存的系统环境中，如果在终端中直接使用 <code>pip install xxx</code> ,默认会安装到你的默认Python版本当中，如果想在不同的Python中安装pip包，则需要在前缀加上对应路径</p>
+<p>比如在终端中输入：</p>
+<p>PS E:_Doc&gt; <code>E:\Anaconda3\python.exe -m pip xxxx</code></p>
+<p><code>E:\Anaconda3\python.exe</code> 是你想安装版本的路径，<code>-m</code> 是设置主程序，剩下的就如正常的安装代码一样了</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何变更Git仓库中的默认分支名</title>
     <url>/blog/2022/05/18/%E5%A6%82%E4%BD%95%E5%8F%98%E6%9B%B4Git%E4%BB%93%E5%BA%93%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%88%86%E6%94%AF%E5%90%8D/</url>
     <content><![CDATA[<p>大致可分为下面几种情况：</p>
@@ -389,21 +404,6 @@
       </categories>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>多版本Python中对pip包的管理</title>
-    <url>/blog/2022/05/18/%E5%A4%9A%E7%89%88%E6%9C%ACPython%E4%B8%AD%E5%AF%B9pip%E5%8C%85%E7%9A%84%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<p>在多个版本Python共存的系统环境中，如果在终端中直接使用 <code>pip install xxx</code> ,默认会安装到你的默认Python版本当中，如果想在不同的Python中安装pip包，则需要在前缀加上对应路径</p>
-<p>比如在终端中输入：</p>
-<p>PS E:_Doc&gt; <code>E:\Anaconda3\python.exe -m pip xxxx</code></p>
-<p><code>E:\Anaconda3\python.exe</code> 是你想安装版本的路径，<code>-m</code> 是设置主程序，剩下的就如正常的安装代码一样了</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -438,10 +438,14 @@
       </tags>
   </entry>
   <entry>
-    <title>时间长河里的爱意</title>
-    <url>/blog/2020/01/18/%E6%97%B6%E9%97%B4%E9%95%BF%E6%B2%B3%E9%87%8C%E7%9A%84%E7%88%B1%E6%84%8F/</url>
-    <content><![CDATA[<p>准备开始写一些关于感情的小故事</p>
-<p><strong>故事似真似假，人物似有似无，总归是一种感受，</strong> <strong>也可能这世界上真的有这样的两个人</strong> <strong>我们无从得知</strong> <strong>不妨我们就叫这男孩和女孩，小海和清语吧。</strong></p>
+    <title>想要</title>
+    <url>/blog/2022/05/18/%E6%83%B3%E8%A6%81/</url>
+    <content><![CDATA[<p>人呐，痛苦就痛苦在他们想要的很多，</p>
+<p>拥有的却很少，而他们的目光又总是向着未拥有的</p>
+<p>“你也总是觉得痛苦吗”，清语也有这些感觉</p>
+<p>“是阿，每天都如此”，小海却是有些平淡的样子</p>
+<p>“那你想要的东西得有多少啊！”,清语有些惊讶</p>
+<p>我看着你的眼睛 “我想要的只一件事而已，”</p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -476,14 +480,10 @@
       </tags>
   </entry>
   <entry>
-    <title>想要</title>
-    <url>/blog/2022/05/18/%E6%83%B3%E8%A6%81/</url>
-    <content><![CDATA[<p>人呐，痛苦就痛苦在他们想要的很多，</p>
-<p>拥有的却很少，而他们的目光又总是向着未拥有的</p>
-<p>“你也总是觉得痛苦吗”，清语也有这些感觉</p>
-<p>“是阿，每天都如此”，小海却是有些平淡的样子</p>
-<p>“那你想要的东西得有多少啊！”,清语有些惊讶</p>
-<p>我看着你的眼睛 “我想要的只一件事而已，”</p>
+    <title>时间长河里的爱意</title>
+    <url>/blog/2020/01/18/%E6%97%B6%E9%97%B4%E9%95%BF%E6%B2%B3%E9%87%8C%E7%9A%84%E7%88%B1%E6%84%8F/</url>
+    <content><![CDATA[<p>准备开始写一些关于感情的小故事</p>
+<p><strong>故事似真似假，人物似有似无，总归是一种感受，</strong> <strong>也可能这世界上真的有这样的两个人</strong> <strong>我们无从得知</strong> <strong>不妨我们就叫这男孩和女孩，小海和清语吧。</strong></p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -515,14 +515,14 @@
       </tags>
   </entry>
   <entry>
-    <title>美或丑</title>
-    <url>/blog/2020/02/02/%E7%BE%8E%E6%88%96%E4%B8%91/</url>
-    <content><![CDATA[<p>清语，你时常问我你好看吗</p>
-<p>我都会和你说你很好看</p>
-<p>但其实我是分不清的，这是一种很奇妙的感觉</p>
-<p>其他人我能分的出好看与否，</p>
-<p>可我看着你的时候，脑子里都是喜欢和爱</p>
-<p>你就是我喜欢的样子</p>
+    <title>给清语的信</title>
+    <url>/blog/2020/01/29/%E7%BB%99%E6%B8%85%E8%AF%AD%E7%9A%84%E4%BF%A1/</url>
+    <content><![CDATA[<p>我们不常互诉爱意，</p>
+<p>可我深知彼此在各自心里的重量，</p>
+<p>人是会变的</p>
+<p>平淡生活里的刺不痛不痒</p>
+<p>可玫瑰色却鲜艳炙热</p>
+<p>“有人曾笃定规划着两个人的未来”</p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -532,14 +532,14 @@
       </tags>
   </entry>
   <entry>
-    <title>给清语的信</title>
-    <url>/blog/2020/01/29/%E7%BB%99%E6%B8%85%E8%AF%AD%E7%9A%84%E4%BF%A1/</url>
-    <content><![CDATA[<p>我们不常互诉爱意，</p>
-<p>可我深知彼此在各自心里的重量，</p>
-<p>人是会变的</p>
-<p>平淡生活里的刺不痛不痒</p>
-<p>可玫瑰色却鲜艳炙热</p>
-<p>“有人曾笃定规划着两个人的未来”</p>
+    <title>美或丑</title>
+    <url>/blog/2020/02/02/%E7%BE%8E%E6%88%96%E4%B8%91/</url>
+    <content><![CDATA[<p>清语，你时常问我你好看吗</p>
+<p>我都会和你说你很好看</p>
+<p>但其实我是分不清的，这是一种很奇妙的感觉</p>
+<p>其他人我能分的出好看与否，</p>
+<p>可我看着你的时候，脑子里都是喜欢和爱</p>
+<p>你就是我喜欢的样子</p>
 ]]></content>
       <categories>
         <category>杂文</category>
