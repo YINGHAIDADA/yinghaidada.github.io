@@ -1,20 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Flask文件下载关于解决中文名的问题</title>
-    <url>/blog/2022/05/17/Flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>在Flask提供的服务端向客户端发送其请求文件存在中文名文件会报错的问题，主要是编码不对造成，</p>
-<p>可以尝试用以下方法解决,用<code>GET</code> 方法请求文件 <span id="more"></span> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;url&#x27;</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#文件路径，可以是相对路径</span></span><br><span class="line">    FILE_PATH = <span class="string">&quot;temp/&quot;</span> + <span class="built_in">str</span>(no) + <span class="string">&quot;/&quot;</span></span><br><span class="line">    <span class="comment">#文件名，如果确定的话可以直接用字符串赋值，此处动态获取</span></span><br><span class="line">    filename = fm.GetFileFromThisRootDir(FILE_PATH, <span class="string">&#x27;mp4&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(filename)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">&#x27;/resource&#x27;</span>)</span><br><span class="line">    filename=filename[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(filename[<span class="number">0</span>])</span><br><span class="line">    <span class="comment">#制作返回头，用Content-Disposition解决编码问题</span></span><br><span class="line">    response = make_response(send_file(filename))</span><br><span class="line">    basename = os.path.basename(filename)</span><br><span class="line">    response.headers[<span class="string">&quot;Content-Disposition&quot;</span>] = \</span><br><span class="line">        <span class="string">&quot;attachment;&quot;</span> \</span><br><span class="line">        <span class="string">&quot;filename*=UTF-8&#x27;&#x27;&#123;utf_filename&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">            utf_filename=quote(basename.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Flask</tag>
-        <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Flask静态资源缓存更新问题</title>
     <url>/blog/2022/05/17/Flask%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h3 id="flask静态资源缓存更新">Flask静态资源缓存更新</h3>
@@ -29,6 +15,20 @@
       <tags>
         <tag>Flask</tag>
         <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flask文件下载关于解决中文名的问题</title>
+    <url>/blog/2022/05/17/Flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>在Flask提供的服务端向客户端发送其请求文件存在中文名文件会报错的问题，主要是编码不对造成，</p>
+<p>可以尝试用以下方法解决,用<code>GET</code> 方法请求文件 <span id="more"></span> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;url&#x27;</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#文件路径，可以是相对路径</span></span><br><span class="line">    FILE_PATH = <span class="string">&quot;temp/&quot;</span> + <span class="built_in">str</span>(no) + <span class="string">&quot;/&quot;</span></span><br><span class="line">    <span class="comment">#文件名，如果确定的话可以直接用字符串赋值，此处动态获取</span></span><br><span class="line">    filename = fm.GetFileFromThisRootDir(FILE_PATH, <span class="string">&#x27;mp4&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(filename)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">&#x27;/resource&#x27;</span>)</span><br><span class="line">    filename=filename[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(filename[<span class="number">0</span>])</span><br><span class="line">    <span class="comment">#制作返回头，用Content-Disposition解决编码问题</span></span><br><span class="line">    response = make_response(send_file(filename))</span><br><span class="line">    basename = os.path.basename(filename)</span><br><span class="line">    response.headers[<span class="string">&quot;Content-Disposition&quot;</span>] = \</span><br><span class="line">        <span class="string">&quot;attachment;&quot;</span> \</span><br><span class="line">        <span class="string">&quot;filename*=UTF-8&#x27;&#x27;&#123;utf_filename&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">            utf_filename=quote(basename.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Flask</tag>
+        <tag>后端</tag>
       </tags>
   </entry>
   <entry>
@@ -85,8 +85,9 @@
 <p>安装 <code>Zotero</code> 以及 <code>坚果云</code> 客户端到电脑</p>
 <blockquote>
 <p><code>Zotero</code> : <a href="https://www.zotero.org/">https://www.zotero.org/</a> <code>坚果云</code> : <a href="https://www.jianguoyun.com/">https://www.jianguoyun.com/</a></p>
-</blockquote>
+<span id="more"></span>
 <h2 id="设置-zotero">设置 Zotero</h2>
+</blockquote>
 <p>点击 <code>编辑</code> &gt; <code>首选项</code> &gt; <code>同步</code></p>
 <p>登录（需要提前注册）Zotero的账户勾选同步</p>
 <figure>
@@ -351,21 +352,6 @@
       </tags>
   </entry>
   <entry>
-    <title>地铁上的旅行</title>
-    <url>/blog/2020/01/25/%E5%9C%B0%E9%93%81%E4%B8%8A%E7%9A%84%E6%97%85%E8%A1%8C/</url>
-    <content><![CDATA[<p>你带我去到最后一节车厢</p>
-<p>我随你安静的坐在那，记不清我们是否交谈过什么</p>
-<p>只记得和你像是在旅行，我们一起共度时间的旅行</p>
-<p>光是和你一起，就已经很让我开心了。</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>多版本Python中对pip包的管理</title>
     <url>/blog/2022/05/18/%E5%A4%9A%E7%89%88%E6%9C%ACPython%E4%B8%AD%E5%AF%B9pip%E5%8C%85%E7%9A%84%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<p>在多个版本Python共存的系统环境中，如果在终端中直接使用 <code>pip install xxx</code> ,默认会安装到你的默认Python版本当中，如果想在不同的Python中安装pip包，则需要在前缀加上对应路径</p>
@@ -378,6 +364,21 @@
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>地铁上的旅行</title>
+    <url>/blog/2020/01/25/%E5%9C%B0%E9%93%81%E4%B8%8A%E7%9A%84%E6%97%85%E8%A1%8C/</url>
+    <content><![CDATA[<p>你带我去到最后一节车厢</p>
+<p>我随你安静的坐在那，记不清我们是否交谈过什么</p>
+<p>只记得和你像是在旅行，我们一起共度时间的旅行</p>
+<p>光是和你一起，就已经很让我开心了。</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
       </tags>
   </entry>
   <entry>
@@ -438,23 +439,6 @@
       </tags>
   </entry>
   <entry>
-    <title>想要</title>
-    <url>/blog/2022/05/18/%E6%83%B3%E8%A6%81/</url>
-    <content><![CDATA[<p>人呐，痛苦就痛苦在他们想要的很多，</p>
-<p>拥有的却很少，而他们的目光又总是向着未拥有的</p>
-<p>“你也总是觉得痛苦吗”，清语也有这些感觉</p>
-<p>“是阿，每天都如此”，小海却是有些平淡的样子</p>
-<p>“那你想要的东西得有多少啊！”,清语有些惊讶</p>
-<p>我看着你的眼睛 “我想要的只一件事而已，”</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>恶意-读后随笔</title>
     <url>/blog/2022/06/06/%E6%81%B6%E6%84%8F-%E8%AF%BB%E5%90%8E%E9%9A%8F%E7%AC%94/</url>
     <content><![CDATA[<h3 id="在感叹作者对感知力和人性的把握如此细致的同时我也想表达对这少数存在的极端恶意的无奈"><strong><em>在感叹作者对感知力和人性的把握如此细致的同时，我也想表达对这少数存在的极端恶意的无奈。</em></strong></h3>
@@ -477,6 +461,23 @@
       <tags>
         <tag>随笔</tag>
         <tag>读后感</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>想要</title>
+    <url>/blog/2022/05/18/%E6%83%B3%E8%A6%81/</url>
+    <content><![CDATA[<p>人呐，痛苦就痛苦在他们想要的很多，</p>
+<p>拥有的却很少，而他们的目光又总是向着未拥有的</p>
+<p>“你也总是觉得痛苦吗”，清语也有这些感觉</p>
+<p>“是阿，每天都如此”，小海却是有些平淡的样子</p>
+<p>“那你想要的东西得有多少啊！”,清语有些惊讶</p>
+<p>我看着你的眼睛 “我想要的只一件事而已，”</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
       </tags>
   </entry>
   <entry>
