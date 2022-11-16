@@ -249,7 +249,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>271</span>
+              <span>297</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -268,11 +268,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Flask中的session可以通过以下方法来设置 <span id="more"></span> <code>session['username'] = "asdasd"</code></p>
+        <p>Flask中的session可以通过以下方法来设置</p>
+<span id="more"></span>
+<p><code>session[&#39;username&#39;] = &quot;asdasd&quot;</code></p>
 <p>同时也可以通过设置过期时间来限制Session有效时长</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">session.permanent = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">app.permanent_session_lifetime = timedelta(seconds=<span class="number">10</span>) <span class="comment">#时间也可以为 days minutes</span></span><br></pre></td></tr></table></figure>
+
 <p>同时也可以全局配置失效时长，不过我个人未测试成功，只能用上面方法实现</p>
-<p><code>app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(seconds=10)</code></p>
+<p><code>app.config[&#39;PERMANENT_SESSION_LIFETIME&#39;] = timedelta(seconds=10)</code></p>
 
     </div>
 
@@ -374,20 +377,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/blog/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
