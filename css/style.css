@@ -83,7 +83,7 @@ html, body, .page {
 }
 
 #menu{
-  height: 340px;
+  height: 400px;
   width: 100px;
   border-radius: 20px;
   margin-left: 3%;
@@ -123,7 +123,7 @@ html, body, .page {
   left: 0;
 }
 
-#p2, #p3, #p4, #p5 {
+#p2, #p3, #p4, #p5, #p6 {
   left: 200%;
   background: linear-gradient(
     135deg,
@@ -141,7 +141,8 @@ html, body, .page {
 #t2:target #p2,
 #t3:target #p3,
 #t4:target #p4,
-#t5:target #p5 {
+#t5:target #p5,
+#t6:target #p6 {
   transform: translateX(-190%);
   -webkit-transform: translateX(-190%);
   -moz-transform: translateX(-190%);
@@ -152,14 +153,16 @@ html, body, .page {
 #t2:target #p1, 
 #t3:target #p1,
 #t4:target #p1,
-#t5:target #p1{
+#t5:target #p1,
+#t6:target #p1 {
   background: #222;
 }
 
 #t2:target #p1 .icon, 
 #t3:target #p1 .icon,
 #t4:target #p1 .icon,
-#t5:target #p1 .icon {
+#t5:target #p1 .icon,
+#t6:target #p1 .icon {
   -webkit-filter: blur(3px);
 }
 
@@ -180,7 +183,8 @@ ul .icon:hover {
 #t2:target ul .icon,
 #t3:target ul .icon,
 #t4:target ul .icon,
-#t5:target ul .icon{
+#t5:target ul .icon,
+#t6:target ul .icon {
   transform: scale(.6);
   -webkit-transform: scale(.6);
   -moz-transform: scale(.6);
@@ -192,7 +196,8 @@ ul .icon:hover {
 #t2:target #blog,
 #t3:target #project,
 #t4:target #art,
-#t5:target #more {
+#t5:target #camera,
+#t6:target #more {
   transform: scale(1.2) !important;
   -webkit-transform: scale(1.2) !important;
   -moz-transform: scale(1.2) !important;
@@ -292,7 +297,8 @@ a {
 #t2:target .page#p2 .icon,
 #t3:target .page#p3 .icon,
 #t4:target .page#p4 .icon,
-#t5:target .page#p5 .icon {
+#t5:target .page#p5 .icon,
+#t6:target .page#p6 .icon {
   transform: translateX(0) !important;
   -webkit-transform: translateX(0) !important;
   -moz-transform: translateX(0) !important;
