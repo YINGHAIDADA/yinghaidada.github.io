@@ -196,6 +196,96 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yinghaidada.github.io/blog/2022/05/18/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACMySQL%E5%85%B1%E5%AD%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/custom-logo.png">
+      <meta itemprop="name" content="YINGHAI">
+      <meta itemprop="description" content="yinghai blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="YINGHAI的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/blog/2022/05/18/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACMySQL%E5%85%B1%E5%AD%98/" class="post-title-link" itemprop="url">不同版本MySQL共存</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-05-18 16:05:22 / 修改时间：16:06:08" itemprop="dateCreated datePublished" datetime="2022-05-18T16:05:22+08:00">2022-05-18</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/blog/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>为了不同版本的<code>mysql</code>共存，需要配置不同的<code>端口号</code>，</p>
+<p>使用命令时也要区分在不同的<code>bin</code>位置下运行命令</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/blog/2022/05/18/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACMySQL%E5%85%B1%E5%AD%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://yinghaidada.github.io/blog/2022/05/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%82%B9%E5%87%BB%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98%EF%BC%8C%E4%BB%A5%E5%8F%8A%E7%82%B9%E5%87%BB%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -239,7 +329,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>223</span>
+              <span>203</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,9 +348,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="点击延迟问题"><a href="#点击延迟问题" class="headerlink" title="点击延迟问题"></a>点击延迟问题</h2><p>因为移动端的浏览器会对用户点击事件有<code>300ms</code>的延时用于检测是否为双击事件</p>
+          <h2 id="点击延迟问题">点击延迟问题</h2>
+<p>因为移动端的浏览器会对用户点击事件有<code>300ms</code>的延时用于检测是否为双击事件</p>
 <p>消除延迟可以通过在 <code>html</code>中添加：</p>
-<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial, minimum-scale=1, maximum-scale=1&quot;&gt;</code></p>
+<p><code>&lt;meta name="viewport" content="width=device-width, initial, minimum-scale=1, maximum-scale=1"&gt;</code></p>
 <blockquote>
 <p>禁止双击缩放操作，这样就能解决延迟问题，不过目前也只是暂时的方案，</p>
 </blockquote>
@@ -439,7 +530,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>由于我第一次尝试构建Flask服务器，没有意识到静态资源的加载方式有些许不同<br>普通的静态加载方式如 <code>images/b1.png</code></p>
+          <p>由于我第一次尝试构建Flask服务器，没有意识到静态资源的加载方式有些许不同 普通的静态加载方式如 <code>images/b1.png</code></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/blog/2022/05/17/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%9C%A8Flask%E4%B8%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98/#more" rel="contents">
@@ -515,7 +606,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>297</span>
+              <span>271</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -538,102 +629,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/blog/2022/05/17/Session%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yinghaidada.github.io/blog/2022/05/17/Flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/blog/images/custom-logo.png">
-      <meta itemprop="name" content="YINGHAI">
-      <meta itemprop="description" content="yinghai blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="YINGHAI的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/blog/2022/05/17/Flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">Flask文件下载关于解决中文名的问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-05-17 23:16:05" itemprop="dateCreated datePublished" datetime="2022-05-17T23:16:05+08:00">2022-05-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-05-18 15:28:17" itemprop="dateModified" datetime="2022-05-18T15:28:17+08:00">2022-05-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/blog/categories/%E7%BC%96%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">编程</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>752</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>在Flask提供的服务端向客户端发送其请求文件存在中文名文件会报错的问题，主要是编码不对造成，</p>
-<p>可以尝试用以下方法解决,用<code>GET</code> 方法请求文件</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/blog/2022/05/17/Flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -724,7 +719,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">31</span>
+          <span class="site-state-item-count">32</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -772,7 +767,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2022</span>
+  <span itemprop="copyrightYear">2023</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
