@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"yinghaidada.github.io","root":"/blog/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="点击延迟问题 因为移动端的浏览器会对用户点击事件有300ms的延时用于检测是否为双击事件 消除延迟可以通过在 html中添加： &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial, minimum-scale&#x3D;1, maximum-scale&#x3D;1&quot;&gt;  禁止双击缩放操作，这样就能解决延迟问题，不过目前也只是暂时">
+  <meta name="description" content="点击延迟问题 因为移动端的浏览器会对用户点击事件有300ms的延时用于检测是否为双击事件 消除延迟可以通过在 html中添加： &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial, minimum-scale&#x3D;1, maximum-scale&#x3D;1&quot;&gt;  禁止双击缩放操作，这样就能">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端网页点击闪烁问题，以及点击延迟问题">
 <meta property="og:url" content="https://yinghaidada.github.io/blog/2022/05/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%82%B9%E5%87%BB%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98%EF%BC%8C%E4%BB%A5%E5%8F%8A%E7%82%B9%E5%87%BB%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="YINGHAI的博客">
-<meta property="og:description" content="点击延迟问题 因为移动端的浏览器会对用户点击事件有300ms的延时用于检测是否为双击事件 消除延迟可以通过在 html中添加： &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial, minimum-scale&#x3D;1, maximum-scale&#x3D;1&quot;&gt;  禁止双击缩放操作，这样就能解决延迟问题，不过目前也只是暂时">
+<meta property="og:description" content="点击延迟问题 因为移动端的浏览器会对用户点击事件有300ms的延时用于检测是否为双击事件 消除延迟可以通过在 html中添加： &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, initial, minimum-scale&#x3D;1, maximum-scale&#x3D;1&quot;&gt;  禁止双击缩放操作，这样就能">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-18T08:04:04.000Z">
-<meta property="article:modified_time" content="2022-05-18T08:16:08.137Z">
+<meta property="article:modified_time" content="2023-10-27T04:56:58.415Z">
 <meta property="article:author" content="YINGHAI">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="Web-app">
@@ -223,10 +223,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-05-18 16:04:04 / 修改时间：16:16:08" itemprop="dateCreated datePublished" datetime="2022-05-18T16:04:04+08:00">2022-05-18</time>
+              <time title="创建时间：2022-05-18 16:04:04" itemprop="dateCreated datePublished" datetime="2022-05-18T16:04:04+08:00">2022-05-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-27 12:56:58" itemprop="dateModified" datetime="2023-10-27T12:56:58+08:00">2023-10-27</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -243,7 +249,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>203</span>
+              <span>223</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -262,10 +268,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="点击延迟问题">点击延迟问题</h2>
+        <h2 id="点击延迟问题"><a class="markdownIt-Anchor" href="#点击延迟问题"></a> 点击延迟问题</h2>
 <p>因为移动端的浏览器会对用户点击事件有<code>300ms</code>的延时用于检测是否为双击事件</p>
 <p>消除延迟可以通过在 <code>html</code>中添加：</p>
-<p><code>&lt;meta name="viewport" content="width=device-width, initial, minimum-scale=1, maximum-scale=1"&gt;</code></p>
+<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial, minimum-scale=1, maximum-scale=1&quot;&gt;</code></p>
 <blockquote>
 <p>禁止双击缩放操作，这样就能解决延迟问题，不过目前也只是暂时的方案，</p>
 </blockquote>
@@ -358,7 +364,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%B9%E5%87%BB%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">点击延迟问题</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%B9%E5%87%BB%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text"> 点击延迟问题</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -374,7 +380,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -387,7 +393,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/blog/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -422,7 +428,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

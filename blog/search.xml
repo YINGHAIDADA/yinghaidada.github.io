@@ -1,27 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Flask文件下载关于解决中文名的问题</title>
-    <url>/blog/2022/05/17/Flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>在Flask提供的服务端向客户端发送其请求文件存在中文名文件会报错的问题，主要是编码不对造成，</p>
-<p>可以尝试用以下方法解决,用<code>GET</code> 方法请求文件 <span id="more"></span> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;url&#x27;</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#文件路径，可以是相对路径</span></span><br><span class="line">    FILE_PATH = <span class="string">&quot;temp/&quot;</span> + <span class="built_in">str</span>(no) + <span class="string">&quot;/&quot;</span></span><br><span class="line">    <span class="comment">#文件名，如果确定的话可以直接用字符串赋值，此处动态获取</span></span><br><span class="line">    filename = fm.GetFileFromThisRootDir(FILE_PATH, <span class="string">&#x27;mp4&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(filename)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">&#x27;/resource&#x27;</span>)</span><br><span class="line">    filename=filename[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(filename[<span class="number">0</span>])</span><br><span class="line">    <span class="comment">#制作返回头，用Content-Disposition解决编码问题</span></span><br><span class="line">    response = make_response(send_file(filename))</span><br><span class="line">    basename = os.path.basename(filename)</span><br><span class="line">    response.headers[<span class="string">&quot;Content-Disposition&quot;</span>] = \</span><br><span class="line">        <span class="string">&quot;attachment;&quot;</span> \</span><br><span class="line">        <span class="string">&quot;filename*=UTF-8&#x27;&#x27;&#123;utf_filename&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">            utf_filename=quote(basename.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure></p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Flask</tag>
-        <tag>后端</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Flask静态资源缓存更新问题</title>
     <url>/blog/2022/05/17/Flask%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%BC%93%E5%AD%98%E6%9B%B4%E6%96%B0%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h3 id="flask静态资源缓存更新">Flask静态资源缓存更新</h3>
-<p>需要在配置中添加 <span id="more"></span></p>
+    <content><![CDATA[<h3 id="flask静态资源缓存更新"><a class="markdownIt-Anchor" href="#flask静态资源缓存更新"></a> Flask静态资源缓存更新</h3>
+<p>需要在配置中添加</p>
+<span id="more"></span>
 <p><code>app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)</code></p>
 <p>配置选项，其作用是每一秒刷新一次缓存</p>
-<h3 id="ps为了使其生效要先手动清理一次浏览器缓存">PS：为了使其生效，要先手动清理一次浏览器缓存</h3>
+<h3 id="ps为了使其生效要先手动清理一次浏览器缓存"><a class="markdownIt-Anchor" href="#ps为了使其生效要先手动清理一次浏览器缓存"></a> PS：为了使其生效，要先手动清理一次浏览器缓存</h3>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -32,9 +19,88 @@
       </tags>
   </entry>
   <entry>
+    <title>Git常用操作</title>
+    <url>/blog/2022/05/18/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<p>关于Git操作的常用指令</p>
+<span id="more"></span>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--</span>初始化仓库</span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> 初始分支名</span><br><span class="line"><span class="literal">--</span>添加暂存文件</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line"><span class="literal">--</span>提交暂存文件</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;提交消息&quot;</span></span><br><span class="line"><span class="literal">--</span>设置远程仓库地址</span><br><span class="line"><span class="variable">$</span> git remote add origin git@github.com:username/xxx.git</span><br><span class="line"><span class="literal">--</span>拉取远程仓库到本地</span><br><span class="line"><span class="variable">$</span> git pull origin 分支名</span><br><span class="line"><span class="literal">--</span>推送本地提交到远程仓库</span><br><span class="line"><span class="variable">$</span> git push origin 本地分支名:远程分支名</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>克隆仓库</span><br><span class="line"><span class="variable">$</span> git clone xxxx@git</span><br><span class="line"><span class="variable">$</span> git fetch   `拉取远端分支信息`</span><br><span class="line"><span class="literal">--</span>设置或删除跟踪仓库的HEAD,指向指定分支,命令行中的圆括号表示必选其中之一执行</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> origin <span class="literal">-a</span>  `更新本地 upstream</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>查看所有分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-a</span></span><br><span class="line"><span class="literal">--</span>新建本地分支</span><br><span class="line"><span class="variable">$</span> git branch 分支名</span><br><span class="line"><span class="literal">--</span>更改本地分支名</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> 旧名字 新名字</span><br><span class="line"><span class="literal">--</span>删除远程分支</span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">-d</span> 远程分支名</span><br><span class="line"><span class="literal">--</span>删除本地分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-d</span> 分支名</span><br><span class="line"><span class="literal">--</span>切换分支</span><br><span class="line"><span class="variable">$</span> git checkout 分支名</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--Git</span>配置初始分支名</span><br><span class="line"><span class="variable">$</span> git config <span class="literal">--global</span> init.defaultBranch main</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux下C++项目对动态库的引用管理</title>
+    <url>/blog/2024/03/27/Linux%E4%B8%8BC-%E9%A1%B9%E7%9B%AE%E5%AF%B9%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E5%BC%95%E7%94%A8%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p>我通常使用premake管理，vscode做开发</p>
+<p>所以需要在以下地方做修改</p>
+<span id="more"></span>
+<ol>
+<li>为了让VScode代码提示阶段能完成链接，需要修改 <code>c_cpp_properties.json</code> 文件</li>
+</ol>
+<p>以 <code>libcurl</code> 为例</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;configurations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">        <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Linux&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;includePath&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                <span class="string">&quot;$&#123;workspaceFolder&#125;/**&quot;</span><span class="punctuation">,</span></span><br><span class="line">                <span class="string">&quot;/usr/local/libcurl/8.6.0/include&quot;</span> <span class="comment">//在此处添加上include路径</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;defines&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;compilerPath&quot;</span><span class="punctuation">:</span> <span class="string">&quot;/usr/bin/gcc&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;cStandard&quot;</span><span class="punctuation">:</span> <span class="string">&quot;c17&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;cppStandard&quot;</span><span class="punctuation">:</span> <span class="string">&quot;gnu++17&quot;</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;intelliSenseMode&quot;</span><span class="punctuation">:</span> <span class="string">&quot;linux-gcc-x64&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="number">4</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>如果使用 <code>apt</code> 命令或者在源码中 <code>make install</code> 安装</p>
+<p>则需要运行命令刷新动态库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
+<p>在项目根目录的 <code>premake5.lua</code> 文件中添加全局路径</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">IncludeDir = &#123;&#125;</span><br><span class="line">IncludeDir[<span class="string">&quot;libcurl&quot;</span>] = <span class="string">&quot;/usr/local/libcurl/8.6.0/include&quot;</span></span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>在引用的项目的 <code>premake5.lua</code> 文件中添加</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line"> includedirs</span><br><span class="line">    &#123;</span><br><span class="line">			<span class="string">&quot;%&#123;IncludeDir.libcurl&#125;&quot;</span>,    <span class="comment">--添加include</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    links        <span class="comment">--链接库</span></span><br><span class="line">    &#123;</span><br><span class="line">			<span class="string">&quot;event&quot;</span>,</span><br><span class="line">			<span class="string">&quot;curl&quot;</span>         <span class="comment">--添加链接库，最后在编译命令时表现为 &#x27;-lcurl&#x27; 参数</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">...</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Tomcat10以及10版本以前的差异</title>
+    <url>/blog/2022/05/18/Tomcat10%E4%BB%A5%E5%8F%8A10%E7%89%88%E6%9C%AC%E4%BB%A5%E5%89%8D%E7%9A%84%E5%B7%AE%E5%BC%82/</url>
+    <content><![CDATA[<p>导入的<code>jar</code>包的名字有所不同</p>
+<p>10以前的版本</p>
+<span id="more"></span>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br></pre></td></tr></table></figure>
+<p>10代的版本</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Servlet</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>不同版本MySQL共存</title>
+    <url>/blog/2022/05/18/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACMySQL%E5%85%B1%E5%AD%98/</url>
+    <content><![CDATA[<p>为了不同版本的<code>mysql</code>共存，需要配置不同的<code>端口号</code>，</p>
+<p>使用命令时也要区分在不同的<code>bin</code>位置下运行命令</p>
+<span id="more"></span>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> D:\MySQL\MySQLServer8.<span class="number">0.25</span>&gt; D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysqld.exe <span class="literal">--defaults-file</span>=D:\MySQL\MySQLServer8.<span class="number">0.25</span>\my.ini <span class="literal">--initialize</span> <span class="literal">--console</span></span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">15.098191</span>Z <span class="number">0</span> [<span class="type">System</span>] [<span class="type">MY</span>-<span class="number">013169</span>] [<span class="type">Server</span>] D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysqld.exe (mysqld <span class="number">8.0</span>.<span class="number">25</span>) initializing of server <span class="keyword">in</span> progress as <span class="keyword">process</span> <span class="number">29128</span></span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">15.099370</span>Z <span class="number">0</span> [<span class="type">Warning</span>] [<span class="type">MY</span>-<span class="number">013242</span>] [<span class="type">Server</span>] <span class="literal">--character-set-server</span>: <span class="string">&#x27;utf8&#x27;</span> is currently an alias <span class="keyword">for</span> the character <span class="built_in">set</span> UTF8MB3, but will be an alias <span class="keyword">for</span> UTF8MB4 <span class="keyword">in</span> a future release. Please consider <span class="keyword">using</span> UTF8MB4 in order to be unambiguous.</span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">15.106060</span>Z <span class="number">1</span> [<span class="type">System</span>] [<span class="type">MY</span>-<span class="number">013576</span>] [<span class="type">InnoDB</span>] InnoDB initialization has started.</span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">26.211060</span>Z <span class="number">1</span> [<span class="type">System</span>] [<span class="type">MY</span>-<span class="number">013577</span>] [<span class="type">InnoDB</span>] InnoDB initialization has ended.</span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">43.080360</span>Z <span class="number">6</span> [<span class="type">Note</span>] [<span class="type">MY</span>-<span class="number">010454</span>] [<span class="type">Server</span>] A temporary password is generated <span class="keyword">for</span> root@localhost: bDGxPt=tL0jy</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> D:\MySQL\MySQLServer8.<span class="number">0.25</span>&gt; D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysqld install MYSQL80 <span class="literal">--defaults-file</span>=D:\MySQL\MySQLServer8.<span class="number">0.25</span>\my.ini</span><br></pre></td></tr></table></figure>
+<p>登录时也要区分</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> D:\MySQL\MySQLServer8.<span class="number">0.25</span>&gt; D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysql <span class="literal">-P3307</span> <span class="literal">-uroot</span> <span class="literal">-p</span></span><br></pre></td></tr></table></figure>
+<p>修改临时密码</p>
+<p><code>set password for root@localhost=password('123456');</code></p>
+<p>如果失效，可以用<code>ALTER USER'root'@'localhost' IDENTIFIED BY '123456';</code></p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Session配置和使用</title>
     <url>/blog/2022/05/17/Session%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<p>Flask中的session可以通过以下方法来设置 <span id="more"></span> <code>session['username'] = "asdasd"</code></p>
+    <content><![CDATA[<p>Flask中的session可以通过以下方法来设置</p>
+<span id="more"></span>
+<p><code>session['username'] = &quot;asdasd&quot;</code></p>
 <p>同时也可以通过设置过期时间来限制Session有效时长</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">session.permanent = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">app.permanent_session_lifetime = timedelta(seconds=<span class="number">10</span>) <span class="comment">#时间也可以为 days minutes</span></span><br></pre></td></tr></table></figure>
 <p>同时也可以全局配置失效时长，不过我个人未测试成功，只能用上面方法实现</p>
@@ -49,78 +115,67 @@
       </tags>
   </entry>
   <entry>
+    <title>为什么时常会感到忐忑</title>
+    <url>/blog/2020/01/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%97%B6%E5%B8%B8%E4%BC%9A%E6%84%9F%E5%88%B0%E5%BF%90%E5%BF%91/</url>
+    <content><![CDATA[<p>不知为何我总会有心慌的感觉，</p>
+<p>夜深时尤为明显</p>
+<p>大概是我太久没有你的消息了</p>
+<p>我们确实是独立的两个人</p>
+<p>我怎么能够这么想你。</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>zotero+坚果云 +PDF Expert文献管理</title>
     <url>/blog/2022/10/18/zotero-%E5%9D%9A%E6%9E%9C%E4%BA%91-PDF-Expert%E6%96%87%E7%8C%AE%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<h2 id="准备">准备</h2>
+    <content><![CDATA[<h2 id="准备"><a class="markdownIt-Anchor" href="#准备"></a> 准备</h2>
 <p>安装 <code>Zotero</code> 以及 <code>坚果云</code> 客户端到电脑</p>
 <blockquote>
-<p><code>Zotero</code> : <a href="https://www.zotero.org/">https://www.zotero.org/</a> <code>坚果云</code> : <a href="https://www.jianguoyun.com/">https://www.jianguoyun.com/</a></p>
-<span id="more"></span>
-<h2 id="设置-zotero">设置 Zotero</h2>
+<p><code>Zotero</code> :  <a href="https://www.zotero.org/">https://www.zotero.org/</a><br>
+<code>坚果云</code> :  <a href="https://www.jianguoyun.com/">https://www.jianguoyun.com/</a></p>
 </blockquote>
+<span id="more"></span>
+<h2 id="设置-zotero"><a class="markdownIt-Anchor" href="#设置-zotero"></a> 设置  Zotero</h2>
 <p>点击 <code>编辑</code> &gt; <code>首选项</code> &gt; <code>同步</code></p>
 <p>登录（需要提前注册）Zotero的账户勾选同步</p>
-<figure>
-<img src="Untitled.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
+<p><img src="Untitled.png" alt="Untitled"></p>
 <p>点击 <code>编辑</code> &gt; <code>首选项</code> &gt; <code>高级</code> &gt; <code>文件和文件夹</code></p>
 <p>设置 <code>根目录</code>用于存放文献同步位置的文件夹，后期用坚果云设置同步</p>
-<figure>
-<img src="Untitled%201.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
-<h3 id="安装-zotfile插件">安装 Zotfile插件</h3>
+<p><img src="Untitled%201.png" alt="Untitled"></p>
+<h3 id="安装-zotfile插件"><a class="markdownIt-Anchor" href="#安装-zotfile插件"></a> 安装 Zotfile插件</h3>
 <p>点击 <code>工具</code> &gt; <code>插件</code> ，点击齿轮图标选择安装插件</p>
-<figure>
-<img src="Untitled%202.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
+<p><img src="Untitled%202.png" alt="Untitled"></p>
 <p>具体插件资源可自行百度</p>
-<h3 id="配置zotfile">配置Zotfile</h3>
-<figure>
-<img src="Untitled%203.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
+<h3 id="配置zotfile"><a class="markdownIt-Anchor" href="#配置zotfile"></a> 配置Zotfile</h3>
+<p><img src="Untitled%203.png" alt="Untitled"></p>
 <p>上文提到过的用于同步的文件夹，在这里也进行设置</p>
-<figure>
-<img src="Untitled%204.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
+<p><img src="Untitled%204.png" alt="Untitled"></p>
 <p>在这里可以设置自动改PDF文件名</p>
-<figure>
-<img src="Untitled%205.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
+<p><img src="Untitled%205.png" alt="Untitled"></p>
 <p>配置完成后就把文献全部移动到同步文件夹</p>
-<figure>
-<img src="Untitled%206.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
-<h2 id="设置-坚果云">设置 坚果云</h2>
-<p><code>坚果云</code> : <a href="https://www.jianguoyun.com/">https://www.jianguoyun.com/</a></p>
+<p><img src="Untitled%206.png" alt="Untitled"></p>
+<h2 id="设置-坚果云"><a class="markdownIt-Anchor" href="#设置-坚果云"></a> 设置 坚果云</h2>
+<p><code>坚果云</code> :  <a href="https://www.jianguoyun.com/">https://www.jianguoyun.com/</a></p>
 <p>注册账号并登录，点击账户信息</p>
-<figure>
-<img src="Untitled%207.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
+<p><img src="Untitled%207.png" alt="Untitled"></p>
 <p>点击安全选项，再点击添加应用</p>
-<figure>
-<img src="Untitled%208.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
+<p><img src="Untitled%208.png" alt="Untitled"></p>
 <p>在本地找到之前提到的同步文件夹，右键同步到坚果云</p>
-<figure>
-<img src="Untitled%209.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
+<p><img src="Untitled%209.png" alt="Untitled"></p>
 <p>同步完成会有标志</p>
-<figure>
-<img src="Untitled%2010.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
-<h2 id="进入pdf-expert">进入PDF Expert</h2>
+<p><img src="Untitled%2010.png" alt="Untitled"></p>
+<h2 id="进入pdf-expert"><a class="markdownIt-Anchor" href="#进入pdf-expert"></a> 进入PDF Expert</h2>
 <p>添加连接</p>
-<figure>
-<img src="FF27A5B0-8B08-4EF5-A350-28C2BBB668EF.jpeg" alt="FF27A5B0-8B08-4EF5-A350-28C2BBB668EF.jpeg"><figcaption aria-hidden="true">FF27A5B0-8B08-4EF5-A350-28C2BBB668EF.jpeg</figcaption>
-</figure>
+<p><img src="FF27A5B0-8B08-4EF5-A350-28C2BBB668EF.jpeg" alt="FF27A5B0-8B08-4EF5-A350-28C2BBB668EF.jpeg"></p>
 <p>输入指定信息</p>
-<figure>
-<img src="Untitled%2011.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
-<figure>
-<img src="F3D9AC75-96D6-4613-8BAD-8C0118A546A0.jpeg" alt="F3D9AC75-96D6-4613-8BAD-8C0118A546A0.jpeg"><figcaption aria-hidden="true">F3D9AC75-96D6-4613-8BAD-8C0118A546A0.jpeg</figcaption>
-</figure>
-<h2 id="完成">完成</h2>
+<p><img src="Untitled%2011.png" alt="Untitled"></p>
+<p><img src="F3D9AC75-96D6-4613-8BAD-8C0118A546A0.jpeg" alt="F3D9AC75-96D6-4613-8BAD-8C0118A546A0.jpeg"></p>
+<h2 id="完成"><a class="markdownIt-Anchor" href="#完成"></a> 完成</h2>
 <p>完成即可在iPad与pc间同步数据，并且用PDF所做的标注信息也会同步到Zotero!!!</p>
 ]]></content>
       <categories>
@@ -132,37 +187,54 @@
       </tags>
   </entry>
   <entry>
-    <title>Git常用操作</title>
-    <url>/blog/2022/05/18/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
-    <content><![CDATA[<p>关于Git操作的常用指令</p>
+    <title>Ubuntu 安装 Boost</title>
+    <url>/blog/2024/03/27/Ubuntu-%E5%AE%89%E8%A3%85-Boost/</url>
+    <content><![CDATA[<h3 id="1更新ubuntu-linux"><a class="markdownIt-Anchor" href="#1更新ubuntu-linux"></a> 1.更新Ubuntu Linux</h3>
+<p>这里我们要安装最新版本的Boost库，因此需要从源码编译。因此，请确保您的系统是最新的并且 APT 包管理器具有最新的包索引缓存。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">sudo apt update &amp;&amp; sudo apt upgrade</span><br></pre></td></tr></table></figure>
 <span id="more"></span>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--</span>初始化仓库</span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> 初始分支名</span><br><span class="line"><span class="literal">--</span>添加暂存文件</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line"><span class="literal">--</span>提交暂存文件</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;提交消息&quot;</span></span><br><span class="line"><span class="literal">--</span>设置远程仓库地址</span><br><span class="line"><span class="variable">$</span> git remote add origin git@github.com:username/xxx.git</span><br><span class="line"><span class="literal">--</span>拉取远程仓库到本地</span><br><span class="line"><span class="variable">$</span> git pull origin 分支名</span><br><span class="line"><span class="literal">--</span>推送本地提交到远程仓库</span><br><span class="line"><span class="variable">$</span> git push origin 本地分支名:远程分支名</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>克隆仓库</span><br><span class="line"><span class="variable">$</span> git clone xxxx@git</span><br><span class="line"><span class="variable">$</span> git fetch   `拉取远端分支信息`</span><br><span class="line"><span class="literal">--</span>设置或删除跟踪仓库的HEAD,指向指定分支,命令行中的圆括号表示必选其中之一执行</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> origin <span class="literal">-a</span>  `更新本地 upstream</span><br><span class="line"></span><br><span class="line"><span class="literal">--</span>查看所有分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-a</span></span><br><span class="line"><span class="literal">--</span>新建本地分支</span><br><span class="line"><span class="variable">$</span> git branch 分支名</span><br><span class="line"><span class="literal">--</span>更改本地分支名</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> 旧名字 新名字</span><br><span class="line"><span class="literal">--</span>删除远程分支</span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">-d</span> 远程分支名</span><br><span class="line"><span class="literal">--</span>删除本地分支</span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-d</span> 分支名</span><br><span class="line"><span class="literal">--</span>切换分支</span><br><span class="line"><span class="variable">$</span> git checkout 分支名</span><br></pre></td></tr></table></figure>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="literal">--Git</span>配置初始分支名</span><br><span class="line"><span class="variable">$</span> git config <span class="literal">--global</span> init.defaultBranch main</span><br></pre></td></tr></table></figure>
-]]></content>
+<p>2.安装开发者工具<br>
+我们需要工具从其源代码构建 Boost 库，这里是获取所需库的命令。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">sudo apt-get install build-essential g++ python3-dev autotools-dev libicu-dev libbz2-dev libboost-all-dev</span><br></pre></td></tr></table></figure>
+<h3 id="3下载boost-c库"><a class="markdownIt-Anchor" href="#3下载boost-c库"></a> 3.下载Boost C++库</h3>
+<p>可使用 Ubuntu 默认系统存储库在 Ubuntu Linux 上安装的 Boost 库版本不是最新版本。因此，我们将直接从其网站下载最新版本。</p>
+<p>访问该网站并单击“下载”按钮。</p>
+<p>下载升压 之后获取 Boost 库的 Tar 文件。例如：</p>
+<p>Boost 库的 tar 文件<br>
+那些想使用命令终端下载文件的人可以使用 wget 命令和文件的 URL。</p>
+<p>为此，右键单击 Tar 文件并复制其地址。</p>
+<p>例如：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">wget [https:<span class="comment">//boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.gz](https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.gz)</span></span><br></pre></td></tr></table></figure>
+<h3 id="4提取tar文件"><a class="markdownIt-Anchor" href="#4提取tar文件"></a> 4.提取Tar文件</h3>
+<p>已经使用浏览器下载文件的，需要切换到Downloads目录下才能使用 cd Downloads。</p>
+<p>而Wget命令用户可以在他们运行命令的同一目录中找到下载的文件。</p>
+<p>提取使用：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">tar xvf boost_1_80_0.tar.gz</span><br></pre></td></tr></table></figure>
+<p>注意：将boost_1_80_0.tar.gz替换为您下载的文件版本名称。</p>
+<h3 id="5切换到解压后的目录"><a class="markdownIt-Anchor" href="#5切换到解压后的目录"></a> 5.切换到解压后的目录</h3>
+<p>使用上一步给出的命令提取文件后，使用cd命令切换到提取的目录。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">cd boost_1_80_0</span><br></pre></td></tr></table></figure>
+<p>注意：将boost_1_80_0 替换为您的文件名或版本。</p>
+<h3 id="6设置boost的bootstrap"><a class="markdownIt-Anchor" href="#6设置boost的bootstrap"></a> 6.设置Boost的bootstrap</h3>
+<p>之后运行给定的命令，该命令将启动存在于 Boost 提取文件夹中的 Bootstrap 脚本。它将开始构建 B2 引擎。另外，它会将编译后的库文件保存在<code>/usr/include/boost</code></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">./bootstrap.sh --prefix=/usr/</span><br></pre></td></tr></table></figure>
+<p>建设B2引擎</p>
+<ol>
+<li>在 Ubuntu 20.04 或 22.04 上安装 Boost<br>
+构建 Boost C++ 库</li>
+</ol>
+<p>构建完 b2 引擎后，您将在 Boost 目录中看到一个名为b2的可执行文件。我们必须运行它来开始构建 Boost C++ 库。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">sudo ./b2 install</span><br></pre></td></tr></table></figure>
+<h3 id="8在c编程中使用boost库"><a class="markdownIt-Anchor" href="#8在c编程中使用boost库"></a> 8.在C++编程中使用Boost库</h3>
+<p>现在，无论何时你想使用或包含 Boost 库开始编码，你只需要包含你想使用的 Boost 库的名称。</p>
+<p>例如，如果你想使用数组库：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;boost/array.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">boost::array&lt;<span class="type">int</span>, 4&gt; arr = &#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;&#125;;</span><br><span class="line">cout &lt;&lt; <span class="string">&quot;hi&quot;</span> &lt;&lt; arr[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>编程</category>
       </categories>
       <tags>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>不同版本MySQL共存</title>
-    <url>/blog/2022/05/18/%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%ACMySQL%E5%85%B1%E5%AD%98/</url>
-    <content><![CDATA[<p>为了不同版本的<code>mysql</code>共存，需要配置不同的<code>端口号</code>，</p>
-<p>使用命令时也要区分在不同的<code>bin</code>位置下运行命令 <span id="more"></span> <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> D:\MySQL\MySQLServer8.<span class="number">0.25</span>&gt; D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysqld.exe <span class="literal">--defaults-file</span>=D:\MySQL\MySQLServer8.<span class="number">0.25</span>\my.ini <span class="literal">--initialize</span> <span class="literal">--console</span></span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">15.098191</span>Z <span class="number">0</span> [<span class="type">System</span>] [<span class="type">MY</span>-<span class="number">013169</span>] [<span class="type">Server</span>] D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysqld.exe (mysqld <span class="number">8.0</span>.<span class="number">25</span>) initializing of server <span class="keyword">in</span> progress as <span class="keyword">process</span> <span class="number">29128</span></span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">15.099370</span>Z <span class="number">0</span> [<span class="type">Warning</span>] [<span class="type">MY</span>-<span class="number">013242</span>] [<span class="type">Server</span>] <span class="literal">--character-set-server</span>: <span class="string">&#x27;utf8&#x27;</span> is currently an alias <span class="keyword">for</span> the character <span class="built_in">set</span> UTF8MB3, but will be an alias <span class="keyword">for</span> UTF8MB4 <span class="keyword">in</span> a future release. Please consider <span class="keyword">using</span> UTF8MB4 in order to be unambiguous.</span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">15.106060</span>Z <span class="number">1</span> [<span class="type">System</span>] [<span class="type">MY</span>-<span class="number">013576</span>] [<span class="type">InnoDB</span>] InnoDB initialization has started.</span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">26.211060</span>Z <span class="number">1</span> [<span class="type">System</span>] [<span class="type">MY</span>-<span class="number">013577</span>] [<span class="type">InnoDB</span>] InnoDB initialization has ended.</span><br><span class="line"><span class="number">2021</span><span class="literal">-06-06T05</span>:<span class="number">31</span>:<span class="number">43.080360</span>Z <span class="number">6</span> [<span class="type">Note</span>] [<span class="type">MY</span>-<span class="number">010454</span>] [<span class="type">Server</span>] A temporary password is generated <span class="keyword">for</span> root@localhost: bDGxPt=tL0jy</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> D:\MySQL\MySQLServer8.<span class="number">0.25</span>&gt; D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysqld install MYSQL80 <span class="literal">--defaults-file</span>=D:\MySQL\MySQLServer8.<span class="number">0.25</span>\my.ini</span><br></pre></td></tr></table></figure>
-<p>登录时也要区分</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="built_in">PS</span> D:\MySQL\MySQLServer8.<span class="number">0.25</span>&gt; D:\MySQL\MySQLServer8.<span class="number">0.25</span>\bin\mysql <span class="literal">-P3307</span> <span class="literal">-uroot</span> <span class="literal">-p</span></span><br></pre></td></tr></table></figure>
-<p>修改临时密码</p>
-<p><code>set password for root@localhost=password('123456');</code></p>
-<p>如果失效，可以用<code>ALTER USER'root'@'localhost' IDENTIFIED BY '123456';</code></p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>MySQL</tag>
+        <tag>C++</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -183,35 +255,34 @@
       </tags>
   </entry>
   <entry>
-    <title>为什么时常会感到忐忑</title>
-    <url>/blog/2020/01/28/%E4%B8%BA%E4%BB%80%E4%B9%88%E6%97%B6%E5%B8%B8%E4%BC%9A%E6%84%9F%E5%88%B0%E5%BF%90%E5%BF%91/</url>
-    <content><![CDATA[<p>不知为何我总会有心慌的感觉，</p>
-<p>夜深时尤为明显</p>
-<p>大概是我太久没有你的消息了</p>
-<p>我们确实是独立的两个人</p>
-<p>我怎么能够这么想你。</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于Numpy和Pytorch中 dot,multiply,@, * 的运算区别</title>
     <url>/blog/2022/10/18/%E5%85%B3%E4%BA%8ENumpy%E5%92%8CPytorch%E4%B8%AD-dot-multiply-%E7%9A%84%E8%BF%90%E7%AE%97%E5%8C%BA%E5%88%AB/</url>
-    <content><![CDATA[<h2 id="在-numpy-中">在 <code>Numpy</code> 中：</h2>
+    <content><![CDATA[<h2 id="在-numpy-中"><a class="markdownIt-Anchor" href="#在-numpy-中"></a> 在 <code>Numpy</code> 中：</h2>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">a = np.matrix([[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">              [<span class="number">4</span>,<span class="number">5</span>]])</span><br><span class="line">v = np.matrix([[<span class="number">7</span>],</span><br><span class="line">              [<span class="number">8</span>]])</span><br><span class="line"></span><br><span class="line">c = np.dot(a,v) <span class="comment"># 向量点积或矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"></span><br><span class="line">d = np.multiply(a,v) <span class="comment"># 先广播后对位相乘，shape无法广播时报错</span></span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line"></span><br><span class="line">e = a @ v <span class="comment"># 向量点积或矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(e)</span><br><span class="line"></span><br><span class="line">f = a * v <span class="comment"># array：先广播后对位相乘；matrix：矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">[[<span class="number">23</span>]</span><br><span class="line"> [<span class="number">68</span>]]</span><br><span class="line">[[ <span class="number">7</span> <span class="number">14</span>]</span><br><span class="line"> [<span class="number">32</span> <span class="number">40</span>]]</span><br><span class="line">[[<span class="number">23</span>]</span><br><span class="line"> [<span class="number">68</span>]]</span><br><span class="line">[[<span class="number">23</span>]</span><br><span class="line"> [<span class="number">68</span>]]</span><br></pre></td></tr></table></figure>
-<h2 id="在-pytorch-中">在 <code>Pytorch</code> 中：</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = torch.Tensor([[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">              [<span class="number">4</span>,<span class="number">5</span>]])</span><br><span class="line"></span><br><span class="line">v = torch.Tensor([[<span class="number">7</span>],</span><br><span class="line">              [<span class="number">8</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># c = torch.dot(a,v) # 会报错，torch.dot 有意仅支持计算两个具有相同数量元素的 1D 张量的点积</span></span><br><span class="line"><span class="comment"># print(c)</span></span><br><span class="line"></span><br><span class="line">d = torch.multiply(a,v) <span class="comment"># 先广播后对位相乘，shape无法广播时报错</span></span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line"></span><br><span class="line">e = a @ v <span class="comment"># 向量点积或矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(e)</span><br><span class="line"></span><br><span class="line">f = a * v <span class="comment"># 先广播后对位相乘</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">tensor([[ <span class="number">7.</span>, <span class="number">14.</span>],</span><br><span class="line">        [<span class="number">32.</span>, <span class="number">40.</span>]])</span><br><span class="line">tensor([[<span class="number">23.</span>],</span><br><span class="line">        [<span class="number">68.</span>]])</span><br><span class="line">tensor([[ <span class="number">7.</span>, <span class="number">14.</span>],</span><br><span class="line">        [<span class="number">32.</span>, <span class="number">40.</span>]])</span><br></pre></td></tr></table></figure>
-]]></content>
+<h2 id="在-pytorch-中"><a class="markdownIt-Anchor" href="#在-pytorch-中"></a> 在 <code>Pytorch</code> 中：</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = torch.Tensor([[<span class="number">1</span>,<span class="number">2</span>],</span><br><span class="line">              [<span class="number">4</span>,<span class="number">5</span>]])</span><br><span class="line"></span><br><span class="line">v = torch.Tensor([[<span class="number">7</span>],</span><br><span class="line">              [<span class="number">8</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># c = torch.dot(a,v) # 会报错，torch.dot 有意仅支持计算两个具有相同数量元素的 1D 张量的点积</span></span><br><span class="line"><span class="comment"># print(c)</span></span><br><span class="line"></span><br><span class="line">d = torch.multiply(a,v) <span class="comment"># 先广播后对位相乘，shape无法广播时报错</span></span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line"></span><br><span class="line">e = a @ v <span class="comment"># 向量点积或矩阵乘法，shape不合法时报错</span></span><br><span class="line"><span class="built_in">print</span>(e)</span><br><span class="line"></span><br><span class="line">f = a * v <span class="comment"># 先广播后对位相乘</span></span><br><span class="line"><span class="built_in">print</span>(f)</span><br><span class="line"></span><br><span class="line">output:</span><br><span class="line">tensor([[ <span class="number">7.</span>, <span class="number">14.</span>],</span><br><span class="line">        [<span class="number">32.</span>, <span class="number">40.</span>]])</span><br><span class="line">tensor([[<span class="number">23.</span>],</span><br><span class="line">        [<span class="number">68.</span>]])</span><br><span class="line">tensor([[ <span class="number">7.</span>, <span class="number">14.</span>],</span><br><span class="line">        [<span class="number">32.</span>, <span class="number">40.</span>]])</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>编程</category>
       </categories>
       <tags>
         <tag>Numpy</tag>
         <tag>Pytorch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于商品经济社会与情感归属</title>
+    <url>/blog/2022/05/18/%E5%85%B3%E4%BA%8E%E5%95%86%E5%93%81%E7%BB%8F%E6%B5%8E%E7%A4%BE%E4%BC%9A%E4%B8%8E%E6%83%85%E6%84%9F%E5%BD%92%E5%B1%9E/</url>
+    <content><![CDATA[<h1 id="2020-6-28-记"><a class="markdownIt-Anchor" href="#2020-6-28-记"></a> 2020-6-28 记</h1>
+<h3 id="想说的很多也不知能否说清"><a class="markdownIt-Anchor" href="#想说的很多也不知能否说清"></a> 想说的很多，也不知能否说清。</h3>
+<span id="more"></span>
+<p>说来也奇怪可能是昨晚的一个梦让我潜意识里有了对这个问题的铺垫，鬼使神差的今天在<strong>B站</strong>看到的第一个视频就是关于<strong>婚姻</strong>和<strong>孩子</strong>以及<strong>生育</strong>问题的，<code>“生育率逐渐下降的背后的社会问题是什么”``“为什么现在的女生不愿意生孩子”``“婚姻已经不再和爱情相关而是资本融合”</code>，这样标题的视频看似浮夸实际在我看了之后还是觉得有内在道理在其中的，因为确实是有这样的普遍问题并不是无中生有。在我看到视频的创作者客观的在解释生育率降低在未来会给我们带来哪些不好的影响的时候，弹幕里的各种言论 <code>“关我P事”`` “有道理，我还是选择不生”``“你们愿意生自己去生吧” `` “过50年我都不知道在哪，关我什么事”</code> ，我实在的感受到了社会存在的问题。我不想去讨论这些人的言论是否是合理的，又或者他们真实的想法是如何，我想说的是更深层次的原因是什么造成的这样的现状。资本和媒体。<em>21世纪</em>已经是一个媒体无孔不入的年代，任何事情都能在互联网上 以极快的速度传播，虽然带来了时效性，但也意味着它的<strong>煽动性</strong>是可怕的，拿成功来说，不可否认的是成功确实是少数人的经历，也有很多人非常努力勤奋但却依然默默无闻平庸一生，但这也是少数，无良媒体宣扬<code>“在这样的社会金钱是一切”，“你再努力也抵不过富二代的一声爸”</code>，成为了很多喜欢抱怨生活的人的不努力的借口也成为了他口诛笔伐社会的谈资，我从心里觉得这样的人，是废物。这是我们建立在爱情需要功利支持的情况下讨论的，觉得没钱导致了生育率的下降，但穷真的就是本质原因吗，回退40年，上一代的人不比我们条件更差，更穷吗，可生育率一直很高，甚至人民幸福指数也要高得多。 再者，资本。资本把爱情和金钱挂钩，在各种各样的节日把爱物质化宣传成各种各样的商品，<strong>“买XXX代表了你多爱一个人”</strong>，把消费等价于爱情的坚固程度，洗脑了多少年轻的男女，一些女生会以这些为标准而对自己的伴侣提出要求，而一些男生也会主动进行很多消费来达到另一半的内心预期。进一步的功利化了感情这件事。而这还只是恋爱，到了谈婚论嫁更是难以预估的财力的比拼，车，房，彩礼，样样不能少，本来是两个新人幸福的走进人生的新阶段，却变成了两个家庭的经济资产的检测仪，而其实更多的对是男方家庭的要求。这也是低生育率的原因，因为很多人根本没有办法结婚。 这些问题最终只会导致社会的低欲望化，像日本一样，参考《低欲望化的社会》，年轻人已经没有动力再去争取，资本贪婪的欲望最终也会自食其果，因为消费力的下降导致停产倒闭，而这又会带来失业等各种问题，进一步加剧低生育率的问题，这是个恶性循环，就像那个真诚的UP说的一样，在这里提出这些问题并不是想要马上去解决这么大的问题，我也知道可能看到的人也并不Care我说的这些东西，只是希望未来再有人提到这个问题的时候大家能真的重视起来，因为社会太过于庞大，只有大部分人意识到的时候，才能有所改善。</p>
+<p>我自己的想法就是，了解社会问题，建立自己的三观，对于一个正年轻的人来说，如果你想要过上好的日子又没有一个富有的家庭，那么没有任何事情是你不努力不上进的理由，抱怨是不会给你带来好的生活的，表现式的消极和绝望也只会把自己带入深渊。你不相信普通人能成功，你就不会成为那个成功的普通人。</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -229,6 +300,30 @@
       </tags>
   </entry>
   <entry>
+    <title>关于静态资源在Flask中加载的问题</title>
+    <url>/blog/2022/05/17/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%9C%A8Flask%E4%B8%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>由于我第一次尝试构建Flask服务器，没有意识到静态资源的加载方式有些许不同<br>
+普通的静态加载方式如 <code>images/b1.png</code></p>
+<span id="more"></span>
+<p>这样的加载方式在 <strong>Flask</strong> 无法生效 所以我们必须要用</p>
+<p><code>&#123;&#123;url_for('static',filename='这里输入文件路径')&#125;&#125;</code></p>
+<p>方法来替换原来的静态路径<strong>CSS</strong>和<strong>JS</strong>的导入同样也是需要更改</p>
+<p><strong>但我第一次替换后再次发现并没有生效</strong></p>
+<p>再次检查结构后发现，在网页中生成的路径为 <code>/static/images/b1.png</code><br>
+少了这个<strong>static</strong>文件夹，我再次添加，<br>
+并把静态资源都转移到其中，发现还是失效</p>
+<p><strong>注意static文件夹的位置</strong></p>
+<p><strong>static</strong>文件夹需要在根目录下，也就是与<code>app.py</code>同级</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Flask</tag>
+        <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于远程SSH服务器图形回传问题</title>
     <url>/blog/2023/10/26/%E5%85%B3%E4%BA%8E%E8%BF%9C%E7%A8%8BSSH%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%9B%BE%E5%BD%A2%E5%9B%9E%E4%BC%A0%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<p>在用 <code>vscode</code> 或者 <code>pycharm</code> 连接 <code>远程服务器</code> 跑深度模型的时候可能会因为，<code>图形界面</code>无法回传而报错</p>
@@ -242,111 +337,52 @@
 <p>在运行</p>
 <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">xclock</span><br></pre></td></tr></table></figure>
 <p>看是否会跳出一个图形化时钟窗口</p>
-<figure>
-<img src="Untitled-2.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
+<p><img src="Untitled-2.png" alt="Untitled"></p>
 <p>成功了，则可以继续转到 <code>Pycharm</code> 中继续设置</p>
 <p><code>Run</code> → <code>Edit Configurations</code> → <code>Environment variables</code></p>
 <p>添加 <code>DISPLAY=localhost:11.0</code></p>
-<figure>
-<img src="Untitled-1.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
+<p><img src="Untitled-1.png" alt="Untitled"></p>
 <p>完成设置</p>
 ]]></content>
       <categories>
         <category>编程</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Tomcat10以及10版本以前的差异</title>
-    <url>/blog/2022/05/18/Tomcat10%E4%BB%A5%E5%8F%8A10%E7%89%88%E6%9C%AC%E4%BB%A5%E5%89%8D%E7%9A%84%E5%B7%AE%E5%BC%82/</url>
-    <content><![CDATA[<p>导入的<code>jar</code>包的名字有所不同</p>
-<p>10以前的版本 <span id="more"></span> <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.annotation.WebServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br></pre></td></tr></table></figure></p>
-<p>10代的版本</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Servlet</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>别叫我达芬奇PunkVersion-电吉他演奏</title>
-    <url>/blog/2022/11/16/%E5%88%AB%E5%8F%AB%E6%88%91%E8%BE%BE%E8%8A%AC%E5%A5%87PunkVersion-%E7%94%B5%E5%90%89%E4%BB%96%E6%BC%94%E5%A5%8F/</url>
-    <content><![CDATA[<h2 id="视频地址">视频地址</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://www.bilibili.com/video/BV1oR4y1Z7xn</span><br></pre></td></tr></table></figure>
-<iframe src="//player.bilibili.com/player.html?aid=347669553&amp;bvid=BV1oR4y1Z7xn&amp;cid=893635515&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-</iframe>
-<span id="more"></span>
-<p>伴奏地址：<code>https://pan.baidu.com/s/15gRY2edTeO9IcGAi5LMlNw?pwd=yhnb</code> 吉他谱地址：<code>https://www.bilibili.com/video/BV1QB4y1M7Dw</code></p>
-]]></content>
-      <categories>
-        <category>音乐</category>
-      </categories>
-      <tags>
-        <tag>电吉他</tag>
-        <tag>翻弹</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于静态资源在Flask中加载的问题</title>
-    <url>/blog/2022/05/17/%E5%85%B3%E4%BA%8E%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%9C%A8Flask%E4%B8%AD%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<p>由于我第一次尝试构建Flask服务器，没有意识到静态资源的加载方式有些许不同 普通的静态加载方式如 <code>images/b1.png</code> <span id="more"></span> 这样的加载方式在 <strong>Flask</strong> 无法生效 所以我们必须要用</p>
-<p><code>&#123;&#123;url_for('static',filename='这里输入文件路径')&#125;&#125;</code></p>
-<p>方法来替换原来的静态路径<strong>CSS</strong>和<strong>JS</strong>的导入同样也是需要更改</p>
-<p><strong>但我第一次替换后再次发现并没有生效</strong></p>
-<p>再次检查结构后发现，在网页中生成的路径为 <code>/static/images/b1.png</code> 少了这个<strong>static</strong>文件夹，我再次添加， 并把静态资源都转移到其中，发现还是失效</p>
-<p><strong>注意static文件夹的位置</strong></p>
-<p><strong>static</strong>文件夹需要在根目录下，也就是与<code>app.py</code>同级</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Flask</tag>
-        <tag>后端</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
     <title>创建一个Mybatis项目</title>
     <url>/blog/2022/05/18/%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAMybatis%E9%A1%B9%E7%9B%AE/</url>
-    <content><![CDATA[<h1 id="环境">环境</h1>
+    <content><![CDATA[<h1 id="环境"><a class="markdownIt-Anchor" href="#环境"></a> 环境</h1>
 <p><strong>系统</strong>：Win10</p>
-<p><strong>软件</strong>：Eclipse(需要配置了Maven环境) <span id="more"></span> ---</p>
-<h1 id="开始">开始</h1>
-<h2 id="数据库">数据库</h2>
+<p><strong>软件</strong>：Eclipse(需要配置了Maven环境)</p>
+<h2 id="-more-"><a class="markdownIt-Anchor" href="#-more-"></a> <span id="more"></span></h2>
+<h1 id="开始"><a class="markdownIt-Anchor" href="#开始"></a> 开始</h1>
+<h2 id="数据库"><a class="markdownIt-Anchor" href="#数据库"></a> 数据库</h2>
 <p>如果自己有数据库可以跳过这个步骤，这里我的数据库对应的是我这个示例</p>
 <p>下面给出基于Navicat Premium 15的SQL转储文件，用软件这个<code>mybatisdb.sql</code>执行即可创建</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> Navicat Premium Data Transfer</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> Source Server         : mysql</span></span><br><span class="line"><span class="comment"> Source Server Type    : MySQL</span></span><br><span class="line"><span class="comment"> Source Server Version : 80025</span></span><br><span class="line"><span class="comment"> Source Host           : localhost:3307</span></span><br><span class="line"><span class="comment"> Source Schema         : mybatisdb</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> Target Server Type    : MySQL</span></span><br><span class="line"><span class="comment"> Target Server Version : 80025</span></span><br><span class="line"><span class="comment"> File Encoding         : 65001</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"> Date: 27/06/2021 17:21:04</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span> NAMES utf8mb4;</span><br><span class="line"><span class="keyword">SET</span> FOREIGN_KEY_CHECKS <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Table structure for student</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> `student`;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `student`  (</span><br><span class="line">  `Sno` <span class="type">char</span>(<span class="number">8</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_general_ci <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  `Sname` <span class="type">varchar</span>(<span class="number">10</span>) <span class="type">CHARACTER</span> <span class="keyword">SET</span> utf8 <span class="keyword">COLLATE</span> utf8_general_ci <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`Sno`) <span class="keyword">USING</span> BTREE</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB <span class="type">CHARACTER</span> <span class="keyword">SET</span> <span class="operator">=</span> utf8 <span class="keyword">COLLATE</span> <span class="operator">=</span> utf8_general_ci ROW_FORMAT <span class="operator">=</span> <span class="keyword">Dynamic</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Records of student</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SET</span> FOREIGN_KEY_CHECKS <span class="operator">=</span> <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="配置">配置</h2>
+<h2 id="配置"><a class="markdownIt-Anchor" href="#配置"></a> 配置</h2>
 <p><strong>提前看项目结构</strong></p>
-<figure>
-<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/14ee822b-836e-45f2-aa51-3ab828297d8b/Untitled.png" alt="Untitled"><figcaption aria-hidden="true">Untitled</figcaption>
-</figure>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/14ee822b-836e-45f2-aa51-3ab828297d8b/Untitled.png" alt="Untitled"></p>
 <p><strong>创建项目</strong></p>
 <p>首先在Eclipse新建项目选择<code>Maven Project</code> ，按引导填入包名项目名等，无特殊设置</p>
 <p>项目建立完成后找到<code>pom.xml</code> 文件，打开，并写入配置</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>db<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatisapp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>mybatisapp<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">  	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  		<span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.15<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	</span><br><span class="line">	<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>4.9<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>在<code>src/main/java</code> 包下新建<strong>三个文件</strong>和<strong>两个文件夹</strong>，并且在两个文件夹下也新建如下文件</p>
 <p>文件结构</p>
-<figure>
-<img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/45cde72c-eb0b-4664-b58b-e3be8dd49a68/Untitled.png" alt="文件结构"><figcaption aria-hidden="true">文件结构</figcaption>
-</figure>
+<p><img src="https://s3-us-west-2.amazonaws.com/secure.notion-static.com/45cde72c-eb0b-4664-b58b-e3be8dd49a68/Untitled.png" alt="文件结构"></p>
 <p>文件结构</p>
-<p>其中<strong><code>configuration.xml</code></strong> 是最重要的Mybatis配置文件，<strong><code>db.properties</code></strong> 为数据库的配置信息文件</p>
+<p>其中**<code>configuration.xml</code>** 是最重要的Mybatis配置文件，<strong><code>db.properties</code></strong> 为数据库的配置信息文件</p>
 <p>我们先开始写 <code>configuration.xml</code></p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> encoding=<span class="string">&quot;UTF-8&quot;</span> ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">configuration</span></span></span><br><span class="line"><span class="meta">  <span class="keyword">PUBLIC</span> <span class="string">&quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span></span></span><br><span class="line"><span class="meta">  <span class="string">&quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- XML 配置文件包含对 MyBatis 系统的核心设置 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 指定 MyBatis 数据库配置文件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span> <span class="attr">resource</span>=<span class="string">&quot;db.properties&quot;</span> /&gt;</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="tag">&lt;<span class="name">environments</span> <span class="attr">default</span>=<span class="string">&quot;mysql&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 环境配置，即连接的数据库。 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">environment</span> <span class="attr">id</span>=<span class="string">&quot;mysql&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!-- 指定事务管理类型，type=&quot;JDBC&quot;指直接简单使用了JDBC的提交和回滚设置 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">transactionManager</span> <span class="attr">type</span>=<span class="string">&quot;JDBC&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">&lt;!-- dataSource指数据源配置，POOLED是JDBC连接对象的数据源连接池的实现。 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dataSource</span> <span class="attr">type</span>=<span class="string">&quot;POOLED&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;driver&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;driver&#125;&quot;</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;url&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;url&#125;&quot;</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;username&#125;&quot;</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">value</span>=<span class="string">&quot;$&#123;password&#125;&quot;</span> /&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dataSource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">environment</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">environments</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- mappers告诉了MyBatis去哪里找持久化类的映射类（注解形式） --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mappers</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mapper</span> <span class="attr">resource</span>=<span class="string">&quot;cn/mydb/dao/StudentDaoMapper.xml&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mappers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong><code>db.properties</code></strong> 如下：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">driver=com.mysql.cj.jdbc.Driver</span><br><span class="line"></span><br><span class="line">url=jdbc:mysql:<span class="comment">//127.0.0.1:3307/mybatisdb?serverTimezone=Asia/Shanghai&amp;useSSL=false</span></span><br><span class="line"></span><br><span class="line">username=root</span><br><span class="line"></span><br><span class="line">password=<span class="number">123456</span></span><br></pre></td></tr></table></figure>
 <p>其中<strong>四个变量</strong>根据你自己的数据库信息来配置</p>
-<h2 id="创建">创建</h2>
+<h2 id="创建"><a class="markdownIt-Anchor" href="#创建"></a> 创建</h2>
 <p>现在开始写实体类，实体类的<strong>类名</strong>需要跟数据库对应的<strong>表名</strong>相同，且<strong>类属性</strong>也要与表中<strong>列</strong>一一对应，包括<strong>名字</strong>和<strong>数据类型</strong></p>
-<h2 id="student.java"><strong>Student.java</strong></h2>
+<h2 id="studentjava"><a class="markdownIt-Anchor" href="#studentjava"></a> <strong>Student.java</strong></h2>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mydb.entity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> String Sno;</span><br><span class="line">	<span class="keyword">private</span> String Sname;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getSno</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> Sno;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">getSname</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> Sname;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setSno</span><span class="params">(String sno)</span> &#123;</span><br><span class="line">		Sno = sno;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setSname</span><span class="params">(String sname)</span> &#123;</span><br><span class="line">		Sname = sname;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">public</span> String <span class="title function_">toString</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">&quot;Student [Sno=&quot;</span> + Sno + <span class="string">&quot;, Sname=&quot;</span> + Sname + <span class="string">&quot;]&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>现在来创建对应这个实体的<strong>实体映射接口</strong>文件<code>StudentDao.java</code></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mydb.dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.mydb.entity.Student;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">StudentDao</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 查询</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> Sno</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	Student <span class="title function_">findStudentBySno</span> <span class="params">(String Sno)</span>;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 添加</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> user</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">addUser</span><span class="params">(Student user)</span>;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> Sno</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">deleteUser</span><span class="params">(String Sno)</span>;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 更新</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> user</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">void</span> <span class="title function_">updateUser</span><span class="params">(Student user)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -356,7 +392,7 @@
 <p>这个映射文件是跟你的<strong>实体映射接口</strong>所对应的，可以对比来了解里面各个参数的意义，或查询官方文档</p>
 <p>到此我们服务端的部分就编写完成了</p>
 <hr>
-<h1 id="测试">测试</h1>
+<h1 id="测试"><a class="markdownIt-Anchor" href="#测试"></a> 测试</h1>
 <p>我们引入了一个用于单元测试的包<code>Junit</code> 前面已经在Maven里导入了。我们直接编写一个单元测试类</p>
 <p><strong><code>StudentDaoTest.java</code></strong></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.mydb;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.io.Resources;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSession;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactory;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.session.SqlSessionFactoryBuilder;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.mydb.dao.StudentDao;</span><br><span class="line"><span class="keyword">import</span> cn.mydb.entity.Student;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StudentDaoTest</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">findStudentBySno</span><span class="params">()</span>&#123;</span><br><span class="line">		<span class="type">SqlSession</span> <span class="variable">sqlSession</span> <span class="operator">=</span> getSessionFactory().openSession(<span class="literal">true</span>);  </span><br><span class="line">		<span class="type">StudentDao</span> <span class="variable">userMapper</span> <span class="operator">=</span> sqlSession.getMapper(StudentDao.class);  </span><br><span class="line">		</span><br><span class="line">		<span class="comment">//增加一条新记录</span></span><br><span class="line">		<span class="type">Student</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Student</span>();</span><br><span class="line">		user.setSname(<span class="string">&quot;pan&quot;</span>);</span><br><span class="line">		user.setSno(<span class="string">&quot;18115296&quot;</span>);</span><br><span class="line">		userMapper.addUser(user);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//更新该记录</span></span><br><span class="line">		user.setSname(<span class="string">&quot;panyajie&quot;</span>);</span><br><span class="line">		userMapper.updateUser(user);</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//查询该记录</span></span><br><span class="line">		<span class="type">String</span> <span class="variable">sno</span> <span class="operator">=</span> user.getSno();</span><br><span class="line">		user = <span class="literal">null</span>;</span><br><span class="line">		user = userMapper.findStudentBySno(sno);  </span><br><span class="line">		System.out.println(<span class="string">&quot;更新后记录为：&quot;</span>+user);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//删除记录</span></span><br><span class="line">		System.out.println(<span class="string">&quot;尝试删除该记录...&quot;</span>);</span><br><span class="line">		userMapper.deleteUser(sno);</span><br><span class="line">		</span><br><span class="line">		user = userMapper.findStudentBySno(sno); </span><br><span class="line">		<span class="keyword">if</span>(user==<span class="literal">null</span>)&#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;该记录已删除！&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;该记录未被成功删除！&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">// Mybatis 通过SqlSessionFactory获取SqlSession, 然后才能通过SqlSession与数据库进行交互</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> SqlSessionFactory <span class="title function_">getSessionFactory</span><span class="params">()</span> &#123;</span><br><span class="line">		<span class="type">SqlSessionFactory</span> <span class="variable">sessionFactory</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">		<span class="type">String</span> <span class="variable">resource</span> <span class="operator">=</span> <span class="string">&quot;cn/mydb/configuration.xml&quot;</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			sessionFactory = <span class="keyword">new</span> <span class="title class_">SqlSessionFactoryBuilder</span>().build(Resources.getResourceAsReader(resource));</span><br><span class="line">		&#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> sessionFactory;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -371,19 +407,36 @@
       </tags>
   </entry>
   <entry>
-    <title>关于商品经济社会与情感归属</title>
-    <url>/blog/2022/05/18/%E5%85%B3%E4%BA%8E%E5%95%86%E5%93%81%E7%BB%8F%E6%B5%8E%E7%A4%BE%E4%BC%9A%E4%B8%8E%E6%83%85%E6%84%9F%E5%BD%92%E5%B1%9E/</url>
-    <content><![CDATA[<h1 id="记">2020-6-28 记</h1>
-<h3 id="想说的很多也不知能否说清">想说的很多，也不知能否说清。</h3>
+    <title>Flask文件下载关于解决中文名的问题</title>
+    <url>/blog/2022/05/17/Flask%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%85%B3%E4%BA%8E%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E5%90%8D%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p>在Flask提供的服务端向客户端发送其请求文件存在中文名文件会报错的问题，主要是编码不对造成，</p>
+<p>可以尝试用以下方法解决,用<code>GET</code> 方法请求文件</p>
 <span id="more"></span>
-<p>说来也奇怪可能是昨晚的一个梦让我潜意识里有了对这个问题的铺垫，鬼使神差的今天在<strong>B站</strong>看到的第一个视频就是关于<strong>婚姻</strong>和<strong>孩子</strong>以及<strong>生育</strong>问题的，<code>“生育率逐渐下降的背后的社会问题是什么”``“为什么现在的女生不愿意生孩子”``“婚姻已经不再和爱情相关而是资本融合”</code>，这样标题的视频看似浮夸实际在我看了之后还是觉得有内在道理在其中的，因为确实是有这样的普遍问题并不是无中生有。在我看到视频的创作者客观的在解释生育率降低在未来会给我们带来哪些不好的影响的时候，弹幕里的各种言论 <code>“关我P事”`` “有道理，我还是选择不生”``“你们愿意生自己去生吧” `` “过50年我都不知道在哪，关我什么事”</code> ，我实在的感受到了社会存在的问题。我不想去讨论这些人的言论是否是合理的，又或者他们真实的想法是如何，我想说的是更深层次的原因是什么造成的这样的现状。资本和媒体。<em>21世纪</em>已经是一个媒体无孔不入的年代，任何事情都能在互联网上 以极快的速度传播，虽然带来了时效性，但也意味着它的<strong>煽动性</strong>是可怕的，拿成功来说，不可否认的是成功确实是少数人的经历，也有很多人非常努力勤奋但却依然默默无闻平庸一生，但这也是少数，无良媒体宣扬<code>“在这样的社会金钱是一切”，“你再努力也抵不过富二代的一声爸”</code>，成为了很多喜欢抱怨生活的人的不努力的借口也成为了他口诛笔伐社会的谈资，我从心里觉得这样的人，是废物。这是我们建立在爱情需要功利支持的情况下讨论的，觉得没钱导致了生育率的下降，但穷真的就是本质原因吗，回退40年，上一代的人不比我们条件更差，更穷吗，可生育率一直很高，甚至人民幸福指数也要高得多。 再者，资本。资本把爱情和金钱挂钩，在各种各样的节日把爱物质化宣传成各种各样的商品，<strong>“买XXX代表了你多爱一个人”</strong>，把消费等价于爱情的坚固程度，洗脑了多少年轻的男女，一些女生会以这些为标准而对自己的伴侣提出要求，而一些男生也会主动进行很多消费来达到另一半的内心预期。进一步的功利化了感情这件事。而这还只是恋爱，到了谈婚论嫁更是难以预估的财力的比拼，车，房，彩礼，样样不能少，本来是两个新人幸福的走进人生的新阶段，却变成了两个家庭的经济资产的检测仪，而其实更多的对是男方家庭的要求。这也是低生育率的原因，因为很多人根本没有办法结婚。 这些问题最终只会导致社会的低欲望化，像日本一样，参考《低欲望化的社会》，年轻人已经没有动力再去争取，资本贪婪的欲望最终也会自食其果，因为消费力的下降导致停产倒闭，而这又会带来失业等各种问题，进一步加剧低生育率的问题，这是个恶性循环，就像那个真诚的UP说的一样，在这里提出这些问题并不是想要马上去解决这么大的问题，我也知道可能看到的人也并不Care我说的这些东西，只是希望未来再有人提到这个问题的时候大家能真的重视起来，因为社会太过于庞大，只有大部分人意识到的时候，才能有所改善。</p>
-<p>我自己的想法就是，了解社会问题，建立自己的三观，对于一个正年轻的人来说，如果你想要过上好的日子又没有一个富有的家庭，那么没有任何事情是你不努力不上进的理由，抱怨是不会给你带来好的生活的，表现式的消极和绝望也只会把自己带入深渊。你不相信普通人能成功，你就不会成为那个成功的普通人。</p>
-]]></content>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> request.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&#x27;url&#x27;</span>:<span class="string">&quot;&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#文件路径，可以是相对路径</span></span><br><span class="line">    FILE_PATH = <span class="string">&quot;temp/&quot;</span> + <span class="built_in">str</span>(no) + <span class="string">&quot;/&quot;</span></span><br><span class="line">    <span class="comment">#文件名，如果确定的话可以直接用字符串赋值，此处动态获取</span></span><br><span class="line">    filename = fm.GetFileFromThisRootDir(FILE_PATH, <span class="string">&#x27;mp4&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(filename)==<span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">&#x27;/resource&#x27;</span>)</span><br><span class="line">    filename=filename[<span class="number">0</span>]</span><br><span class="line">    <span class="built_in">print</span>(filename[<span class="number">0</span>])</span><br><span class="line">    <span class="comment">#制作返回头，用Content-Disposition解决编码问题</span></span><br><span class="line">    response = make_response(send_file(filename))</span><br><span class="line">    basename = os.path.basename(filename)</span><br><span class="line">    response.headers[<span class="string">&quot;Content-Disposition&quot;</span>] = \</span><br><span class="line">        <span class="string">&quot;attachment;&quot;</span> \</span><br><span class="line">        <span class="string">&quot;filename*=UTF-8&#x27;&#x27;&#123;utf_filename&#125;&quot;</span>.<span class="built_in">format</span>(</span><br><span class="line">            utf_filename=quote(basename.encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">        )</span><br><span class="line">    <span class="keyword">return</span> response</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
-        <category>杂文</category>
+        <category>编程</category>
       </categories>
       <tags>
-        <tag>随笔</tag>
+        <tag>Flask</tag>
+        <tag>后端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>别叫我达芬奇PunkVersion-电吉他演奏</title>
+    <url>/blog/2022/11/16/%E5%88%AB%E5%8F%AB%E6%88%91%E8%BE%BE%E8%8A%AC%E5%A5%87PunkVersion-%E7%94%B5%E5%90%89%E4%BB%96%E6%BC%94%E5%A5%8F/</url>
+    <content><![CDATA[<h2 id="视频地址"><a class="markdownIt-Anchor" href="#视频地址"></a> 视频地址</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://www.bilibili.com/video/BV1oR4y1Z7xn</span><br></pre></td></tr></table></figure>
+<iframe src="//player.bilibili.com/player.html?aid=347669553&bvid=BV1oR4y1Z7xn&cid=893635515&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<span id="more"></span>
+<p>伴奏地址：<code>https://pan.baidu.com/s/15gRY2edTeO9IcGAi5LMlNw?pwd=yhnb</code><br>
+吉他谱地址：<code>https://www.bilibili.com/video/BV1QB4y1M7Dw</code></p>
+]]></content>
+      <categories>
+        <category>音乐</category>
+      </categories>
+      <tags>
+        <tag>电吉他</tag>
+        <tag>翻弹</tag>
       </tags>
   </entry>
   <entry>
@@ -393,21 +446,6 @@
 <p>安静到我们只能听到彼此的歌声</p>
 <p>每一段我们一起唱出的乐句</p>
 <p>都在加深这城市的夜晚的色彩，耳朵和眼睛也相爱了</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>时间长河里的爱意</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>地铁上的旅行</title>
-    <url>/blog/2020/01/25/%E5%9C%B0%E9%93%81%E4%B8%8A%E7%9A%84%E6%97%85%E8%A1%8C/</url>
-    <content><![CDATA[<p>你带我去到最后一节车厢</p>
-<p>我随你安静的坐在那，记不清我们是否交谈过什么</p>
-<p>只记得和你像是在旅行，我们一起共度时间的旅行</p>
-<p>光是和你一起，就已经很让我开心了。</p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -427,13 +465,14 @@
 <p>2.仓库初始化，但并未推送</p>
 <p>3.仓库已经推送至远程仓库</p>
 <p>解决方式如下：</p>
-<p>1.仓库没有初始化，即空文件夹：本地没有仓库的两种情形 1.1 初始化仓库并初始化分支</p>
+<p>1.仓库没有初始化，即空文件夹：本地没有仓库的两种情形<br>
+1.1 初始化仓库并初始化分支</p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">以下命令可以初始化仓库并初始化一个分支</span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> &lt;branch<span class="literal">-name</span>&gt;</span><br><span class="line"><span class="comment"># 例子：main为想变更的默认分支名</span></span><br><span class="line"><span class="variable">$</span> git init <span class="literal">-b</span> main</span><br><span class="line">连接远程仓库</span><br><span class="line"><span class="variable">$</span> git remote add origin &lt;远端仓库链接&gt;</span><br><span class="line">添加暂存区</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line">提交本地仓库</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;解释说明&quot;</span></span><br><span class="line">推送到远程仓库 <span class="literal">---</span>这里相当于在远端新建了一个main分支</span><br><span class="line"><span class="variable">$</span> git push origin main </span><br><span class="line"></span><br><span class="line">此时远端仓库已经有了main分支</span><br><span class="line"></span><br><span class="line">删除旧的远程分支（如果不想要旧的默认分支，可以删除）</span><br><span class="line"><span class="comment"># 要删除的分支可能是默认分支、受保护分支等，需要先在仓库管理平台仓库设置中选择新分支main为默认分支，然后再执行命令。</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> &lt;branch<span class="literal">-name</span>&gt;   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> master</span><br></pre></td></tr></table></figure>
-<p>****1.2 其他使用clone的同步****</p>
+<p><strong><strong>1.2 其他使用clone的同步</strong></strong></p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment">#对于其他 clone 的同步</span></span><br><span class="line"></span><br><span class="line">对于已经 clone 的仓库通过如下步骤进行同步：</span><br><span class="line"></span><br><span class="line"><span class="variable">$</span> git fetch   `拉取远端分支信息`</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> origin <span class="literal">-a</span>  `更新本地 upstream</span><br><span class="line"><span class="comment">#例子：</span></span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> master main</span><br><span class="line"><span class="comment"># 上述命令将 `master` 分支重命名为了 `main`。但这个变更只是本地的，需要同步到远端。</span></span><br><span class="line"></span><br><span class="line">第二步：推送本地分支至远程仓库</span><br><span class="line"><span class="variable">$</span> git push <span class="literal">-u</span> origin &lt;branch<span class="literal">-name</span>&gt;</span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="variable">$</span> git push <span class="literal">-u</span> origin main</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上述命令将新建的 `main` 分支同步到远端并设置 upstream 到了该分支。</span></span><br><span class="line"></span><br><span class="line">第三步：删除远程分支（如果不想要旧的默认分支，可以删除）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 要删除的分支可能是默认分支、受保护分支等，需要先在仓库管理平台仓库设置中选择新分支为默认分支，然后再执行命令。</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> &lt;branch<span class="literal">-name</span>&gt;   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> master</span><br><span class="line"></span><br><span class="line"><span class="built_in">PS</span>：关于git remote <span class="built_in">set-head</span>命令的解释说明</span><br><span class="line">设置或删除跟踪仓库的HEAD,指向指定分支,命令行中的圆括号表示必选其中之一执行</span><br><span class="line"><span class="variable">$</span> git remote <span class="built_in">set-head</span> &lt;origin&gt; (<span class="literal">-a</span> | <span class="literal">--auto</span> | <span class="literal">-d</span> | <span class="literal">--delete</span> | &lt;branch&gt;) </span><br><span class="line">    [-<span class="type">a</span>|--<span class="type">auto</span>]     <span class="comment"># set refs/remotes/&lt;name&gt;/HEAD according to remote</span></span><br><span class="line">    [-<span class="type">d</span>|--<span class="type">delete</span>]   <span class="comment"># delete refs/remotes/&lt;name&gt;/HEAD</span></span><br></pre></td></tr></table></figure>
-<p>• ****2.仓库初始化，但并未推送 ：初始化后未推送，可以直接修改本地的分支名****</p>
+<p>• <strong><strong>2.仓库初始化，但并未推送 ：初始化后未推送，可以直接修改本地的分支名</strong></strong></p>
 <figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> &lt;oldbranch&gt; &lt;newbranch&gt;</span><br><span class="line"><span class="comment"># 举例说明</span></span><br><span class="line"><span class="variable">$</span> git branch <span class="literal">-m</span> master main</span><br><span class="line"></span><br><span class="line">连接远程仓库</span><br><span class="line"><span class="variable">$</span> git remote add origin &lt;远端仓库链接&gt;</span><br><span class="line">添加暂存区</span><br><span class="line"><span class="variable">$</span> git add .</span><br><span class="line">提交本地仓库</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;解释说明&quot;</span></span><br><span class="line"></span><br><span class="line">推送到远程仓库</span><br><span class="line"><span class="variable">$</span> git push origin main </span><br><span class="line">注意：这里在推送的时候，可能会报错，因为可能需要你先pull远程到本地，使远程与本地驳斥一致后，才可以推送</span><br><span class="line">不过，你也可以忽略报错的提示，使用<span class="operator">-f</span>强制推送，即<span class="variable">$</span> git push origin main <span class="operator">-f</span></span><br><span class="line"></span><br><span class="line">删除旧的远程分支（如果不想要旧的默认分支，可以删除）</span><br><span class="line"></span><br><span class="line"><span class="comment"># 要删除的分支可能是默认分支、受保护分支等，需要先在仓库管理平台仓库设置中选择新分支为默认分支，然后再执行命令。</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> &lt;branch<span class="literal">-name</span>&gt;   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 例子</span></span><br><span class="line"><span class="variable">$</span> git push origin <span class="literal">--delete</span> master</span><br></pre></td></tr></table></figure>
-<p>• ****3.仓库已经推送至远程仓库：已经提交至远程仓库，去修改分支名****</p>
+<p>• <strong><strong>3.仓库已经推送至远程仓库：已经提交至远程仓库，去修改分支名</strong></strong></p>
 ]]></content>
       <categories>
         <category>编程</category>
@@ -443,43 +482,33 @@
       </tags>
   </entry>
   <entry>
-    <title>多版本Python中对pip包的管理</title>
-    <url>/blog/2022/05/18/%E5%A4%9A%E7%89%88%E6%9C%ACPython%E4%B8%AD%E5%AF%B9pip%E5%8C%85%E7%9A%84%E7%AE%A1%E7%90%86/</url>
-    <content><![CDATA[<p>在多个版本Python共存的系统环境中，如果在终端中直接使用 <code>pip install xxx</code> ,默认会安装到你的默认Python版本当中，如果想在不同的Python中安装pip包，则需要在前缀加上对应路径</p>
-<p>比如在终端中输入：</p>
-<p>PS E:_Doc&gt; <code>E:\Anaconda3\python.exe -m pip xxxx</code></p>
-<p><code>E:\Anaconda3\python.exe</code> 是你想安装版本的路径，<code>-m</code> 是设置主程序，剩下的就如正常的安装代码一样了</p>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>恶意-读后随笔</title>
-    <url>/blog/2022/06/06/%E6%81%B6%E6%84%8F-%E8%AF%BB%E5%90%8E%E9%9A%8F%E7%AC%94/</url>
-    <content><![CDATA[<h3 id="在感叹作者对感知力和人性的把握如此细致的同时我也想表达对这少数存在的极端恶意的无奈"><strong><em>在感叹作者对感知力和人性的把握如此细致的同时，我也想表达对这少数存在的极端恶意的无奈。</em></strong></h3>
-<blockquote>
-<p>首先要知道的是，也是我觉得这本书的最重要的点，<strong><em>抵制校园暴力</em></strong>。 野野口毫无疑问是一个极度敏感且心思缜密的人，这都奠定了他做出如此恶毒事件的行为理由，我自己也认为任何事情也无法为他开脱他犯下的罪行，但我一直秉持的观念是<strong><em>人是复杂</em></strong>的，就是这样的不可预估的特性才会让两个不一样的人在一样的环境里滋生出不一样的人格，我没办法忽略最后提到的  <strong><em>“青少年时期，你之所以厌恶日高，理由之一恐怕是你母亲不自觉流露出的那份轻蔑”</em></strong>，人的思想有多容易被影响，相信在这本书的不同第一人称的章节里我们都已经亲身感受到了，更何况少年时期的野野口，在当时的他也只是一个可怜的孩子，不想要被施加校园暴力，哪怕从他后面的从恶加入施暴者的行列的所有行为都是令人难以理解的。我也不能忘记他的最初也只是个可怜的孩子，是万恶的社会和环境造就了他极恶的人格。</p>
-</blockquote>
-<blockquote>
-<p>再说说日高这个角色，相信大家在最后都能一致的觉得日高是一个很难得的人，尤其是在一直被野野口误导到最后才看清真相的情况下，潜意识里滋生的愧疚感也会加倍对日高这个人物的好感。我想首先日高一定有一个值得敬佩的家庭，他的骨气他的善良一定和他的原生家庭的教育密不可分，这就是我想要说的，环境的影响。如果他有野野口这样相对刻薄的父母亲，我们也很难想象日高的发展。但至少在这个世界里日高比野野口要好命，他一生的口碑都很好，他做的也很好，当合适的环境帮他建立善良勇敢的人格之后他做出的各种选择也是令人敬佩的，就像我所说的人性的复杂性，稍有偏差，<code>“日高”</code>就不是日高了。</p>
-</blockquote>
-<blockquote>
-<p>最后就是加贺这个警官，这是我看的第一本东树的作品，我在阅读时看大家的想法好像这个人物在其他地方也有出场，所以我无从知晓，只能从这本书来谈谈我对这个人的理解，加贺选择去做警察是对的。他不过就是个警察而已。这句话听起来很贬义，我也觉得不妥，可社会是这样的，警察也是职业，也是拿工资办事，他完全没有必要如此深究时间的百分百信服度，相反只要能说得通他就能完成任务。可他不是，他愿意为自己心中的疑惑努力调查，哪怕在上司同事都表现出不耐烦的时候他也是未动摇过追求真相的信念。可能他才是真正好好生活的人，除了让身体活着他也在努力让精神活着。</p>
-</blockquote>
-<blockquote>
-<p>我们在众多相关人物的采访那一章看到了社会百态，东树笔下的每一个小人物都能映射出社会上一波人的思想，确实是那样，冷漠的人，施暴者多年以后对施暴行为不以为然，我在想法里看到的 <strong><em>“在施暴者的眼里只有一分钟，而在受害者的眼里施暴从未停止”</em></strong> 这是很真实的一句话，我为受害者而觉得不公平，为这个社会存在这样的问题而感到悲哀和无奈，在这件事情上，我们都是懦弱的人，而相反被施加难以估计的暴力的日高却不断反抗，他才是最勇敢的人。</p>
-</blockquote>
+    <title>地铁上的旅行</title>
+    <url>/blog/2020/01/25/%E5%9C%B0%E9%93%81%E4%B8%8A%E7%9A%84%E6%97%85%E8%A1%8C/</url>
+    <content><![CDATA[<p>你带我去到最后一节车厢</p>
+<p>我随你安静的坐在那，记不清我们是否交谈过什么</p>
+<p>只记得和你像是在旅行，我们一起共度时间的旅行</p>
+<p>光是和你一起，就已经很让我开心了。</p>
 ]]></content>
       <categories>
         <category>杂文</category>
       </categories>
       <tags>
-        <tag>随笔</tag>
-        <tag>读后感</tag>
+        <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>年轻时候的爱情</title>
+    <url>/blog/2020/01/19/%E5%B9%B4%E8%BD%BB%E6%97%B6%E5%80%99%E7%9A%84%E7%88%B1%E6%83%85/</url>
+    <content><![CDATA[<p>年轻的时候一眼就是一辈子，</p>
+<p>地上的草的清香和你的裙摆都是春天给我的礼物，</p>
+<p>我跟你说笑着关于生活，</p>
+<p>心里想着跟你未来的每一天。</p>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>时间长河里的爱意</tag>
       </tags>
   </entry>
   <entry>
@@ -496,6 +525,32 @@
       </categories>
       <tags>
         <tag>时间长河里的爱意</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>恶意-读后随笔</title>
+    <url>/blog/2022/06/06/%E6%81%B6%E6%84%8F-%E8%AF%BB%E5%90%8E%E9%9A%8F%E7%AC%94/</url>
+    <content><![CDATA[<h3 id="在感叹作者对感知力和人性的把握如此细致的同时我也想表达对这少数存在的极端恶意的无奈"><a class="markdownIt-Anchor" href="#在感叹作者对感知力和人性的把握如此细致的同时我也想表达对这少数存在的极端恶意的无奈"></a> <em><strong>在感叹作者对感知力和人性的把握如此细致的同时，我也想表达对这少数存在的极端恶意的无奈。</strong></em></h3>
+<blockquote>
+<p>首先要知道的是，也是我觉得这本书的最重要的点，<em><strong>抵制校园暴力</strong></em>。<br>
+野野口毫无疑问是一个极度敏感且心思缜密的人，这都奠定了他做出如此恶毒事件的行为理由，我自己也认为任何事情也无法为他开脱他犯下的罪行，但我一直秉持的观念是***人是复杂***的，就是这样的不可预估的特性才会让两个不一样的人在一样的环境里滋生出不一样的人格，我没办法忽略最后提到的  ***“青少年时期，你之所以厌恶日高，理由之一恐怕是你母亲不自觉流露出的那份轻蔑”***，人的思想有多容易被影响，相信在这本书的不同第一人称的章节里我们都已经亲身感受到了，更何况少年时期的野野口，在当时的他也只是一个可怜的孩子，不想要被施加校园暴力，哪怕从他后面的从恶加入施暴者的行列的所有行为都是令人难以理解的。我也不能忘记他的最初也只是个可怜的孩子，是万恶的社会和环境造就了他极恶的人格。</p>
+</blockquote>
+<blockquote>
+<p>再说说日高这个角色，相信大家在最后都能一致的觉得日高是一个很难得的人，尤其是在一直被野野口误导到最后才看清真相的情况下，潜意识里滋生的愧疚感也会加倍对日高这个人物的好感。我想首先日高一定有一个值得敬佩的家庭，他的骨气他的善良一定和他的原生家庭的教育密不可分，这就是我想要说的，环境的影响。如果他有野野口这样相对刻薄的父母亲，我们也很难想象日高的发展。但至少在这个世界里日高比野野口要好命，他一生的口碑都很好，他做的也很好，当合适的环境帮他建立善良勇敢的人格之后他做出的各种选择也是令人敬佩的，就像我所说的人性的复杂性，稍有偏差，<code>“日高”</code>就不是日高了。</p>
+</blockquote>
+<blockquote>
+<p>最后就是加贺这个警官，这是我看的第一本东树的作品，我在阅读时看大家的想法好像这个人物在其他地方也有出场，所以我无从知晓，只能从这本书来谈谈我对这个人的理解，加贺选择去做警察是对的。他不过就是个警察而已。这句话听起来很贬义，我也觉得不妥，可社会是这样的，警察也是职业，也是拿工资办事，他完全没有必要如此深究时间的百分百信服度，相反只要能说得通他就能完成任务。可他不是，他愿意为自己心中的疑惑努力调查，哪怕在上司同事都表现出不耐烦的时候他也是未动摇过追求真相的信念。可能他才是真正好好生活的人，除了让身体活着他也在努力让精神活着。</p>
+</blockquote>
+<blockquote>
+<p>我们在众多相关人物的采访那一章看到了社会百态，东树笔下的每一个小人物都能映射出社会上一波人的思想，确实是那样，冷漠的人，施暴者多年以后对施暴行为不以为然，我在想法里看到的 <em><strong>“在施暴者的眼里只有一分钟，而在受害者的眼里施暴从未停止”</strong></em> 这是很真实的一句话，我为受害者而觉得不公平，为这个社会存在这样的问题而感到悲哀和无奈，在这件事情上，我们都是懦弱的人，而相反被施加难以估计的暴力的日高却不断反抗，他才是最勇敢的人。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>杂文</category>
+      </categories>
+      <tags>
+        <tag>随笔</tag>
+        <tag>读后感</tag>
       </tags>
   </entry>
   <entry>
@@ -516,14 +571,64 @@
       </tags>
   </entry>
   <entry>
-    <title>给清语的信</title>
-    <url>/blog/2020/01/29/%E7%BB%99%E6%B8%85%E8%AF%AD%E7%9A%84%E4%BF%A1/</url>
-    <content><![CDATA[<p>我们不常互诉爱意，</p>
-<p>可我深知彼此在各自心里的重量，</p>
-<p>人是会变的</p>
-<p>平淡生活里的刺不痛不痒</p>
-<p>可玫瑰色却鲜艳炙热</p>
-<p>“有人曾笃定规划着两个人的未来”</p>
+    <title>多版本Python中对pip包的管理</title>
+    <url>/blog/2022/05/18/%E5%A4%9A%E7%89%88%E6%9C%ACPython%E4%B8%AD%E5%AF%B9pip%E5%8C%85%E7%9A%84%E7%AE%A1%E7%90%86/</url>
+    <content><![CDATA[<p>在多个版本Python共存的系统环境中，如果在终端中直接使用 <code>pip install xxx</code> ,默认会安装到你的默认Python版本当中，如果想在不同的Python中安装pip包，则需要在前缀加上对应路径</p>
+<p>比如在终端中输入：</p>
+<p>PS E:\Jupyter_Doc&gt; <code>E:\Anaconda3\python.exe -m pip xxxx</code></p>
+<p><code>E:\Anaconda3\python.exe</code>   是你想安装版本的路径，<code>-m</code> 是设置主程序，剩下的就如正常的安装代码一样了</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>有关Static类成员变量的外部使用问题</title>
+    <url>/blog/2024/03/27/%E6%9C%89%E5%85%B3Static%E7%B1%BB%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E7%9A%84%E5%A4%96%E9%83%A8%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="场景说明"><a class="markdownIt-Anchor" href="#场景说明"></a> 场景说明：</h2>
+<p>来源于一个配置系统的测试文件</p>
+<span id="more"></span>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;cspch.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;config.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;log.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;yaml-cpp/yaml.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">CppServer::ConfigVar&lt;<span class="type">int</span>&gt;::ptr g_int_value_config =</span><br><span class="line">    CppServer::Config::<span class="built_in">Lookup</span>(<span class="string">&quot;system.port&quot;</span>, (<span class="type">int</span>)<span class="number">8080</span>, <span class="string">&quot;system port&quot;</span>);</span><br><span class="line"></span><br><span class="line">CppServer::ConfigVar&lt;<span class="type">float</span>&gt;::ptr g_float_value_config =</span><br><span class="line">    CppServer::Config::<span class="built_in">Lookup</span>(<span class="string">&quot;system.value&quot;</span>, (<span class="type">float</span>)<span class="number">10.2f</span>, <span class="string">&quot;system value&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">print_yaml</span><span class="params">(<span class="type">const</span> YAML::Node&amp; node, <span class="type">int</span> level)</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test_yaml</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test_config</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>** argv)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//test_yaml();</span></span><br><span class="line">    <span class="built_in">test_config</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在执行第一个语句的时候进入到 <code>config.h: 34</code></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">s_datas[name] = v;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>
+<p><code>**config.h**</code></p>
+  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> ...</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> CppServer &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">class</span> <span class="title class_">ConfigVarBase</span> &#123;</span><br><span class="line">	...</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">	<span class="keyword">class</span> <span class="title class_">ConfigVar</span> : <span class="keyword">public</span> ConfigVarBase &#123;</span><br><span class="line">	...</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">class</span> <span class="title class_">Config</span> &#123;</span><br><span class="line">	<span class="keyword">public</span>:</span><br><span class="line">		<span class="keyword">typedef</span> std::map&lt;std::string, ConfigVarBase::ptr&gt; ConfigVarMap;</span><br><span class="line">		<span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">		<span class="type">static</span> <span class="keyword">typename</span> ConfigVar&lt;T&gt;::<span class="function">ptr <span class="title">Lookup</span><span class="params">(<span class="type">const</span> std::string&amp; name,</span></span></span><br><span class="line"><span class="params"><span class="function">			<span class="type">const</span> T&amp; default_value, <span class="type">const</span> std::string&amp; description = <span class="string">&quot;&quot;</span>)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">auto</span> tmp = <span class="built_in">Lookup</span>&lt;T&gt;(name);</span><br><span class="line">			<span class="keyword">if</span> (tmp) &#123;</span><br><span class="line">				<span class="built_in">CS_LOG_INFO</span>(<span class="built_in">CS_LOG_ROOT</span>()) &lt;&lt; <span class="string">&quot;Lookup name=&quot;</span> &lt;&lt; name &lt;&lt; <span class="string">&quot; exists&quot;</span>;</span><br><span class="line">				<span class="keyword">return</span> tmp;</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span> (name.<span class="built_in">find_first_not_of</span>(<span class="string">&quot;abcdefghikjlmnopqrstuvwxyz._012345678&quot;</span>)</span><br><span class="line">				!= std::string::npos) &#123;</span><br><span class="line">				<span class="built_in">CS_LOG_ERROR</span>(<span class="built_in">CS_LOG_ROOT</span>()) &lt;&lt; <span class="string">&quot;Lookup name invalid &quot;</span> &lt;&lt; name;</span><br><span class="line">				<span class="keyword">throw</span> std::<span class="built_in">invalid_argument</span>(name);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">typename</span> ConfigVar&lt;T&gt;::<span class="function">ptr <span class="title">v</span><span class="params">(<span class="keyword">new</span> ConfigVar&lt;T&gt;(name, default_value, description))</span></span>;</span><br><span class="line">			s_datas[name] = v;</span><br><span class="line">			<span class="keyword">return</span> v;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">template</span>&lt;<span class="keyword">class</span> <span class="title class_">T</span>&gt;</span><br><span class="line">		<span class="type">static</span> <span class="keyword">typename</span> ConfigVar&lt;T&gt;::<span class="function">ptr <span class="title">Lookup</span><span class="params">(<span class="type">const</span> std::string&amp; name)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">auto</span> it = s_datas.<span class="built_in">find</span>(name);</span><br><span class="line">			<span class="keyword">if</span> (it == s_datas.<span class="built_in">end</span>()) &#123;</span><br><span class="line">				<span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">return</span> std::dynamic_pointer_cast&lt;ConfigVar&lt;T&gt;&gt;(it-&gt;second);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="type">static</span> <span class="type">const</span> std::string <span class="title">OutputConfig</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">		<span class="function"><span class="type">static</span> <span class="type">void</span> <span class="title">LoadFromYaml</span><span class="params">(<span class="type">const</span> YAML::Node&amp; root)</span></span>;</span><br><span class="line">		<span class="function"><span class="type">static</span> ConfigVarBase::ptr <span class="title">LookupBase</span><span class="params">(<span class="type">const</span> std::string&amp; name)</span></span>;</span><br><span class="line">	<span class="keyword">private</span>:</span><br><span class="line">		<span class="type">static</span> ConfigVarMap s_datas;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p><code>**config.cpp</code>** 中完成了对s_datas的初始化</p>
+  <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;cspch.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;config.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> CppServer &#123;</span><br><span class="line"></span><br><span class="line">	Config::ConfigVarMap Config::s_datas;</span><br><span class="line"></span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>出现 <strong>段错误</strong>  ，而问题就出在s_datas这个<code>私有静态变量</code>的赋值上</p>
+<p>一开始我怀疑是没有链接到<code>config.cpp</code> ，然而在其中我添加了一个简单的测试静态变量<int>型，但却可以在<code>test_config.cpp</code>中全局访问更改，进一步测试发现<code>std::map</code> 类型的复合变量就无法赋值，我进一步怀疑是复合变量没有初始化定义空间</int></p>
+<h2 id="解决方法"><a class="markdownIt-Anchor" href="#解决方法"></a> 解决方法：</h2>
+<p>然后我尝试用以下 <strong>方案</strong> 解决：</p>
+<p>将私有静态变量改为私有静态方法，并在其中初始化静态变量，这样保证在第一次调用<code>s_datas</code>的时候一定会<code>先初始化</code>再使用。</p>
+<p><code>config.h</code></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">...</span><br><span class="line">...</span><br><span class="line">		~~s_datas[name] = v;~~</span><br><span class="line">		<span class="built_in">GetDatas</span>()[name] = v;</span><br><span class="line">		~~~~</span><br><span class="line">		<span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	~~<span class="type">static</span> ConfigVarMap s_datas;~~</span><br><span class="line">	<span class="function"><span class="type">static</span> ConfigVarMap&amp; <span class="title">GetDatas</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	  <span class="type">static</span> ConfigVarMap s_datas;</span><br><span class="line">	  <span class="keyword">return</span> s_datas;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p><code>config.cpp</code></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;cspch.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;config.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> CppServer &#123;</span><br><span class="line"></span><br><span class="line">	~~Config::ConfigVarMap Config::s_datas;~~</span><br><span class="line"></span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>经过测试此方法可以成功运行，但其原因却依旧没搞懂。</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>时间长河里的爱意</title>
+    <url>/blog/2020/01/18/%E6%97%B6%E9%97%B4%E9%95%BF%E6%B2%B3%E9%87%8C%E7%9A%84%E7%88%B1%E6%84%8F/</url>
+    <content><![CDATA[<p>准备开始写一些关于感情的小故事</p>
+<p><strong>故事似真似假，人物似有似无，总归是一种感受，</strong><br>
+<strong>也可能这世界上真的有这样的两个人</strong><br>
+<strong>我们无从得知</strong> <strong>不妨我们就叫这男孩和女孩，小海和清语吧。</strong></p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -533,10 +638,63 @@
       </tags>
   </entry>
   <entry>
-    <title>时间长河里的爱意</title>
-    <url>/blog/2020/01/18/%E6%97%B6%E9%97%B4%E9%95%BF%E6%B2%B3%E9%87%8C%E7%9A%84%E7%88%B1%E6%84%8F/</url>
-    <content><![CDATA[<p>准备开始写一些关于感情的小故事</p>
-<p><strong>故事似真似假，人物似有似无，总归是一种感受，</strong> <strong>也可能这世界上真的有这样的两个人</strong> <strong>我们无从得知</strong> <strong>不妨我们就叫这男孩和女孩，小海和清语吧。</strong></p>
+    <title>用premake维护一个Linux C++项目</title>
+    <url>/blog/2024/03/27/%E7%94%A8premake%E7%BB%B4%E6%8A%A4%E4%B8%80%E4%B8%AALinux-C-%E9%A1%B9%E7%9B%AE/</url>
+    <content><![CDATA[<p>在项目根目录中创建一个文件 premake5.lua</p>
+<span id="more"></span>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">workspace <span class="string">&quot;CppServer&quot;</span>    <span class="comment">-- 解决方案名称</span></span><br><span class="line">	architecture <span class="string">&quot;x86_64&quot;</span>    <span class="comment">-- 架构</span></span><br><span class="line">	</span><br><span class="line">	configurations    <span class="comment">-- 配置文件</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="string">&quot;Debug&quot;</span>,</span><br><span class="line">		<span class="string">&quot;Release&quot;</span>,</span><br><span class="line">		<span class="string">&quot;Dist&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	flags</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="string">&quot;MultiProcessorCompile&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">outputdir = <span class="string">&quot;%&#123;cfg.buildcfg&#125;-%&#123;cfg.system&#125;-%&#123;cfg.architecture&#125;&quot;</span></span><br><span class="line"></span><br><span class="line">IncludeDir = &#123;&#125;</span><br><span class="line">IncludeDir[<span class="string">&quot;yaml_cpp&quot;</span>] = <span class="string">&quot;/usr/local/include/yaml-cpp&quot;</span></span><br><span class="line">IncludeDir[<span class="string">&quot;boost&quot;</span>] = <span class="string">&quot;/usr/include/boost&quot;</span></span><br><span class="line"></span><br><span class="line">include <span class="string">&quot;CppServer&quot;</span></span><br><span class="line">include <span class="string">&quot;Test&quot;</span></span><br></pre></td></tr></table></figure>
+<p>假设解决方案名称为<code>**CppServer**</code>，其中有两个项目，第一个**<code>CppServer</code>** 是生成静态链接库供第二个项目<code>Test</code>使用</p>
+<p>项目结构如下，每一个子项目目录下都有一个premake5.lua</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">CppServer</span><br><span class="line">├── CppServer</span><br><span class="line">│   ├── ...</span><br><span class="line">│   └── premake.lua</span><br><span class="line">├── Test</span><br><span class="line">│   ├── ...</span><br><span class="line">│   └── premake.lua</span><br><span class="line">└── premake.lua</span><br></pre></td></tr></table></figure>
+<h3 id="cppserver工程下的premake5lua"><a class="markdownIt-Anchor" href="#cppserver工程下的premake5lua"></a> CppServer工程下的premake5.lua</h3>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">project <span class="string">&quot;CppServer&quot;</span></span><br><span class="line">	kind <span class="string">&quot;StaticLib&quot;</span></span><br><span class="line">	language <span class="string">&quot;C++&quot;</span></span><br><span class="line">	cppdialect <span class="string">&quot;C++17&quot;</span></span><br><span class="line">	staticruntime <span class="string">&quot;off&quot;</span></span><br><span class="line"></span><br><span class="line">	targetdir (<span class="string">&quot;%&#123;wks.location&#125;/bin/&quot;</span> .. outputdir .. <span class="string">&quot;/%&#123;prj.name&#125;&quot;</span>)</span><br><span class="line">	objdir (<span class="string">&quot;%&#123;wks.location&#125;/bin-int/&quot;</span> .. outputdir .. <span class="string">&quot;/%&#123;prj.name&#125;&quot;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">-- pchheader &quot;cnpch.h&quot;</span></span><br><span class="line">	<span class="comment">-- pchsource &quot;src/cnpch.cpp&quot;</span></span><br><span class="line"></span><br><span class="line">	files</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="string">&quot;src/**.h&quot;</span>,</span><br><span class="line">		<span class="string">&quot;src/**.cpp&quot;</span>,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	includedirs</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="string">&quot;src&quot;</span>,</span><br><span class="line">		<span class="string">&quot;%&#123;IncludeDir.yaml_cpp&#125;&quot;</span>,</span><br><span class="line">		<span class="string">&quot;%&#123;IncludeDir.boost&#125;&quot;</span>,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	links</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="string">&quot;yaml-cpp&quot;</span>,</span><br><span class="line">		<span class="string">&quot;boost&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	defines</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="comment">-- &quot;_CRT_SECURE_NO_WARNINGS&quot;</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	filter <span class="string">&quot;system:windows&quot;</span></span><br><span class="line">		systemversion <span class="string">&quot;latest&quot;</span></span><br><span class="line"></span><br><span class="line">		defines</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;CS_PLATFORM_LINUX&quot;</span>,</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	filter <span class="string">&quot;configurations:Debug&quot;</span></span><br><span class="line">		defines <span class="string">&quot;CS_DEBUG&quot;</span></span><br><span class="line">		runtime <span class="string">&quot;Debug&quot;</span></span><br><span class="line">		symbols <span class="string">&quot;on&quot;</span></span><br><span class="line">		</span><br><span class="line">	filter <span class="string">&quot;configurations:Release&quot;</span></span><br><span class="line">		defines <span class="string">&quot;CS_RELEASE&quot;</span></span><br><span class="line">		runtime <span class="string">&quot;Release&quot;</span></span><br><span class="line">		optimize <span class="string">&quot;on&quot;</span></span><br><span class="line">		</span><br><span class="line">	filter <span class="string">&quot;configurations:Dist&quot;</span></span><br><span class="line">		defines <span class="string">&quot;CS_DIST&quot;</span></span><br><span class="line">		runtime <span class="string">&quot;Release&quot;</span></span><br><span class="line">		optimize <span class="string">&quot;on&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="test工程下的premake5lua"><a class="markdownIt-Anchor" href="#test工程下的premake5lua"></a> Test工程下的premake5.lua</h3>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">project <span class="string">&quot;Test&quot;</span></span><br><span class="line">    kind <span class="string">&quot;ConsoleApp&quot;</span></span><br><span class="line">    language <span class="string">&quot;C++&quot;</span></span><br><span class="line">	cppdialect <span class="string">&quot;C++17&quot;</span></span><br><span class="line">	staticruntime <span class="string">&quot;off&quot;</span></span><br><span class="line"></span><br><span class="line">	targetdir (<span class="string">&quot;%&#123;wks.location&#125;/bin/&quot;</span> .. outputdir .. <span class="string">&quot;/%&#123;prj.name&#125;&quot;</span>)</span><br><span class="line">	objdir (<span class="string">&quot;%&#123;wks.location&#125;/bin-int/&quot;</span> .. outputdir .. <span class="string">&quot;/%&#123;prj.name&#125;&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    files</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="string">&quot;src/**.h&quot;</span>,</span><br><span class="line">		<span class="string">&quot;src/test.cpp&quot;</span>,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    includedirs</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;%&#123;wks.location&#125;/CppServer/src&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    links        <span class="comment">--链接库</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">&quot;CppServer&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    filter <span class="string">&quot;system:linux&quot;</span></span><br><span class="line">		systemversion <span class="string">&quot;latest&quot;</span></span><br><span class="line"></span><br><span class="line">		defines</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="string">&quot;CS_PLATFORM_LINUX&quot;</span>,</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	filter <span class="string">&quot;configurations:Debug&quot;</span></span><br><span class="line">		defines <span class="string">&quot;CS_DEBUG&quot;</span></span><br><span class="line">		runtime <span class="string">&quot;Debug&quot;</span></span><br><span class="line">		symbols <span class="string">&quot;on&quot;</span></span><br><span class="line">		</span><br><span class="line">	filter <span class="string">&quot;configurations:Release&quot;</span></span><br><span class="line">		defines <span class="string">&quot;CS_RELEASE&quot;</span></span><br><span class="line">		runtime <span class="string">&quot;Release&quot;</span></span><br><span class="line">		optimize <span class="string">&quot;on&quot;</span></span><br><span class="line">		</span><br><span class="line">	filter <span class="string">&quot;configurations:Dist&quot;</span></span><br><span class="line">		defines <span class="string">&quot;CS_DIST&quot;</span></span><br><span class="line">		runtime <span class="string">&quot;Release&quot;</span></span><br><span class="line">		optimize <span class="string">&quot;on&quot;</span></span><br></pre></td></tr></table></figure>
+<p>完成配置之后，在根目录使用<code>premake</code>生成<code>**Makefile</code>**</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">premake5 --os=linux gmake</span><br></pre></td></tr></table></figure>
+<p>再使用make生成结果文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make config=debug Test</span><br></pre></td></tr></table></figure>
+<p>可配置选项可用 <code>make help</code> 查看</p>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>移动端网页点击闪烁问题，以及点击延迟问题</title>
+    <url>/blog/2022/05/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%82%B9%E5%87%BB%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98%EF%BC%8C%E4%BB%A5%E5%8F%8A%E7%82%B9%E5%87%BB%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="点击延迟问题"><a class="markdownIt-Anchor" href="#点击延迟问题"></a> 点击延迟问题</h2>
+<p>因为移动端的浏览器会对用户点击事件有<code>300ms</code>的延时用于检测是否为双击事件</p>
+<p>消除延迟可以通过在 <code>html</code>中添加：</p>
+<p><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial, minimum-scale=1, maximum-scale=1&quot;&gt;</code></p>
+<blockquote>
+<p>禁止双击缩放操作，这样就能解决延迟问题，不过目前也只是暂时的方案，</p>
+</blockquote>
+<blockquote>
+<p>后续还要等待一个官方的解决方案</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>编程</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>Web-app</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>给清语的信</title>
+    <url>/blog/2020/01/29/%E7%BB%99%E6%B8%85%E8%AF%AD%E7%9A%84%E4%BF%A1/</url>
+    <content><![CDATA[<p>我们不常互诉爱意，</p>
+<p>可我深知彼此在各自心里的重量，</p>
+<p>人是会变的</p>
+<p>平淡生活里的刺不痛不痒</p>
+<p>可玫瑰色却鲜艳炙热</p>
+<p>“有人曾笃定规划着两个人的未来”</p>
 ]]></content>
       <categories>
         <category>杂文</category>
@@ -583,23 +741,6 @@
       </tags>
   </entry>
   <entry>
-    <title>过了许久</title>
-    <url>/blog/2022/05/18/%E8%BF%87%E4%BA%86%E8%AE%B8%E4%B9%85/</url>
-    <content><![CDATA[<p>你曾是个理想主义者</p>
-<p>听过一万个人同你讲述生活的狗血，你都不予在意 <span id="more"></span> 直到它就这么发生了， 你觉得深刻，觉得蜕变，</p>
-<p>你同身边的人一样成为了过往的信徒，传教 成为犬儒或一些精致的利己主义者</p>
-<p>直到有一天你看到了一个熟悉的陌生人</p>
-<p>陌生在他的形象，熟悉在他的追求</p>
-<p>一个有着理想主义的人</p>
-]]></content>
-      <categories>
-        <category>杂文</category>
-      </categories>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>记</title>
     <url>/blog/2022/05/18/%E8%AE%B0/</url>
     <content><![CDATA[<p><strong>经济水平</strong>无法满足<strong>物质需求</strong>才叫穷 贪婪的人永远都是穷人</p>
@@ -615,40 +756,22 @@
       </tags>
   </entry>
   <entry>
-    <title>移动端网页点击闪烁问题，以及点击延迟问题</title>
-    <url>/blog/2022/05/18/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%BD%91%E9%A1%B5%E7%82%B9%E5%87%BB%E9%97%AA%E7%83%81%E9%97%AE%E9%A2%98%EF%BC%8C%E4%BB%A5%E5%8F%8A%E7%82%B9%E5%87%BB%E5%BB%B6%E8%BF%9F%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="点击延迟问题">点击延迟问题</h2>
-<p>因为移动端的浏览器会对用户点击事件有<code>300ms</code>的延时用于检测是否为双击事件</p>
-<p>消除延迟可以通过在 <code>html</code>中添加：</p>
-<p><code>&lt;meta name="viewport" content="width=device-width, initial, minimum-scale=1, maximum-scale=1"&gt;</code></p>
-<blockquote>
-<p>禁止双击缩放操作，这样就能解决延迟问题，不过目前也只是暂时的方案，</p>
-</blockquote>
-<blockquote>
-<p>后续还要等待一个官方的解决方案</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>编程</category>
-      </categories>
-      <tags>
-        <tag>前端</tag>
-        <tag>Web-app</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>年轻时候的爱情</title>
-    <url>/blog/2020/01/19/%E5%B9%B4%E8%BD%BB%E6%97%B6%E5%80%99%E7%9A%84%E7%88%B1%E6%83%85/</url>
-    <content><![CDATA[<p>年轻的时候一眼就是一辈子，</p>
-<p>地上的草的清香和你的裙摆都是春天给我的礼物，</p>
-<p>我跟你说笑着关于生活，</p>
-<p>心里想着跟你未来的每一天。</p>
+    <title>过了许久</title>
+    <url>/blog/2022/05/18/%E8%BF%87%E4%BA%86%E8%AE%B8%E4%B9%85/</url>
+    <content><![CDATA[<p>你曾是个理想主义者</p>
+<p>听过一万个人同你讲述生活的狗血，你都不予在意</p>
+<span id="more"></span>
+<p>直到它就这么发生了， 你觉得深刻，觉得蜕变，</p>
+<p>你同身边的人一样成为了过往的信徒，传教 成为犬儒或一些精致的利己主义者</p>
+<p>直到有一天你看到了一个熟悉的陌生人</p>
+<p>陌生在他的形象，熟悉在他的追求</p>
+<p>一个有着理想主义的人</p>
 ]]></content>
       <categories>
         <category>杂文</category>
       </categories>
       <tags>
-        <tag>时间长河里的爱意</tag>
+        <tag>随笔</tag>
       </tags>
   </entry>
   <entry>
@@ -656,7 +779,9 @@
     <url>/blog/2022/05/18/%E9%9A%BE%E4%BB%A5%E9%87%8A%E6%80%80/</url>
     <content><![CDATA[<p>在那之后他也遇到过不同的人</p>
 <p>试过新的生活</p>
-<p>可麻烦的是退缩的情绪总是会不合时宜的蔓延 <span id="more"></span> 等再次回到一个人的生活，回顾过往</p>
+<p>可麻烦的是退缩的情绪总是会不合时宜的蔓延</p>
+<span id="more"></span>
+<p>等再次回到一个人的生活，回顾过往</p>
 <p>只有一个人从未让他改变过内心的感觉</p>
 <p>让他有相伴终生的勇气</p>
 <p>离别时年轻又仓促</p>
